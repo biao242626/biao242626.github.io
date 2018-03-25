@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-25T03:07:14.605Z</updated>
+  <updated>2018-03-25T13:10:50.122Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>about the name</title>
+    <link href="http://yoursite.com/2018/03/25/about-the-name/"/>
+    <id>http://yoursite.com/2018/03/25/about-the-name/</id>
+    <published>2018-03-25T13:09:52.000Z</published>
+    <updated>2018-03-25T13:10:50.122Z</updated>
+    
+    <content type="html"><![CDATA[<html><head></head><body><p>#&#x672A;&#x547D;&#x540D;#<br>&#x4E3A;&#x4EC0;&#x4E48;<br>&#x641E;&#x4E0D;&#x61C2;&#x554A;&#xFF01;&#xFF01;&#xFF01;</p><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></body></html>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;#&amp;#x672A;&amp;#x547D;&amp;#x540D;#&lt;br&gt;&amp;#x4E3A;&amp;#x4EC0;&amp;#x4E48;&lt;br&gt;&amp;#x641E;&amp;#x4E0D;&amp;#x61C2;&amp;#x554A;&amp;#xFF01;&amp;#xFF01;&amp;#xFF0
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title></title>
@@ -45,7 +66,7 @@
     <link href="http://yoursite.com/2018/03/24/pageabout/"/>
     <id>http://yoursite.com/2018/03/24/pageabout/</id>
     <published>2018-03-24T11:42:15.330Z</published>
-    <updated>2018-03-24T11:45:49.621Z</updated>
+    <updated>2018-03-25T04:08:09.202Z</updated>
     
     <content type="html"><![CDATA[<html><head></head><body><hr><p>title: pageabout<br>date: 2018-03-24 19:42:15</p><h2 id="tags-&#x201C;about&#x201D;"><a href="#tags-&#x201C;about&#x201D;" class="headerlink" title="tags: &#x201C;about&#x201D;"></a>tags: &#x201C;about&#x201D;</h2><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></body></html>]]></content>
     
@@ -89,20 +110,20 @@
     <link href="http://yoursite.com/2018/03/23/my-t/"/>
     <id>http://yoursite.com/2018/03/23/my-t/</id>
     <published>2018-03-23T14:09:23.985Z</published>
-    <updated>2018-03-25T04:01:39.958Z</updated>
+    <updated>2018-03-25T04:08:45.278Z</updated>
     
-    <content type="html"><![CDATA[<html><head></head><body><hr><p>#THE TEST#<br>title: my_t</p><p>date: 2018-03-23 22:09:23</p><p>tags: test</p><hr><h1 id="my-test"><a href="#my-test" class="headerlink" title="my test"></a>my test</h1><p> I want to &#x2026;</p><p>##kjh##</p><p> <code>this is acode</code></p><pre><code>hello world</code></pre><blockquote><p>talk to me softly&#x2026;&#x2026;&#x2026;&#x2026;..-&#x300A;dom&#x2019;t cry&#x300B;</p></blockquote><p><img src="https://i.imgur.com/fEg4pTg.jpg" alt=""><br><img src="https://i.imgur.com/2l5bTy4.jpg" alt=""></p><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></body></html>]]></content>
+    <content type="html"><![CDATA[<html><head></head><body><hr><p>title: my_t</p><p>date: 2018-03-23 22:09:23</p><p>tags: test</p><hr><h1 id="my-test"><a href="#my-test" class="headerlink" title="my test"></a>my test</h1><p> I want to &#x2026;</p><p>##kjh##</p><p> <code>this is acode</code></p><pre><code>hello world</code></pre><blockquote><p>talk to me softly&#x2026;&#x2026;&#x2026;&#x2026;..-&#x300A;dom&#x2019;t cry&#x300B;</p></blockquote><p><img src="https://i.imgur.com/fEg4pTg.jpg" alt=""><br><img src="https://i.imgur.com/2l5bTy4.jpg" alt=""></p><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></body></html>]]></content>
     
     <summary type="html">
     
       
       
         &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;hr&gt;
-&lt;p&gt;#THE TEST#&lt;br&gt;title: my_t&lt;/p&gt;
+&lt;p&gt;title: my_t&lt;/p&gt;
 &lt;p&gt;date: 2018-03-23 22:09:23&lt;/p&gt;
 &lt;p&gt;tags: test&lt;/p&gt;
 &lt;hr&gt;
-&lt;h1 id=&quot;my-test&quot;&gt;&lt;a h
+&lt;h1 id=&quot;my-test&quot;&gt;&lt;a href=&quot;#my-test&quot;
       
     
     </summary>
