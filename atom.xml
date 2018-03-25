@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-24T11:45:49.621Z</updated>
+  <updated>2018-03-25T03:07:14.605Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2018/03/25/test-ca/"/>
+    <id>http://yoursite.com/2018/03/25/test-ca/</id>
+    <published>2018-03-25T03:04:34.921Z</published>
+    <updated>2018-03-25T03:07:14.605Z</updated>
+    
+    <content type="html"><![CDATA[<html><head></head><body><hr><p>#the test<br>title: test_ca<br>date: 2018-03-25 11:04:34<br>tags:</p><ul><li>test<br>categories: test</li></ul><hr><p><br><br>to test the categories</p><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></body></html>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;hr&gt;
+&lt;p&gt;#the test&lt;br&gt;title: test_ca&lt;br&gt;date: 2018-03-25 11:04:34&lt;br&gt;tags:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;test&lt;br&gt;categories: test&lt;/li
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title></title>
