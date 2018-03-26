@@ -52,18 +52,17 @@
     <link href="http://yoursite.com/2018/03/25/test-ca/"/>
     <id>http://yoursite.com/2018/03/25/test-ca/</id>
     <published>2018-03-25T03:04:34.921Z</published>
-    <updated>2018-03-25T03:07:14.605Z</updated>
+    <updated>2018-03-26T11:02:11.810Z</updated>
     
-    <content type="html"><![CDATA[<html><head></head><body><hr><p>#the test<br>title: test_ca<br>date: 2018-03-25 11:04:34<br>tags:</p><ul><li>test<br>categories: test</li></ul><hr><p><br><br>to test the categories</p><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></body></html>]]></content>
+    <content type="html"><![CDATA[<html><head></head><body><hr><p>title: test_ca<br>date: 2018-03-25 11:04:34<br>tags: [&#x7F16;&#x7A0B;]</p><h2 id="categories-c-c"><a href="#categories-c-c" class="headerlink" title="categories: c/c++"></a>categories: c/c++</h2><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></body></html>]]></content>
     
     <summary type="html">
     
       
       
         &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;hr&gt;
-&lt;p&gt;#the test&lt;br&gt;title: test_ca&lt;br&gt;date: 2018-03-25 11:04:34&lt;br&gt;tags:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;test&lt;br&gt;categories: test&lt;/li
+&lt;p&gt;title: test_ca&lt;br&gt;date: 2018-03-25 11:04:34&lt;br&gt;tags: [&amp;#x7F16;&amp;#x7A0B;]&lt;/p&gt;
+&lt;h2 id=&quot;categories-c-c&quot;&gt;&lt;a href
       
     
     </summary>
