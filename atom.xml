@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-25T13:24:42.025Z</updated>
+  <updated>2018-03-26T11:09:01.316Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>简单的汇编指令</title>
+    <link href="http://yoursite.com/2018/03/26/%E7%AE%80%E5%8D%95%E7%9A%84%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/"/>
+    <id>http://yoursite.com/2018/03/26/简单的汇编指令/</id>
+    <published>2018-03-26T11:05:54.000Z</published>
+    <updated>2018-03-26T11:09:01.316Z</updated>
+    
+    <content type="html"><![CDATA[<html><head></head><body><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></body></html>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;script src=&quot;/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887&quot;&gt;&lt;/script&gt;&lt;script&gt;L2Dwidget.init({});&lt;/
+      
+    
+    </summary>
+    
+      <category term="汇编语言" scheme="http://yoursite.com/categories/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/"/>
+    
+    
+      <category term="汇编" scheme="http://yoursite.com/tags/%E6%B1%87%E7%BC%96/"/>
+    
+  </entry>
   
   <entry>
     <title>about the name</title>
@@ -86,52 +111,6 @@
         &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;hr&gt;
 &lt;p&gt;title: pageabout&lt;br&gt;date: 2018-03-24 19:42:15&lt;/p&gt;
 &lt;h2 id=&quot;tags-&amp;#x201C;about&amp;#x201D;&quot;&gt;&lt;a href=&quot;#tags-&amp;#x201
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>xxxx</title>
-    <link href="http://yoursite.com/2018/03/24/xxxx/"/>
-    <id>http://yoursite.com/2018/03/24/xxxx/</id>
-    <published>2018-03-24T03:06:48.000Z</published>
-    <updated>2018-03-24T03:06:48.130Z</updated>
-    
-    <content type="html"><![CDATA[<html><head></head><body><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></body></html>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;script src=&quot;/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887&quot;&gt;&lt;/script&gt;&lt;script&gt;L2Dwidget.init({});&lt;/
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://yoursite.com/2018/03/23/my-t/"/>
-    <id>http://yoursite.com/2018/03/23/my-t/</id>
-    <published>2018-03-23T14:09:23.985Z</published>
-    <updated>2018-03-25T14:01:03.490Z</updated>
-    
-    <content type="html"><![CDATA[<html><head></head><body><hr><p>title: my_t</p><p>date: 2018-03-23 22:09:23</p><p>categories: [hexo&#x535A;&#x5BA2;&#x642D;&#x5EFA;]</p><p>tags: [test]</p><hr><h1 id="my-test"><a href="#my-test" class="headerlink" title="my test"></a>my test</h1><p> I want to &#x2026;</p><p>##kjh##</p><p> <code>this is acode</code></p><pre><code>hello world</code></pre><blockquote><p>talk to me softly&#x2026;&#x2026;&#x2026;&#x2026;..-&#x300A;dom&#x2019;t cry&#x300B;</p></blockquote><p><img src="https://i.imgur.com/fEg4pTg.jpg" alt=""><br><img src="https://i.imgur.com/2l5bTy4.jpg" alt=""></p><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></body></html>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;hr&gt;
-&lt;p&gt;title: my_t&lt;/p&gt;
-&lt;p&gt;date: 2018-03-23 22:09:23&lt;/p&gt;
-&lt;p&gt;categories: [hexo&amp;#x535A;&amp;#x5BA2;&amp;#x642D;&amp;#x5EFA;]&lt;/p&gt;
-
       
     
     </summary>
