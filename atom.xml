@@ -40,19 +40,20 @@
   </entry>
   
   <entry>
-    <title>简单的汇编指令</title>
+    <title>masm5.0的简单使用</title>
     <link href="http://yoursite.com/2018/03/26/%E7%AE%80%E5%8D%95%E7%9A%84%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/"/>
     <id>http://yoursite.com/2018/03/26/简单的汇编指令/</id>
     <published>2018-03-26T11:05:54.000Z</published>
-    <updated>2018-03-26T11:09:01.316Z</updated>
+    <updated>2018-04-09T16:41:09.056Z</updated>
     
-    <content type="html"><![CDATA[<html><head></head><body><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></body></html>]]></content>
+    <content type="html"><![CDATA[<html><head></head><body><p>##1.&#x5B58;&#x50A8;&#x4E00;&#x4E2A;asm&#x6587;&#x4EF6;</p><p>  <img src="https://i.imgur.com/tY0mskZ.png" alt=""><br><strong>  &#x53EF;&#x4EE5;&#x7528;&#x8BB0;&#x4E8B;&#x672C;&#x6216;dos&#x7684;edit&#x7F16;&#x8F91;&#x5668;&#xFF0C;&#x6211;&#x8FD9;&#x91CC;&#x7528;&#x7684;&#x662F;&#x8BB0;&#x4E8B;&#x672C;&#xFF0C;&#x5C06;&#x6587;&#x4EF6;&#x5B58;&#x50A8;&#x4E3A;.asm&#x6587;&#x4EF6;&#x3002;&#x5E76;&#x8BB0;&#x6E05;&#x695A;&#x8DEF;&#x5F84;&#x3002;</strong><br><strong>&#x63A8;&#x8350;&#x505A;&#x5B9E;&#x9A8C;&#x7684;&#x8BDD;&#xFF0C;&#x53EF;&#x4EE5;&#x628A;masm&#x548C;link&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4EE5;&#x53CA;&#x6587;&#x4EF6;&#x5B58;&#x653E;&#x5728;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x3002; </strong></p><p>##2.link</p><p>###1.obj</p><p><img src="https://i.imgur.com/HDdfOXf.png" alt=""><br><strong>&#x63D0;&#x793A;&#x8F93;&#x5165;&#x6E90;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x53EA;&#x9700;&#x8F93;&#x5165;.asm&#x4E4B;&#x524D;&#x7684;&#x90E8;&#x5206;</strong></p><p><img src="https://i.imgur.com/Diz9MLw.png" alt=""></p><p><strong>&#x63A5;&#x4E0B;&#x6765;&#x7684;&#x51E0;&#x4E2A;&#x90E8;&#x5206;&#x56DE;&#x8F66;&#x5373;&#x53EF;</strong></p><p>###2.exe<br><img src="https://i.imgur.com/6PcAsK6.png" alt=""></p><p><strong>&#x8F93;&#x5165;&#x540C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x5F53;&#x7136;&#xFF0C;&#x53EF;&#x4EE5;&#x6307;&#x660E;&#x8DEF;&#x5F84;&#xFF0C;&#x53EA;&#x9700;&#x5728;&#x540E;&#x9762;&#x52A0;&#x4E0A;&#x5373;&#x53EF;</strong><br><strong>&#x4F8B;&#x5982;&#xFF1A;</strong><br><img src="https://i.imgur.com/ssghx5M.png" alt=""></p><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></body></html>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;script src=&quot;/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887&quot;&gt;&lt;/script&gt;&lt;script&gt;L2Dwidget.init({});&lt;/
+        &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;##1.&amp;#x5B58;&amp;#x50A8;&amp;#x4E00;&amp;#x4E2A;asm&amp;#x6587;&amp;#x4EF6;&lt;/p&gt;
+&lt;p&gt;  &lt;img src=&quot;https://i.imgur.com/tY0mskZ.png&quot; alt=
       
     
     </summary>
