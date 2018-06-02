@@ -1,0 +1,716 @@
+<!DOCTYPE html><html class="theme-next gemini use-motion" lang="zh-Hans"><head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="like a bird" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="&amp;#x5047;&amp;#x8BBE;&amp;#x628A;&amp;#x8FF7;&amp;#x5BAB;&amp;#x770B;&amp;#x6210;&amp;#x4E00;&amp;#x4E2A;&amp;#x4E8C;&amp;#x7EF4;&amp;#x6570;&amp;#x7EC4;&amp;#xFF0C;&amp;#x6BCF;&amp;#x4E2A;&amp;#x6570;&amp;#x7EC4;&amp;#x8868;&amp;#x793A;&amp;#x4E00;&amp;#x6761;&amp;#x901A;&amp;#x9053;&amp;#x6216;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java&#x7528;&#x6808;&#x5B9E;&#x73B0;&#x8FF7;&#x5BAB;&#x64CD;&#x4F5C;">
+<meta property="og:url" content="http://yoursite.com/2018/06/02/java&#x7528;&#x6808;&#x5B9E;&#x73B0;&#x8FF7;&#x5BAB;&#x64CD;&#x4F5C;/index.html">
+<meta property="og:site_name" content="like a bird">
+<meta property="og:description" content="&amp;#x5047;&amp;#x8BBE;&amp;#x628A;&amp;#x8FF7;&amp;#x5BAB;&amp;#x770B;&amp;#x6210;&amp;#x4E00;&amp;#x4E2A;&amp;#x4E8C;&amp;#x7EF4;&amp;#x6570;&amp;#x7EC4;&amp;#xFF0C;&amp;#x6BCF;&amp;#x4E2A;&amp;#x6570;&amp;#x7EC4;&amp;#x8868;&amp;#x793A;&amp;#x4E00;&amp;#x6761;&amp;#x901A;&amp;#x9053;&amp;#x6216;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-02T15:21:28.544Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java&#x7528;&#x6808;&#x5B9E;&#x73B0;&#x8FF7;&#x5BAB;&#x64CD;&#x4F5C;">
+<meta name="twitter:description" content="&amp;#x5047;&amp;#x8BBE;&amp;#x628A;&amp;#x8FF7;&amp;#x5BAB;&amp;#x770B;&amp;#x6210;&amp;#x4E00;&amp;#x4E2A;&amp;#x4E8C;&amp;#x7EF4;&amp;#x6570;&amp;#x7EC4;&amp;#xFF0C;&amp;#x6BCF;&amp;#x4E2A;&amp;#x6570;&amp;#x7EC4;&amp;#x8868;&amp;#x793A;&amp;#x4E00;&amp;#x6761;&amp;#x901A;&amp;#x9053;&amp;#x6216;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/02/java&#x7528;&#x6808;&#x5B9E;&#x73B0;&#x8FF7;&#x5BAB;&#x64CD;&#x4F5C;/">
+
+
+
+
+
+  <title>java&#x7528;&#x6808;&#x5B9E;&#x73B0;&#x8FF7;&#x5BAB;&#x64CD;&#x4F5C; | like a bird</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/biao242626"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">like a bird</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">call me by your name</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            &#x9996;&#x9875;
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            &#x5173;&#x4E8E;
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            &#x6807;&#x7B7E;
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            &#x5206;&#x7C7B;
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            &#x5F52;&#x6863;
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/java&#x7528;&#x6808;&#x5B9E;&#x73B0;&#x8FF7;&#x5BAB;&#x64CD;&#x4F5C;/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="&#xFFFD;&#xFFFD;">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://i1.bvimg.com/637130/10ff6d8868e1ff82.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="like a bird">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">java&#x7528;&#x6808;&#x5B9E;&#x73B0;&#x8FF7;&#x5BAB;&#x64CD;&#x4F5C;</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">&#x53D1;&#x8868;&#x4E8E;</span>
+              
+              <time title="&#x521B;&#x5EFA;&#x4E8E;" itemprop="dateCreated datePublished" datetime="2018-06-02T23:13:09+08:00">
+                2018-06-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">&#x5206;&#x7C7B;&#x4E8E;</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&#x5047;&#x8BBE;&#x628A;&#x8FF7;&#x5BAB;&#x770B;&#x6210;&#x4E00;&#x4E2A;&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;&#xFF0C;&#x6BCF;&#x4E2A;&#x6570;&#x7EC4;&#x8868;&#x793A;&#x4E00;&#x6761;&#x901A;&#x9053;&#x6216;&#x4E00;&#x5835;&#x5899;.<br>&#x7B97;&#x6CD5;&#x5206;&#x6790;&#xFF1A;<br>    &#x4ECE;&#x5DE6;&#x4E0A;&#x89D2;&#x5F00;&#x59CB;&#xFF0C;&#x770B;&#x6709;&#x6548;&#x79FB;&#x52A8;&#xFF08;1&#x4E3A;&#x6709;&#x6548;&#xFF0C;0&#x4E3A;&#x65E0;&#x6548;&#xFF09;&#xFF0C;&#x5047;&#x5982;&#x6709;&#x4E24;&#x4E2A;&#x6709;&#x6548;&#x79FB;&#x52A8;&#xFF0C;&#x5411;&#x53F3;&#x548C;&#x5411;&#x4E0B;&#xFF0C;&#x628A;&#x8FD9;&#x4E24;&#x4E2A;&#x6709;&#x6548;&#x79FB;&#x52A8;&#x538B;&#x5165;&#x6808;&#x4E2D;.&#x5E76;&#x628A;&#x6808;&#x9876;&#x7684;&#x6709;&#x6548;&#x79FB;&#x52A8;&#x4ECE;&#x6808;&#x4E2D;&#x5F39;&#x51FA;&#xFF0C;&#x7136;&#x540E;&#x79FB;&#x52A8;&#x3002;&#x76F4;&#x5230;&#x8BE5;&#x6709;&#x6548;&#x79FB;&#x52A8;&#x4E0D;&#x518D;&#x6709;&#x6548;&#xFF0C;&#x6267;&#x884C;&#x6808;&#x4E2D;&#x5176;&#x4ED6;&#x7684;&#x7684;&#x6709;&#x6548;&#x79FB;&#x52A8;&#xFF0C;&#x76F4;&#x5230;&#x6808;&#x7A7A;&#x6216;&#x8005;&#x8D70;&#x5B8C;&#x8FF7;&#x5BAB;.<br>   &#x8FD9;&#x91CC;&#x8FF7;&#x5BAB;&#x5F0F;&#x81EA;&#x5DF1;&#x624B;&#x52A8;&#x8F93;&#x5165;.<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">public class Maze {</span><br><span class="line">    private static final int TRIED=2;</span><br><span class="line">    private static final int PATH=3;</span><br><span class="line">    private int numberRows,numberColumns;</span><br><span class="line">    private int[][] grid;</span><br><span class="line">    public Maze(int[][] maze_from){</span><br><span class="line">        numberRows=maze_from.length;</span><br><span class="line">        numberColumns=maze_from[0].length;</span><br><span class="line">        grid=new int[numberRows][numberColumns];</span><br><span class="line">        for (int i=0;i&lt;numberRows;i++){</span><br><span class="line">            for (int j=0;j&lt;numberColumns;j++){</span><br><span class="line">                grid[i][j]=maze_from[i][j];</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    //&#x6807;&#x8BB0;&#x7EC8;&#x70B9;</span><br><span class="line">    public void tryPosition(int row,int col){</span><br><span class="line">        grid[row][col]=TRIED;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    public int getNumberColumns() {</span><br><span class="line">        return numberColumns;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    public int getNumberRows() {</span><br><span class="line">        return numberRows;</span><br><span class="line">    }</span><br><span class="line">    //&#x6807;&#x8BB0;&#x7EC8;&#x70B9;</span><br><span class="line">    public void markPath(int row,int col){</span><br><span class="line">        grid[row][col]=PATH;</span><br><span class="line">    }</span><br><span class="line">    //&#x5224;&#x65AD;&#x8BE5;&#x70B9;&#x662F;&#x5426;&#x5408;&#x6CD5;</span><br><span class="line">    public boolean validPosition(int row,int column){</span><br><span class="line">        boolean result=false;</span><br><span class="line">        if (row&gt;=0&amp;&amp;row&lt;grid.length&amp;&amp;column&gt;=0&amp;&amp;column&lt;grid[row].length)</span><br><span class="line">            if (grid[row][column]==1)</span><br><span class="line">                result = true;</span><br><span class="line">        return result;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() {</span><br><span class="line">      String result=&quot;\n&quot;;</span><br><span class="line">      for (int row=0;row&lt;grid.length;row++){</span><br><span class="line">          for (int column=0;column&lt;grid[0].length;column++)</span><br><span class="line">              result+=grid[row][column]+&quot;&quot;;</span><br><span class="line">          result+=&quot;\n&quot;;</span><br><span class="line">      }</span><br><span class="line">      return result;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">import javax.swing.text.Position;</span><br><span class="line">import java.util.Deque;</span><br><span class="line">import java.util.LinkedList;</span><br><span class="line"></span><br><span class="line">public class MazeSolver {</span><br><span class="line">    private Maze maze;</span><br><span class="line">    public MazeSolver(Maze maze){</span><br><span class="line">        this.maze=maze;</span><br><span class="line">    }</span><br><span class="line">    public boolean traverse(){</span><br><span class="line">        boolean done=false;</span><br><span class="line">        int row,column;</span><br><span class="line">        Location pos=new Location();</span><br><span class="line">        //Deque&#x63A5;&#x53E3;&#x63D0;&#x4F9B;&#x4E86;&#x6808;&#x7684;&#x94FE;&#x8868;&#x5B9E;&#x73B0;</span><br><span class="line">        Deque&lt;Location&gt; stack=new LinkedList&lt;Location&gt;();</span><br><span class="line">        stack.push(pos);</span><br><span class="line">        while (!done&amp;&amp;!stack.isEmpty()){</span><br><span class="line">            pos=stack.pop();</span><br><span class="line">            maze.tryPosition(pos.getX(),pos.getY());</span><br><span class="line">            if (pos.getX()==maze.getNumberRows()-1&amp;&amp;pos.getY()==maze.getNumberRows()-1)</span><br><span class="line">                done=true;//&#x8D70;&#x5B8C;&#x8FF7;&#x5BAB;</span><br><span class="line">            else {</span><br><span class="line">                //&#x538B;&#x6808;&#x64CD;&#x4F5C;</span><br><span class="line">                push_in_stack(pos.getX()-1,pos.getY(),stack);</span><br><span class="line">                push_in_stack(pos.getX()+1,pos.getY(),stack);</span><br><span class="line">                push_in_stack(pos.getX(),pos.getY()-1,stack);</span><br><span class="line">                push_in_stack(pos.getX(),pos.getY()+1,stack);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        return done;</span><br><span class="line">        }</span><br><span class="line">        //&#x538B;&#x6808;&#x65B9;&#x6CD5;</span><br><span class="line">        private void push_in_stack(int x,int y,Deque&lt;Location&gt; stack){</span><br><span class="line">            Location npos=new Location();</span><br><span class="line">            npos.setX(x);</span><br><span class="line">            npos.setY(y);</span><br><span class="line">            if (maze.validPosition(x,y))</span><br><span class="line">                stack.push(npos);</span><br><span class="line">        }</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class MazeTester {</span><br><span class="line">    public static void main(String[] args) {</span><br><span class="line">        int[][] maze_from=new int[5][5];</span><br><span class="line">        Scanner scanner=new Scanner(System.in);</span><br><span class="line">        for (int i=0;i&lt;maze_from.length;i++){</span><br><span class="line">            for (int j=0;j&lt;maze_from[0].length;j++)</span><br><span class="line">                maze_from[i][j]=scanner.nextInt();</span><br><span class="line">        }</span><br><span class="line">        Maze test_maze=new Maze(maze_from);</span><br><span class="line">        System.out.println(test_maze);</span><br><span class="line">        MazeSolver solver=new MazeSolver(test_maze);</span><br><span class="line">        if (solver.traverse())</span><br><span class="line">            System.out.println(&quot;SUCCESSFUL!&quot;);</span><br><span class="line">        System.out.println(test_maze);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class Location {</span><br><span class="line">    private int x,y;</span><br><span class="line"></span><br><span class="line">    public void setX(int x) {</span><br><span class="line">        this.x = x;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    public int getX() {</span><br><span class="line">        return x;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    public void setY(int y) {</span><br><span class="line">        this.y = y;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    public int getY() {</span><br><span class="line">        return y;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>Deque&#x63A5;&#x53E3;&#x662F;&#x7531;LinkList&#x7C7B;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;&#x6808;&#x7684;&#x94FE;&#x8868;&#x5B9E;&#x73B0;&#x3002;</p>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/20/&#x4E00;&#x5143;&#x591A;&#x9879;&#x5F0F;&#x6C42;&#x548C;/" rel="next" title="&#x4E00;&#x5143;&#x591A;&#x9879;&#x5F0F;&#x6C42;&#x548C;">
+                <i class="fa fa-chevron-left"></i> &#x4E00;&#x5143;&#x591A;&#x9879;&#x5F0F;&#x6C42;&#x548C;
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://i1.bvimg.com/637130/10ff6d8868e1ff82.jpg" alt="&#xFFFD;&#xFFFD;">
+            
+              <p class="site-author-name" itemprop="name">&#xFFFD;&#xFFFD;</p>
+              <p class="site-description motion-element" itemprop="description">just do it</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">&#x65E5;&#x5FD7;</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">&#x5206;&#x7C7B;</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">&#x6807;&#x7B7E;</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&#xA9; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">&#xFFFD;&#xFFFD;</span>
+
+  
+</div>
+
+
+  <div class="powered-by">&#x7531; <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> &#x5F3A;&#x529B;&#x9A71;&#x52A8;</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">&#x4E3B;&#x9898; &#x2014; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></body></html>
