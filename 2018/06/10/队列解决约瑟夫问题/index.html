@@ -1,68 +1,473 @@
-extends base
+<!DOCTYPE html><html lang="zh-Hans"><head>
+  <meta charset="UTF-8">
+  
+    <title>&#x961F;&#x5217;&#x89E3;&#x51B3;&#x7EA6;&#x745F;&#x592B;&#x95EE;&#x9898; | like a bird</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="&#xFFFD;&#xFFFD;">
+    
 
-block title
-  title= page.title + ' | ' + config.title
+    
+    <meta name="description" content="&amp;#x6700;&amp;#x8FD1;&amp;#x770B;&amp;#x4E86;java&amp;#x7528;&amp;#x961F;&amp;#x5217;&amp;#x89E3;&amp;#x51B3;&amp;#x7EA6;&amp;#x745F;&amp;#x592B;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x89C9;&amp;#x5F97;&amp;#x961F;&amp;#x5217;&amp;#x633A;&amp;#x65B9;&amp;#x4FBF;&amp;#x7684;.  1234567">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&#x961F;&#x5217;&#x89E3;&#x51B3;&#x7EA6;&#x745F;&#x592B;&#x95EE;&#x9898;">
+<meta property="og:url" content="http://yoursite.com/2018/06/10/&#x961F;&#x5217;&#x89E3;&#x51B3;&#x7EA6;&#x745F;&#x592B;&#x95EE;&#x9898;/index.html">
+<meta property="og:site_name" content="like a bird">
+<meta property="og:description" content="&amp;#x6700;&amp;#x8FD1;&amp;#x770B;&amp;#x4E86;java&amp;#x7528;&amp;#x961F;&amp;#x5217;&amp;#x89E3;&amp;#x51B3;&amp;#x7EA6;&amp;#x745F;&amp;#x592B;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x89C9;&amp;#x5F97;&amp;#x961F;&amp;#x5217;&amp;#x633A;&amp;#x65B9;&amp;#x4FBF;&amp;#x7684;.  1234567">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-10T12:28:48.902Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="&#x961F;&#x5217;&#x89E3;&#x51B3;&#x7EA6;&#x745F;&#x592B;&#x95EE;&#x9898;">
+<meta name="twitter:description" content="&amp;#x6700;&amp;#x8FD1;&amp;#x770B;&amp;#x4E86;java&amp;#x7528;&amp;#x961F;&amp;#x5217;&amp;#x89E3;&amp;#x51B3;&amp;#x7EA6;&amp;#x745F;&amp;#x592B;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x89C9;&amp;#x5F97;&amp;#x961F;&amp;#x5217;&amp;#x633A;&amp;#x65B9;&amp;#x4FBF;&amp;#x7684;.  1234567">
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-      if theme.wordcount == true
-        include _partial/wordcount.pug
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if theme.changyan
-      a.ds-thread-count(href=url_for(page.path) + '#SOHUCS')
-        span#changyan_count_unit(style='font-size: 15px; color: #6E7173;') 0
-        span= ' ' + __('Comment')
-      script(src='https://assets.changyan.sohu.com/upload/plugins/plugins.count.js', async)
-    if theme.valine.enable
-      a.disqus-comment-count( href=url_for(page.path) + '#vcomment')
-        span.valine-comment-count(data-xid=url_for(page.path))
-        span= ' ' + __('Comment')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content, {list_number: theme.toc_number})
-    .post-content
-      != page.content
-    if theme.donate.enable == true
-      iframe(src='/donate/?AliPayQR=' + theme.donate.alipay_qr + '&WeChatQR=' + theme.donate.wechat_qr + '&GitHub=' + theme.donate.github + '&BTCQR=' + theme.donate.btc_qr + '&BTCKEY='+ theme.donate.btc_key + '&PayPal=' + theme.donate.paypal_url, style='overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;', frameborder='0', scrolling='no')
+    
+    <link rel="alternative" href="/atom.xml" title="like a bird" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+  
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="like a bird" title="like a bird"></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="like a bird">like a bird</a></h1>
+				<h2 class="blog-motto">call me by your name</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search">
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</ul></nav>			
+</div><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope="" itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/06/10/&#x961F;&#x5217;&#x89E3;&#x51B3;&#x7EA6;&#x745F;&#x592B;&#x95EE;&#x9898;/" title="&#x961F;&#x5217;&#x89E3;&#x51B3;&#x7EA6;&#x745F;&#x592B;&#x95EE;&#x9898;" itemprop="url">&#x961F;&#x5217;&#x89E3;&#x51B3;&#x7EA6;&#x745F;&#x592B;&#x95EE;&#x9898;</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="&#xFFFD;&#xFFFD;" target="_blank" itemprop="author">&#xFFFD;&#xFFFD;</a>
+		
+  </p><p class="article-time">
+    <time datetime="2018-06-10T12:24:49.000Z" itemprop="datePublished"> Published 2018-06-10</time>
+    
+  </p>
+</header><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			
+		
+		</div>
+		
+		<p>  &#x6700;&#x8FD1;&#x770B;&#x4E86;java&#x7528;&#x961F;&#x5217;&#x89E3;&#x51B3;&#x7EA6;&#x745F;&#x592B;&#x95EE;&#x9898;&#xFF0C;&#x89C9;&#x5F97;&#x961F;&#x5217;&#x633A;&#x65B9;&#x4FBF;&#x7684;.<br>  </p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">while (people.size() &gt; 0) {</span><br><span class="line">//&#x6838;&#x5FC3;&#x7B97;&#x6CD5;&#xFF1A;</span><br><span class="line">//&#x8FDE;&#x63A5;&#x5C3E;&#x90E8;&#x4E0E;&#x5934;&#x90E8;</span><br><span class="line">for (int i = 1; i &lt; n; i++) {</span><br><span class="line">int temp = people.remove();</span><br><span class="line">people.add(temp);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>&#x4E0B;&#x9762;&#x662F;c&#x8BED;&#x8A00;&#x961F;&#x5217;&#x7684;&#x5B9E;&#x73B0;<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">&#x7ED3;&#x6784;&#x4F53;&#x5982;&#x4E0B;&#xFF1A;</span><br><span class="line">struct Queue</span><br><span class="line">{</span><br><span class="line">int capacity;</span><br><span class="line">int front;</span><br><span class="line">int rear;</span><br><span class="line">int size;</span><br><span class="line">int *num;</span><br><span class="line">};</span><br><span class="line">&#x76F4;&#x63A5;&#x4E0A;&#x53C2;&#x8003;&#x4EE3;&#x7801;&#x4E86;&#xFF1A;</span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line">struct Queue</span><br><span class="line">{</span><br><span class="line">int capacity;</span><br><span class="line">int front;</span><br><span class="line">int rear;</span><br><span class="line">int size;</span><br><span class="line">int *num;</span><br><span class="line">};</span><br><span class="line">typedef struct Queue queue;</span><br><span class="line">/*&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;&#x961F;&#x5217;</span><br><span class="line">&#x5F62;&#x53C2;&#x4EE3;&#x8868;&#x8FD9;&#x4E2A;&#x961F;&#x5217;&#x7684;&#x957F;&#x5EA6;&#x6700;&#x5927;&#x662F;&#x591A;&#x5C11;*/</span><br><span class="line">queue *createQueue(int capacity)</span><br><span class="line">{</span><br><span class="line">queue *Q = (queue*)malloc(sizeof(queue));</span><br><span class="line">Q-&gt;capacity=capacity;</span><br><span class="line">Q-&gt;front = Q-&gt;rear =0;</span><br><span class="line">Q-&gt;size=0;</span><br><span class="line">Q-&gt;num=(int*)malloc(sizeof(int)*capacity);</span><br><span class="line">return Q;</span><br><span class="line">}</span><br><span class="line">/*&#x5224;&#x65AD;&#x4E00;&#x4E2A;&#x961F;&#x5217;&#x662F;&#x5426;&#x4E3A;&#x7A7A;</span><br><span class="line">&#x4E3A;&#x7A7A;&#x7684;&#x8BDD;&#x8FD4;&#x56DE;1&#xFF0C;&#x5426;&#x5219;&#x8FD4;&#x56DE;0*/</span><br><span class="line">int isEmpty(queue* Q)</span><br><span class="line">{</span><br><span class="line">return Q-&gt;size==0?1:0;</span><br><span class="line">}</span><br><span class="line">/*&#x5224;&#x65AD;&#x4E00;&#x4E2A;&#x961F;&#x5217;&#x662F;&#x5426;&#x4E3A;&#x6EE1;</span><br><span class="line">&#x6EE1;&#x7684;&#x8BDD;&#x8FD4;&#x56DE;1&#xFF0C;&#x5426;&#x5219;&#x8FD4;&#x56DE;0*/</span><br><span class="line">int isFull(queue*Q)</span><br><span class="line">{</span><br><span class="line">return Q-&gt;size==Q-&gt;capacity?1:0;</span><br><span class="line">}</span><br><span class="line">/*&#x5165;&#x961F;*/</span><br><span class="line">void inQueue(int x, queue* Q)</span><br><span class="line">{</span><br><span class="line">if(isFull(Q))</span><br><span class="line">{</span><br><span class="line">  printf(&quot;Queue is full\n&quot;);</span><br><span class="line">  exit(1);</span><br><span class="line">}</span><br><span class="line">Q-&gt;size++;</span><br><span class="line">Q-&gt;num[Q-&gt;rear++]=x;</span><br><span class="line">if(Q-&gt;rear ==Q-&gt;capacity)</span><br><span class="line">  Q-&gt;rear=0;//&#x4F7F;&#x7528;&#x5FAA;&#x73AF;&#x6570;&#x7EC4;&#x65B9;&#x5F0F;</span><br><span class="line">}</span><br><span class="line">/*&#x51FA;&#x961F;</span><br><span class="line">&#x8FD4;&#x56DE;&#x5143;&#x7D20;&#x7684;&#x503C;*/</span><br><span class="line">int outQueue(queue *Q)</span><br><span class="line">{</span><br><span class="line">int temp;</span><br><span class="line">if(isEmpty(Q))</span><br><span class="line">{</span><br><span class="line">  printf(&quot;Queue is empty\n&quot;);</span><br><span class="line">  exit(1);</span><br><span class="line">}</span><br><span class="line">temp=Q-&gt;num[Q-&gt;front];</span><br><span class="line">Q-&gt;size--;</span><br><span class="line">Q-&gt;front++;</span><br><span class="line">if(Q-&gt;front==Q-&gt;capacity)</span><br><span class="line">  Q-&gt;front=0;</span><br><span class="line">return temp;</span><br><span class="line">}</span><br><span class="line">/*&#x91CA;&#x653E;&#x961F;&#x5217;&#x6240;&#x5360;&#x7684;&#x7A7A;&#x95F4;*/</span><br><span class="line">void deleteQueue(queue* Q)</span><br><span class="line">{</span><br><span class="line">if(Q!=NULL)</span><br><span class="line">{</span><br><span class="line">  free(Q-&gt;num);</span><br><span class="line">  free(Q);</span><br><span class="line">}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
 
-    if theme.post_copyright.enable == true
-      div
-        ul.post-copyright
-          li.post-copyright-author
-            strong= __('copyright_author_prefix')
-            = theme.post_copyright.author
-          li.post-copyright-link
-            strong= __('copyright_link_prefix')
-            a(href='/' + page.path)= page.permalink
-          li.post-copyright-license
-            strong= __('copyright_declare_prefix')
-            if theme.post_copyright.copyright_text
-              != theme.post_copyright.copyright_text
-            else
-              != __('copyright_default_text')
-      br
 
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url=page.permalink, data-id=page._id, data-qrcode=qrcode(page.permalink))= __('shareto')
+</div>
 
-    include _partial/tag.pug
-    include _partial/post_nav.pug
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
 
-    if page.comments
-      include _partial/comments.pug
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2018/06/10/&#x961F;&#x5217;&#x89E3;&#x51B3;&#x7EA6;&#x745F;&#x592B;&#x95EE;&#x9898;/" data-title="&#x961F;&#x5217;&#x89E3;&#x51B3;&#x7EA6;&#x745F;&#x592B;&#x95EE;&#x9898; | like a bird" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>   	       
+	</article>
+	<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2018/06/02/java&#x7528;&#x6808;&#x5B9E;&#x73B0;&#x8FF7;&#x5BAB;&#x64CD;&#x4F5C;/" title="java&#x7528;&#x6808;&#x5B9E;&#x73B0;&#x8FF7;&#x5BAB;&#x64CD;&#x4F5C;">
+ <strong>&#x4E0B;&#x4E00;&#x7BC7;&#xFF1A;</strong><br> 
+ <span>java&#x7528;&#x6808;&#x5B9E;&#x73B0;&#x8FF7;&#x5BAB;&#x64CD;&#x4F5C;
+</span>
+</a>
+</div>
+
+</nav>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+	<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+</div>  <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
+  <div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Java/" title="Java">Java<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/c/" title="c">c<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/c/" title="c++">c++<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/java/" title="java">java<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/&#x642D;&#x5EFA;&#x535A;&#x5BA2;&#x4E0E;&#x53D1;&#x6587;/" title="&#x642D;&#x5EFA;&#x535A;&#x5BA2;&#x4E0E;&#x53D1;&#x6587;">&#x642D;&#x5EFA;&#x535A;&#x5BA2;&#x4E0E;&#x53D1;&#x6587;<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/&#x6C47;&#x7F16;&#x8BED;&#x8A00;/" title="&#x6C47;&#x7F16;&#x8BED;&#x8A00;">&#x6C47;&#x7F16;&#x8BED;&#x8A00;<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
+  <div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/github/" title="github">github<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/npm/" title="npm">npm<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/&#x57FA;&#x7840;/" title="&#x57FA;&#x7840;">&#x57FA;&#x7840;<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/&#x6C47;&#x7F16;/" title="&#x6C47;&#x7F16;">&#x6C47;&#x7F16;<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="&#x4E00;&#x4E2A;&#x9762;&#x5411;&#x7A0B;&#x5E8F;&#x5458;&#x4EA4;&#x6D41;&#x5206;&#x4EAB;&#x7684;&#x65B0;&#x4E00;&#x4EE3;&#x793E;&#x533A;">&#x7801;&#x519C;&#x5708;</a>
+            
+          </li>
+        
+    </ul>
+</div><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
+  <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self" frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&amp;width=0&amp;height=119&amp;fansRow=2&amp;ptype=1&amp;speed=0&amp;skin=9&amp;isTitle=1&amp;noborder=1&amp;isWeibo=0&amp;isFans=0&amp;uid=&amp;verifier=&amp;dpc=1"></iframe>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
+</aside>
+</div><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+    </div>
+    <footer><div id="footer">
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello . <br>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> &#xA9; 2018 
+		
+		<a href="/about" target="_blank" title="&#xFFFD;&#xFFFD;">&#xFFFD;&#xFFFD;</a>
+		
+		
+		</p>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
+
+
+<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"></a>
+	</div>
+	<script src="/js/totop.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></body></html><!-- Analytics End --><!-- Totop Begin --><!-- Totop End --><!-- MathJax Begin --><!-- mathjax config similar to math.stackexchange --><!-- MathJax End --><!-- Tiny_search Begin --><!-- Tiny_search End -->
