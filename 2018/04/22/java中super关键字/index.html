@@ -1,26 +1,29 @@
-<!DOCTYPE html><html lang="zh-Hans"><head>
+
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
   <meta charset="UTF-8">
   
-    <title>java&#x4E2D;super&#x5173;&#x952E;&#x5B57; | like a bird</title>
+    <title>java中super关键字 | like a bird</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
-    <meta name="author" content="&#xFFFD;&#xFFFD;">
+    <meta name="author" content="��">
     
 
     
-    <meta name="description" content="super &amp;#x662F;&amp;#x6307;&amp;#x5F53;&amp;#x524D;&amp;#x7C7B;&amp;#x6216;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x76F4;&amp;#x63A5;&amp;#x7236;&amp;#x7C7B;&amp;#x6216;&amp;#x7236;&amp;#x7C7B;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x5F15;&amp;#x7528; #1.&amp;#x8C03;&amp;#x7528;&amp;#x723">
+    <meta name="description" content="super 是指当前类或对象的直接父类或父类对象的引用 #1.调用父类的构造方法。 1super（[参数列表]);  子类中的构造方法总是先显式或隐式的调用父类的构造方法从而初始化子类中继承的父类成员。 #2.访问被隐藏的成员变量和被重写的方法。12super.属性名；super.方法名([参数列表]); 举个例子：创建父类Book12345678910pacage create;public c">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java&#x4E2D;super&#x5173;&#x952E;&#x5B57;">
-<meta property="og:url" content="http://yoursite.com/2018/04/22/java&#x4E2D;super&#x5173;&#x952E;&#x5B57;/index.html">
+<meta property="og:title" content="java中super关键字">
+<meta property="og:url" content="http://yoursite.com/2018/04/22/java中super关键字/index.html">
 <meta property="og:site_name" content="like a bird">
-<meta property="og:description" content="super &amp;#x662F;&amp;#x6307;&amp;#x5F53;&amp;#x524D;&amp;#x7C7B;&amp;#x6216;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x76F4;&amp;#x63A5;&amp;#x7236;&amp;#x7C7B;&amp;#x6216;&amp;#x7236;&amp;#x7C7B;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x5F15;&amp;#x7528; #1.&amp;#x8C03;&amp;#x7528;&amp;#x723">
+<meta property="og:description" content="super 是指当前类或对象的直接父类或父类对象的引用 #1.调用父类的构造方法。 1super（[参数列表]);  子类中的构造方法总是先显式或隐式的调用父类的构造方法从而初始化子类中继承的父类成员。 #2.访问被隐藏的成员变量和被重写的方法。12super.属性名；super.方法名([参数列表]); 举个例子：创建父类Book12345678910pacage create;public c">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/YiWlt8M.png">
 <meta property="og:image" content="https://i.imgur.com/3zKkUvZ.png">
 <meta property="og:updated_time" content="2018-04-22T13:32:23.519Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java&#x4E2D;super&#x5173;&#x952E;&#x5B57;">
-<meta name="twitter:description" content="super &amp;#x662F;&amp;#x6307;&amp;#x5F53;&amp;#x524D;&amp;#x7C7B;&amp;#x6216;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x76F4;&amp;#x63A5;&amp;#x7236;&amp;#x7C7B;&amp;#x6216;&amp;#x7236;&amp;#x7C7B;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x5F15;&amp;#x7528; #1.&amp;#x8C03;&amp;#x7528;&amp;#x723">
+<meta name="twitter:title" content="java中super关键字">
+<meta name="twitter:description" content="super 是指当前类或对象的直接父类或父类对象的引用 #1.调用父类的构造方法。 1super（[参数列表]);  子类中的构造方法总是先显式或隐式的调用父类的构造方法从而初始化子类中继承的父类成员。 #2.访问被隐藏的成员变量和被重写的方法。12super.属性名；super.方法名([参数列表]); 举个例子：创建父类Book12345678910pacage create;public c">
 <meta name="twitter:image" content="https://i.imgur.com/YiWlt8M.png">
 
     
@@ -35,13 +38,14 @@
     
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<body><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
-  
+
+  <body>
     <header>
-      <div>
+      
+<div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="like a bird" title="like a bird"></a>
+				<a href="/"><img src="/img/logo.png" alt="like a bird" title="like a bird"/></a>
 			</div>
 			
 			<div id="textlogo">
@@ -64,33 +68,33 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search">
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
 					</li>
 				</ul>
-			</ul></nav>			
-</div><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+			</nav>			
+</div>
     </header>
     <div id="container">
-      <div id="main" class="post" itemscope="" itemprop="blogPost">
+      <div id="main" class="post" itemscope itemprop="blogPost">
   
 	<article itemprop="articleBody"> 
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/04/22/java&#x4E2D;super&#x5173;&#x952E;&#x5B57;/" title="java&#x4E2D;super&#x5173;&#x952E;&#x5B57;" itemprop="url">java&#x4E2D;super&#x5173;&#x952E;&#x5B57;</a>
+      <a href="/2018/04/22/java中super关键字/" title="java中super关键字" itemprop="url">java中super关键字</a>
   </h1>
   <p class="article-author">By
        
-		<a href="/about" title="&#xFFFD;&#xFFFD;" target="_blank" itemprop="author">&#xFFFD;&#xFFFD;</a>
+		<a href="/about" title="��" target="_blank" itemprop="author">��</a>
 		
-  </p><p class="article-time">
+  <p class="article-time">
     <time datetime="2018-04-22T12:48:26.000Z" itemprop="datePublished"> Published 2018-04-22</time>
     
   </p>
-</header><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+</header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
@@ -100,17 +104,17 @@
 		
 		</div>
 		
-		<p><strong>super &#x662F;&#x6307;&#x5F53;&#x524D;&#x7C7B;&#x6216;&#x5BF9;&#x8C61;&#x7684;&#x76F4;&#x63A5;&#x7236;&#x7C7B;&#x6216;&#x7236;&#x7C7B;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;</strong></p>
-<p>#1.&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x3002;</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">super&#xFF08;[&#x53C2;&#x6570;&#x5217;&#x8868;]);</span><br></pre></td></tr></tbody></table></figure>
-<p> <strong>&#x5B50;&#x7C7B;&#x4E2D;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x603B;&#x662F;&#x5148;&#x663E;&#x5F0F;&#x6216;&#x9690;&#x5F0F;&#x7684;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x4ECE;&#x800C;&#x521D;&#x59CB;&#x5316;&#x5B50;&#x7C7B;&#x4E2D;&#x7EE7;&#x627F;&#x7684;&#x7236;&#x7C7B;&#x6210;&#x5458;&#x3002;</strong></p>
-<p>#2.&#x8BBF;&#x95EE;&#x88AB;&#x9690;&#x85CF;&#x7684;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x548C;&#x88AB;&#x91CD;&#x5199;&#x7684;&#x65B9;&#x6CD5;&#x3002;<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">super.&#x5C5E;&#x6027;&#x540D;&#xFF1B;</span><br><span class="line">super.&#x65B9;&#x6CD5;&#x540D;([&#x53C2;&#x6570;&#x5217;&#x8868;]);</span><br></pre></td></tr></tbody></table></figure><p></p>
-<p>&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;<br><strong>&#x521B;&#x5EFA;&#x7236;&#x7C7B;Book</strong><br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">pacage create;</span><br><span class="line">public class Book{</span><br><span class="line">   public String name;</span><br><span class="line">   public Book(){</span><br><span class="line">      System.out.println(&quot;&#x7236;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&quot;);</span><br><span class="line">    }</span><br><span class="line">   public void read(){</span><br><span class="line">      System.out.println(&quot;&#x5728;&#x7236;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#x4E2D;:&#x8BFB;&#x4E66;&quot;);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
-<p><strong>&#x521B;&#x5EFA;&#x5B50;&#x7C7B;Text</strong><br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">pacage create;</span><br><span class="line">public class Text extends Book{</span><br><span class="line">  public String name;</span><br><span class="line">  public Text(String name){</span><br><span class="line">    super();//&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;</span><br><span class="line">    this.name=name;</span><br><span class="line">    System.out.println(&quot;&#x5B50;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&quot;);</span><br><span class="line">  }</span><br><span class="line">  public void read(){</span><br><span class="line">    System.out.println(&quot;&#x5728;&#x5B50;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#x4E2D;&#xFF1A;&#x8BFB;&#x4E66;&quot;);</span><br><span class="line">    super.name=&quot;father&quot;;</span><br><span class="line">    System.out.println(&quot;&#x5728;&#x5B50;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#x4E2D;&#x8F93;&#x51FA;&#x7236;&#x7C7B;&#x7684;name&quot;+super.name);</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
-<p><strong>&#x6D4B;&#x8BD5;</strong><br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">pacage create;</span><br><span class="line">public class Test{</span><br><span class="line">  public void main(String[] args){</span><br><span class="line">    Text t=new Text(&quot;child&quot;);//&#x521B;&#x5EFA;&#x5B50;&#x7C7B;&#x5BF9;&#x8C61;&#xFF0C;&#x8C03;&#x7528;&#x5B50;&#x7C7B;&#x6784;&#x9020;&#x65B9;&#x6CD5;</span><br><span class="line">    System.out.println(&quot;&#x8C03;&#x7528;&#x5B50;&#x7C7B;&#x7684;name:&quot;+t.name);</span><br><span class="line">    t.read();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
-<p><strong>&#x8FD0;&#x884C;&#x793A;&#x4F8B;</strong><br><img src="https://i.imgur.com/YiWlt8M.png" alt=""></p>
-<p>#3.&#x6CE8;&#x610F;&#x7684;&#x95EE;&#x9898;<br>  &#x5728;&#x8C03;&#x7528;super&#x5173;&#x952E;&#x5B57;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5E94;&#x5F53;&#x628A;&#x4ED6;&#x653E;&#x5728;&#x5B50;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x6700;&#x524D;&#x9762;&#x3002;<br><img src="https://i.imgur.com/3zKkUvZ.png" alt=""><br>  &#x8FD9;&#x6837;&#x7F16;&#x8BD1;&#x5668;&#x4F1A;&#x63D0;&#x793A;&#x201D;Constructor call must be the first statement in a constrctor&#x201D;&#x7684;&#x62A5;&#x9519;&#x3002;</p>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>  
+		<p><strong>super 是指当前类或对象的直接父类或父类对象的引用</strong></p>
+<p>#1.调用父类的构造方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">super（[参数列表]);</span><br></pre></td></tr></table></figure>
+<p> <strong>子类中的构造方法总是先显式或隐式的调用父类的构造方法从而初始化子类中继承的父类成员。</strong></p>
+<p>#2.访问被隐藏的成员变量和被重写的方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">super.属性名；</span><br><span class="line">super.方法名([参数列表]);</span><br></pre></td></tr></table></figure></p>
+<p>举个例子：<br><strong>创建父类Book</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">pacage create;</span><br><span class="line">public class Book&#123;</span><br><span class="line">   public String name;</span><br><span class="line">   public Book()&#123;</span><br><span class="line">      System.out.println(&quot;父类的构造方法&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">   public void read()&#123;</span><br><span class="line">      System.out.println(&quot;在父类的方法中:读书&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>创建子类Text</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">pacage create;</span><br><span class="line">public class Text extends Book&#123;</span><br><span class="line">  public String name;</span><br><span class="line">  public Text(String name)&#123;</span><br><span class="line">    super();//调用父类的构造方法</span><br><span class="line">    this.name=name;</span><br><span class="line">    System.out.println(&quot;子类的构造方法&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">  public void read()&#123;</span><br><span class="line">    System.out.println(&quot;在子类的方法中：读书&quot;);</span><br><span class="line">    super.name=&quot;father&quot;;</span><br><span class="line">    System.out.println(&quot;在子类的方法中输出父类的name&quot;+super.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>测试</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">pacage create;</span><br><span class="line">public class Test&#123;</span><br><span class="line">  public void main(String[] args)&#123;</span><br><span class="line">    Text t=new Text(&quot;child&quot;);//创建子类对象，调用子类构造方法</span><br><span class="line">    System.out.println(&quot;调用子类的name:&quot;+t.name);</span><br><span class="line">    t.read();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>运行示例</strong><br><img src="https://i.imgur.com/YiWlt8M.png" alt=""></p>
+<p>#3.注意的问题<br>  在调用super关键字的时候，应当把他放在子类的构造方法最前面。<br><img src="https://i.imgur.com/3zKkUvZ.png" alt=""><br>  这样编译器会提示”Constructor call must be the first statement in a constrctor”的报错。</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -123,11 +127,11 @@
 
 </div>
 
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/04/22/java&#x4E2D;super&#x5173;&#x952E;&#x5B57;/" data-title="java&#x4E2D;super&#x5173;&#x952E;&#x5B57; | like a bird" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/04/22/java中super关键字/" data-title="java中super关键字 | like a bird" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -135,31 +139,35 @@
 
 </footer>
 
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>   	       
+   	       
 	</article>
-	<nav class="article-nav clearfix">
+	
+<nav class="article-nav clearfix">
  
- <div class="prev">
- <a href="/2018/05/13/&#x5173;&#x4E8E;&#x5C0F;&#x6570;&#x70B9;&#x7684;&#x4F4D;&#x6570;/" title="&#x5173;&#x4E8E;&#x5C0F;&#x6570;&#x70B9;&#x7684;&#x4F4D;&#x6570;">
-  <strong>&#x4E0A;&#x4E00;&#x7BC7;&#xFF1A;</strong><br>
+ <div class="prev" >
+ <a href="/2018/05/13/关于小数点的位数/" title="关于小数点的位数">
+  <strong>上一篇：</strong><br/>
   <span>
-  &#x5173;&#x4E8E;&#x5C0F;&#x6570;&#x70B9;&#x7684;&#x4F4D;&#x6570;</span>
+  关于小数点的位数</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2018/04/15/&#x4E00;&#x4E9B;&#x5C0F;&#x95EE;&#x9898;/" title="&#x4E00;&#x4E9B;&#x5C0F;&#x95EE;&#x9898;">
- <strong>&#x4E0B;&#x4E00;&#x7BC7;&#xFF1A;</strong><br> 
- <span>&#x4E00;&#x4E9B;&#x5C0F;&#x95EE;&#x9898;
+<a href="/2018/04/15/一些小问题/"  title="一些小问题">
+ <strong>下一篇：</strong><br/> 
+ <span>一些小问题
 </span>
 </a>
 </div>
 
 </nav>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
-	<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
-</div>  <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
+	
+
+
+
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
   <div id="toc" class="toc-aside">
@@ -173,9 +181,11 @@
 <div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
-  <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+  
 
-  <div class="categorieslist">
+
+  
+<div class="categorieslist">
 	<p class="asidetitle">Categories</p>
 		<ul>
 		
@@ -196,22 +206,23 @@
 		  
 		
 		  
-			<li><a href="/categories/&#x5B89;&#x5353;/" title="&#x5B89;&#x5353;">&#x5B89;&#x5353;<sup>1</sup></a></li>
+			<li><a href="/categories/安卓/" title="安卓">安卓<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/&#x642D;&#x5EFA;&#x535A;&#x5BA2;&#x4E0E;&#x53D1;&#x6587;/" title="&#x642D;&#x5EFA;&#x535A;&#x5BA2;&#x4E0E;&#x53D1;&#x6587;">&#x642D;&#x5EFA;&#x535A;&#x5BA2;&#x4E0E;&#x53D1;&#x6587;<sup>1</sup></a></li>
+			<li><a href="/categories/搭建博客与发文/" title="搭建博客与发文">搭建博客与发文<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/&#x6C47;&#x7F16;&#x8BED;&#x8A00;/" title="&#x6C47;&#x7F16;&#x8BED;&#x8A00;">&#x6C47;&#x7F16;&#x8BED;&#x8A00;<sup>1</sup></a></li>
+			<li><a href="/categories/汇编语言/" title="汇编语言">汇编语言<sup>1</sup></a></li>
 		  
 		
 		</ul>
 </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
 
-  <div class="tagslist">
+
+  
+<div class="tagslist">
 	<p class="asidetitle">Tags</p>
 		<ul class="clearfix">
 		
@@ -228,16 +239,16 @@
 			
 		
 			
-				<li><a href="/tags/&#x57FA;&#x7840;/" title="&#x57FA;&#x7840;">&#x57FA;&#x7840;<sup>1</sup></a></li>
+				<li><a href="/tags/基础/" title="基础">基础<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/&#x6C47;&#x7F16;/" title="&#x6C47;&#x7F16;">&#x6C47;&#x7F16;<sup>1</sup></a></li>
+				<li><a href="/tags/汇编/" title="汇编">汇编<sup>1</sup></a></li>
 			
 		
 		</ul>
 </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
 
   <div class="linkslist">
   <p class="asidetitle">Links</p>
@@ -245,29 +256,30 @@
         
           <li>
             
-            	<a href="https://coderq.com" target="_blank" title="&#x4E00;&#x4E2A;&#x9762;&#x5411;&#x7A0B;&#x5E8F;&#x5458;&#x4EA4;&#x6D41;&#x5206;&#x4EAB;&#x7684;&#x65B0;&#x4E00;&#x4EE3;&#x793E;&#x533A;">&#x7801;&#x519C;&#x5708;</a>
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
             
           </li>
         
     </ul>
-</div><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+</div>
 
-  <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+  
+
 
   <div class="rsspart">
 	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
-</div><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+</div>
 
   <div class="weiboshow">
   <p class="asidetitle">Weibo</p>
-    <iframe width="100%" height="119" class="share_self" frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&amp;width=0&amp;height=119&amp;fansRow=2&amp;ptype=1&amp;speed=0&amp;skin=9&amp;isTitle=1&amp;noborder=1&amp;isWeibo=0&amp;isFans=0&amp;uid=&amp;verifier=&amp;dpc=1"></iframe>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
 </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
 
 </aside>
-</div><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+</div>
     </div>
-    <footer><div id="footer">
+    <footer><div id="footer" >
 	
 	<div class="line">
 		<span></span>
@@ -276,11 +288,11 @@
 	
 	
 	<section class="info">
-		<p> Hello . <br>
+		<p> Hello . <br/>
 			This is my blog,believe it or not.</p>
 	</section>
 	 
-	<div class="social-font">
+	<div class="social-font" class="clearfix">
 		
 		
 		
@@ -296,14 +308,14 @@
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> &#xA9; 2018 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
 		
-		<a href="/about" target="_blank" title="&#xFFFD;&#xFFFD;">&#xFFFD;&#xFFFD;</a>
+		<a href="/about" target="_blank" title="��">��</a>
 		
 		
 		</p>
 </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></footer>
+</footer>
     <script src="/js/jquery-2.0.3.min.js"></script>
 <script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
@@ -466,6 +478,9 @@ $(document).ready(function(){
 
 
 <!-- Analytics Begin -->
+
+
+
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -477,25 +492,27 @@ var _hmt = _hmt || [];
 </script>
 
 
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
 
+<!-- Analytics End -->
 
+<!-- Totop Begin -->
 
-<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"></a>
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
 
 
+<!-- MathJax End -->
 
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+<!-- Tiny_search Begin -->
 
+<!-- Tiny_search End -->
 
-
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
-
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
-  
-
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></body></html><!-- Analytics End --><!-- Totop Begin --><!-- Totop End --><!-- MathJax Begin --><!-- mathjax config similar to math.stackexchange --><!-- MathJax End --><!-- Tiny_search Begin --><!-- Tiny_search End -->
+  </body>
+</html>

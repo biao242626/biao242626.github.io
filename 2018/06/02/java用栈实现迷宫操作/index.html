@@ -1,24 +1,27 @@
-<!DOCTYPE html><html lang="zh-Hans"><head>
+
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
   <meta charset="UTF-8">
   
-    <title>java&#x7528;&#x6808;&#x5B9E;&#x73B0;&#x8FF7;&#x5BAB;&#x64CD;&#x4F5C; | like a bird</title>
+    <title>java用栈实现迷宫操作 | like a bird</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
-    <meta name="author" content="&#xFFFD;&#xFFFD;">
+    <meta name="author" content="��">
     
 
     
-    <meta name="description" content="&amp;#x5047;&amp;#x8BBE;&amp;#x628A;&amp;#x8FF7;&amp;#x5BAB;&amp;#x770B;&amp;#x6210;&amp;#x4E00;&amp;#x4E2A;&amp;#x4E8C;&amp;#x7EF4;&amp;#x6570;&amp;#x7EC4;&amp;#xFF0C;&amp;#x6BCF;&amp;#x4E2A;&amp;#x6570;&amp;#x7EC4;&amp;#x8868;&amp;#x793A;&amp;#x4E00;&amp;#x6761;&amp;#x901A;&amp;#x9053;&amp;#x6216;">
+    <meta name="description" content="假设把迷宫看成一个二维数组，每个数组表示一条通道或一堵墙.算法分析：    从左上角开始，看有效移动（1为有效，0为无效），假如有两个有效移动，向右和向下，把这两个有效移动压入栈中.并把栈顶的有效移动从栈中弹出，然后移动。直到该有效移动不再有效，执行栈中其他的的有效移动，直到栈空或者走完迷宫.   这里迷宫式自己手动输入.12345678910111213141516171819202122232">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java&#x7528;&#x6808;&#x5B9E;&#x73B0;&#x8FF7;&#x5BAB;&#x64CD;&#x4F5C;">
-<meta property="og:url" content="http://yoursite.com/2018/06/02/java&#x7528;&#x6808;&#x5B9E;&#x73B0;&#x8FF7;&#x5BAB;&#x64CD;&#x4F5C;/index.html">
+<meta property="og:title" content="java用栈实现迷宫操作">
+<meta property="og:url" content="http://yoursite.com/2018/06/02/java用栈实现迷宫操作/index.html">
 <meta property="og:site_name" content="like a bird">
-<meta property="og:description" content="&amp;#x5047;&amp;#x8BBE;&amp;#x628A;&amp;#x8FF7;&amp;#x5BAB;&amp;#x770B;&amp;#x6210;&amp;#x4E00;&amp;#x4E2A;&amp;#x4E8C;&amp;#x7EF4;&amp;#x6570;&amp;#x7EC4;&amp;#xFF0C;&amp;#x6BCF;&amp;#x4E2A;&amp;#x6570;&amp;#x7EC4;&amp;#x8868;&amp;#x793A;&amp;#x4E00;&amp;#x6761;&amp;#x901A;&amp;#x9053;&amp;#x6216;">
+<meta property="og:description" content="假设把迷宫看成一个二维数组，每个数组表示一条通道或一堵墙.算法分析：    从左上角开始，看有效移动（1为有效，0为无效），假如有两个有效移动，向右和向下，把这两个有效移动压入栈中.并把栈顶的有效移动从栈中弹出，然后移动。直到该有效移动不再有效，执行栈中其他的的有效移动，直到栈空或者走完迷宫.   这里迷宫式自己手动输入.12345678910111213141516171819202122232">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-06-02T15:21:28.544Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java&#x7528;&#x6808;&#x5B9E;&#x73B0;&#x8FF7;&#x5BAB;&#x64CD;&#x4F5C;">
-<meta name="twitter:description" content="&amp;#x5047;&amp;#x8BBE;&amp;#x628A;&amp;#x8FF7;&amp;#x5BAB;&amp;#x770B;&amp;#x6210;&amp;#x4E00;&amp;#x4E2A;&amp;#x4E8C;&amp;#x7EF4;&amp;#x6570;&amp;#x7EC4;&amp;#xFF0C;&amp;#x6BCF;&amp;#x4E2A;&amp;#x6570;&amp;#x7EC4;&amp;#x8868;&amp;#x793A;&amp;#x4E00;&amp;#x6761;&amp;#x901A;&amp;#x9053;&amp;#x6216;">
+<meta name="twitter:title" content="java用栈实现迷宫操作">
+<meta name="twitter:description" content="假设把迷宫看成一个二维数组，每个数组表示一条通道或一堵墙.算法分析：    从左上角开始，看有效移动（1为有效，0为无效），假如有两个有效移动，向右和向下，把这两个有效移动压入栈中.并把栈顶的有效移动从栈中弹出，然后移动。直到该有效移动不再有效，执行栈中其他的的有效移动，直到栈空或者走完迷宫.   这里迷宫式自己手动输入.12345678910111213141516171819202122232">
 
     
     <link rel="alternative" href="/atom.xml" title="like a bird" type="application/atom+xml">
@@ -32,13 +35,14 @@
     
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<body><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
-  
+
+  <body>
     <header>
-      <div>
+      
+<div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="like a bird" title="like a bird"></a>
+				<a href="/"><img src="/img/logo.png" alt="like a bird" title="like a bird"/></a>
 			</div>
 			
 			<div id="textlogo">
@@ -61,33 +65,33 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search">
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
 					</li>
 				</ul>
-			</ul></nav>			
-</div><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+			</nav>			
+</div>
     </header>
     <div id="container">
-      <div id="main" class="post" itemscope="" itemprop="blogPost">
+      <div id="main" class="post" itemscope itemprop="blogPost">
   
 	<article itemprop="articleBody"> 
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/06/02/java&#x7528;&#x6808;&#x5B9E;&#x73B0;&#x8FF7;&#x5BAB;&#x64CD;&#x4F5C;/" title="java&#x7528;&#x6808;&#x5B9E;&#x73B0;&#x8FF7;&#x5BAB;&#x64CD;&#x4F5C;" itemprop="url">java&#x7528;&#x6808;&#x5B9E;&#x73B0;&#x8FF7;&#x5BAB;&#x64CD;&#x4F5C;</a>
+      <a href="/2018/06/02/java用栈实现迷宫操作/" title="java用栈实现迷宫操作" itemprop="url">java用栈实现迷宫操作</a>
   </h1>
   <p class="article-author">By
        
-		<a href="/about" title="&#xFFFD;&#xFFFD;" target="_blank" itemprop="author">&#xFFFD;&#xFFFD;</a>
+		<a href="/about" title="��" target="_blank" itemprop="author">��</a>
 		
-  </p><p class="article-time">
+  <p class="article-time">
     <time datetime="2018-06-02T15:13:09.000Z" itemprop="datePublished"> Published 2018-06-02</time>
     
   </p>
-</header><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+</header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
@@ -97,12 +101,12 @@
 		
 		</div>
 		
-		<p>&#x5047;&#x8BBE;&#x628A;&#x8FF7;&#x5BAB;&#x770B;&#x6210;&#x4E00;&#x4E2A;&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;&#xFF0C;&#x6BCF;&#x4E2A;&#x6570;&#x7EC4;&#x8868;&#x793A;&#x4E00;&#x6761;&#x901A;&#x9053;&#x6216;&#x4E00;&#x5835;&#x5899;.<br>&#x7B97;&#x6CD5;&#x5206;&#x6790;&#xFF1A;<br>    &#x4ECE;&#x5DE6;&#x4E0A;&#x89D2;&#x5F00;&#x59CB;&#xFF0C;&#x770B;&#x6709;&#x6548;&#x79FB;&#x52A8;&#xFF08;1&#x4E3A;&#x6709;&#x6548;&#xFF0C;0&#x4E3A;&#x65E0;&#x6548;&#xFF09;&#xFF0C;&#x5047;&#x5982;&#x6709;&#x4E24;&#x4E2A;&#x6709;&#x6548;&#x79FB;&#x52A8;&#xFF0C;&#x5411;&#x53F3;&#x548C;&#x5411;&#x4E0B;&#xFF0C;&#x628A;&#x8FD9;&#x4E24;&#x4E2A;&#x6709;&#x6548;&#x79FB;&#x52A8;&#x538B;&#x5165;&#x6808;&#x4E2D;.&#x5E76;&#x628A;&#x6808;&#x9876;&#x7684;&#x6709;&#x6548;&#x79FB;&#x52A8;&#x4ECE;&#x6808;&#x4E2D;&#x5F39;&#x51FA;&#xFF0C;&#x7136;&#x540E;&#x79FB;&#x52A8;&#x3002;&#x76F4;&#x5230;&#x8BE5;&#x6709;&#x6548;&#x79FB;&#x52A8;&#x4E0D;&#x518D;&#x6709;&#x6548;&#xFF0C;&#x6267;&#x884C;&#x6808;&#x4E2D;&#x5176;&#x4ED6;&#x7684;&#x7684;&#x6709;&#x6548;&#x79FB;&#x52A8;&#xFF0C;&#x76F4;&#x5230;&#x6808;&#x7A7A;&#x6216;&#x8005;&#x8D70;&#x5B8C;&#x8FF7;&#x5BAB;.<br>   &#x8FD9;&#x91CC;&#x8FF7;&#x5BAB;&#x5F0F;&#x81EA;&#x5DF1;&#x624B;&#x52A8;&#x8F93;&#x5165;.<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">public class Maze {</span><br><span class="line">    private static final int TRIED=2;</span><br><span class="line">    private static final int PATH=3;</span><br><span class="line">    private int numberRows,numberColumns;</span><br><span class="line">    private int[][] grid;</span><br><span class="line">    public Maze(int[][] maze_from){</span><br><span class="line">        numberRows=maze_from.length;</span><br><span class="line">        numberColumns=maze_from[0].length;</span><br><span class="line">        grid=new int[numberRows][numberColumns];</span><br><span class="line">        for (int i=0;i&lt;numberRows;i++){</span><br><span class="line">            for (int j=0;j&lt;numberColumns;j++){</span><br><span class="line">                grid[i][j]=maze_from[i][j];</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    //&#x6807;&#x8BB0;&#x7EC8;&#x70B9;</span><br><span class="line">    public void tryPosition(int row,int col){</span><br><span class="line">        grid[row][col]=TRIED;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    public int getNumberColumns() {</span><br><span class="line">        return numberColumns;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    public int getNumberRows() {</span><br><span class="line">        return numberRows;</span><br><span class="line">    }</span><br><span class="line">    //&#x6807;&#x8BB0;&#x7EC8;&#x70B9;</span><br><span class="line">    public void markPath(int row,int col){</span><br><span class="line">        grid[row][col]=PATH;</span><br><span class="line">    }</span><br><span class="line">    //&#x5224;&#x65AD;&#x8BE5;&#x70B9;&#x662F;&#x5426;&#x5408;&#x6CD5;</span><br><span class="line">    public boolean validPosition(int row,int column){</span><br><span class="line">        boolean result=false;</span><br><span class="line">        if (row&gt;=0&amp;&amp;row&lt;grid.length&amp;&amp;column&gt;=0&amp;&amp;column&lt;grid[row].length)</span><br><span class="line">            if (grid[row][column]==1)</span><br><span class="line">                result = true;</span><br><span class="line">        return result;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() {</span><br><span class="line">      String result=&quot;\n&quot;;</span><br><span class="line">      for (int row=0;row&lt;grid.length;row++){</span><br><span class="line">          for (int column=0;column&lt;grid[0].length;column++)</span><br><span class="line">              result+=grid[row][column]+&quot;&quot;;</span><br><span class="line">          result+=&quot;\n&quot;;</span><br><span class="line">      }</span><br><span class="line">      return result;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">import javax.swing.text.Position;</span><br><span class="line">import java.util.Deque;</span><br><span class="line">import java.util.LinkedList;</span><br><span class="line"></span><br><span class="line">public class MazeSolver {</span><br><span class="line">    private Maze maze;</span><br><span class="line">    public MazeSolver(Maze maze){</span><br><span class="line">        this.maze=maze;</span><br><span class="line">    }</span><br><span class="line">    public boolean traverse(){</span><br><span class="line">        boolean done=false;</span><br><span class="line">        int row,column;</span><br><span class="line">        Location pos=new Location();</span><br><span class="line">        //Deque&#x63A5;&#x53E3;&#x63D0;&#x4F9B;&#x4E86;&#x6808;&#x7684;&#x94FE;&#x8868;&#x5B9E;&#x73B0;</span><br><span class="line">        Deque&lt;Location&gt; stack=new LinkedList&lt;Location&gt;();</span><br><span class="line">        stack.push(pos);</span><br><span class="line">        while (!done&amp;&amp;!stack.isEmpty()){</span><br><span class="line">            pos=stack.pop();</span><br><span class="line">            maze.tryPosition(pos.getX(),pos.getY());</span><br><span class="line">            if (pos.getX()==maze.getNumberRows()-1&amp;&amp;pos.getY()==maze.getNumberRows()-1)</span><br><span class="line">                done=true;//&#x8D70;&#x5B8C;&#x8FF7;&#x5BAB;</span><br><span class="line">            else {</span><br><span class="line">                //&#x538B;&#x6808;&#x64CD;&#x4F5C;</span><br><span class="line">                push_in_stack(pos.getX()-1,pos.getY(),stack);</span><br><span class="line">                push_in_stack(pos.getX()+1,pos.getY(),stack);</span><br><span class="line">                push_in_stack(pos.getX(),pos.getY()-1,stack);</span><br><span class="line">                push_in_stack(pos.getX(),pos.getY()+1,stack);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        return done;</span><br><span class="line">        }</span><br><span class="line">        //&#x538B;&#x6808;&#x65B9;&#x6CD5;</span><br><span class="line">        private void push_in_stack(int x,int y,Deque&lt;Location&gt; stack){</span><br><span class="line">            Location npos=new Location();</span><br><span class="line">            npos.setX(x);</span><br><span class="line">            npos.setY(y);</span><br><span class="line">            if (maze.validPosition(x,y))</span><br><span class="line">                stack.push(npos);</span><br><span class="line">        }</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class MazeTester {</span><br><span class="line">    public static void main(String[] args) {</span><br><span class="line">        int[][] maze_from=new int[5][5];</span><br><span class="line">        Scanner scanner=new Scanner(System.in);</span><br><span class="line">        for (int i=0;i&lt;maze_from.length;i++){</span><br><span class="line">            for (int j=0;j&lt;maze_from[0].length;j++)</span><br><span class="line">                maze_from[i][j]=scanner.nextInt();</span><br><span class="line">        }</span><br><span class="line">        Maze test_maze=new Maze(maze_from);</span><br><span class="line">        System.out.println(test_maze);</span><br><span class="line">        MazeSolver solver=new MazeSolver(test_maze);</span><br><span class="line">        if (solver.traverse())</span><br><span class="line">            System.out.println(&quot;SUCCESSFUL!&quot;);</span><br><span class="line">        System.out.println(test_maze);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class Location {</span><br><span class="line">    private int x,y;</span><br><span class="line"></span><br><span class="line">    public void setX(int x) {</span><br><span class="line">        this.x = x;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    public int getX() {</span><br><span class="line">        return x;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    public void setY(int y) {</span><br><span class="line">        this.y = y;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    public int getY() {</span><br><span class="line">        return y;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>Deque&#x63A5;&#x53E3;&#x662F;&#x7531;LinkList&#x7C7B;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;&#x6808;&#x7684;&#x94FE;&#x8868;&#x5B9E;&#x73B0;&#x3002;</p>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>  
+		<p>假设把迷宫看成一个二维数组，每个数组表示一条通道或一堵墙.<br>算法分析：<br>    从左上角开始，看有效移动（1为有效，0为无效），假如有两个有效移动，向右和向下，把这两个有效移动压入栈中.并把栈顶的有效移动从栈中弹出，然后移动。直到该有效移动不再有效，执行栈中其他的的有效移动，直到栈空或者走完迷宫.<br>   这里迷宫式自己手动输入.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">public class Maze &#123;</span><br><span class="line">    private static final int TRIED=2;</span><br><span class="line">    private static final int PATH=3;</span><br><span class="line">    private int numberRows,numberColumns;</span><br><span class="line">    private int[][] grid;</span><br><span class="line">    public Maze(int[][] maze_from)&#123;</span><br><span class="line">        numberRows=maze_from.length;</span><br><span class="line">        numberColumns=maze_from[0].length;</span><br><span class="line">        grid=new int[numberRows][numberColumns];</span><br><span class="line">        for (int i=0;i&lt;numberRows;i++)&#123;</span><br><span class="line">            for (int j=0;j&lt;numberColumns;j++)&#123;</span><br><span class="line">                grid[i][j]=maze_from[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //标记终点</span><br><span class="line">    public void tryPosition(int row,int col)&#123;</span><br><span class="line">        grid[row][col]=TRIED;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int getNumberColumns() &#123;</span><br><span class="line">        return numberColumns;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int getNumberRows() &#123;</span><br><span class="line">        return numberRows;</span><br><span class="line">    &#125;</span><br><span class="line">    //标记终点</span><br><span class="line">    public void markPath(int row,int col)&#123;</span><br><span class="line">        grid[row][col]=PATH;</span><br><span class="line">    &#125;</span><br><span class="line">    //判断该点是否合法</span><br><span class="line">    public boolean validPosition(int row,int column)&#123;</span><br><span class="line">        boolean result=false;</span><br><span class="line">        if (row&gt;=0&amp;&amp;row&lt;grid.length&amp;&amp;column&gt;=0&amp;&amp;column&lt;grid[row].length)</span><br><span class="line">            if (grid[row][column]==1)</span><br><span class="line">                result = true;</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">      String result=&quot;\n&quot;;</span><br><span class="line">      for (int row=0;row&lt;grid.length;row++)&#123;</span><br><span class="line">          for (int column=0;column&lt;grid[0].length;column++)</span><br><span class="line">              result+=grid[row][column]+&quot;&quot;;</span><br><span class="line">          result+=&quot;\n&quot;;</span><br><span class="line">      &#125;</span><br><span class="line">      return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">import javax.swing.text.Position;</span><br><span class="line">import java.util.Deque;</span><br><span class="line">import java.util.LinkedList;</span><br><span class="line"></span><br><span class="line">public class MazeSolver &#123;</span><br><span class="line">    private Maze maze;</span><br><span class="line">    public MazeSolver(Maze maze)&#123;</span><br><span class="line">        this.maze=maze;</span><br><span class="line">    &#125;</span><br><span class="line">    public boolean traverse()&#123;</span><br><span class="line">        boolean done=false;</span><br><span class="line">        int row,column;</span><br><span class="line">        Location pos=new Location();</span><br><span class="line">        //Deque接口提供了栈的链表实现</span><br><span class="line">        Deque&lt;Location&gt; stack=new LinkedList&lt;Location&gt;();</span><br><span class="line">        stack.push(pos);</span><br><span class="line">        while (!done&amp;&amp;!stack.isEmpty())&#123;</span><br><span class="line">            pos=stack.pop();</span><br><span class="line">            maze.tryPosition(pos.getX(),pos.getY());</span><br><span class="line">            if (pos.getX()==maze.getNumberRows()-1&amp;&amp;pos.getY()==maze.getNumberRows()-1)</span><br><span class="line">                done=true;//走完迷宫</span><br><span class="line">            else &#123;</span><br><span class="line">                //压栈操作</span><br><span class="line">                push_in_stack(pos.getX()-1,pos.getY(),stack);</span><br><span class="line">                push_in_stack(pos.getX()+1,pos.getY(),stack);</span><br><span class="line">                push_in_stack(pos.getX(),pos.getY()-1,stack);</span><br><span class="line">                push_in_stack(pos.getX(),pos.getY()+1,stack);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return done;</span><br><span class="line">        &#125;</span><br><span class="line">        //压栈方法</span><br><span class="line">        private void push_in_stack(int x,int y,Deque&lt;Location&gt; stack)&#123;</span><br><span class="line">            Location npos=new Location();</span><br><span class="line">            npos.setX(x);</span><br><span class="line">            npos.setY(y);</span><br><span class="line">            if (maze.validPosition(x,y))</span><br><span class="line">                stack.push(npos);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class MazeTester &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        int[][] maze_from=new int[5][5];</span><br><span class="line">        Scanner scanner=new Scanner(System.in);</span><br><span class="line">        for (int i=0;i&lt;maze_from.length;i++)&#123;</span><br><span class="line">            for (int j=0;j&lt;maze_from[0].length;j++)</span><br><span class="line">                maze_from[i][j]=scanner.nextInt();</span><br><span class="line">        &#125;</span><br><span class="line">        Maze test_maze=new Maze(maze_from);</span><br><span class="line">        System.out.println(test_maze);</span><br><span class="line">        MazeSolver solver=new MazeSolver(test_maze);</span><br><span class="line">        if (solver.traverse())</span><br><span class="line">            System.out.println(&quot;SUCCESSFUL!&quot;);</span><br><span class="line">        System.out.println(test_maze);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class Location &#123;</span><br><span class="line">    private int x,y;</span><br><span class="line"></span><br><span class="line">    public void setX(int x) &#123;</span><br><span class="line">        this.x = x;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int getX() &#123;</span><br><span class="line">        return x;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setY(int y) &#123;</span><br><span class="line">        this.y = y;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int getY() &#123;</span><br><span class="line">        return y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Deque接口是由LinkList类实现的，提供了栈的链表实现。</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -115,11 +119,11 @@
 
 </div>
 
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/06/02/java&#x7528;&#x6808;&#x5B9E;&#x73B0;&#x8FF7;&#x5BAB;&#x64CD;&#x4F5C;/" data-title="java&#x7528;&#x6808;&#x5B9E;&#x73B0;&#x8FF7;&#x5BAB;&#x64CD;&#x4F5C; | like a bird" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/06/02/java用栈实现迷宫操作/" data-title="java用栈实现迷宫操作 | like a bird" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -127,31 +131,35 @@
 
 </footer>
 
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>   	       
+   	       
 	</article>
-	<nav class="article-nav clearfix">
+	
+<nav class="article-nav clearfix">
  
- <div class="prev">
- <a href="/2018/06/10/&#x961F;&#x5217;&#x89E3;&#x51B3;&#x7EA6;&#x745F;&#x592B;&#x95EE;&#x9898;/" title="&#x961F;&#x5217;&#x89E3;&#x51B3;&#x7EA6;&#x745F;&#x592B;&#x95EE;&#x9898;">
-  <strong>&#x4E0A;&#x4E00;&#x7BC7;&#xFF1A;</strong><br>
+ <div class="prev" >
+ <a href="/2018/06/10/队列解决约瑟夫问题/" title="队列解决约瑟夫问题">
+  <strong>上一篇：</strong><br/>
   <span>
-  &#x961F;&#x5217;&#x89E3;&#x51B3;&#x7EA6;&#x745F;&#x592B;&#x95EE;&#x9898;</span>
+  队列解决约瑟夫问题</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2018/05/20/&#x4E00;&#x5143;&#x591A;&#x9879;&#x5F0F;&#x6C42;&#x548C;/" title="&#x4E00;&#x5143;&#x591A;&#x9879;&#x5F0F;&#x6C42;&#x548C;">
- <strong>&#x4E0B;&#x4E00;&#x7BC7;&#xFF1A;</strong><br> 
- <span>&#x4E00;&#x5143;&#x591A;&#x9879;&#x5F0F;&#x6C42;&#x548C;
+<a href="/2018/05/20/一元多项式求和/"  title="一元多项式求和">
+ <strong>下一篇：</strong><br/> 
+ <span>一元多项式求和
 </span>
 </a>
 </div>
 
 </nav>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
-	<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
-</div>  <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
+	
+
+
+
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
   <div id="toc" class="toc-aside">
@@ -165,9 +173,11 @@
 <div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
-  <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+  
 
-  <div class="categorieslist">
+
+  
+<div class="categorieslist">
 	<p class="asidetitle">Categories</p>
 		<ul>
 		
@@ -188,22 +198,23 @@
 		  
 		
 		  
-			<li><a href="/categories/&#x5B89;&#x5353;/" title="&#x5B89;&#x5353;">&#x5B89;&#x5353;<sup>1</sup></a></li>
+			<li><a href="/categories/安卓/" title="安卓">安卓<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/&#x642D;&#x5EFA;&#x535A;&#x5BA2;&#x4E0E;&#x53D1;&#x6587;/" title="&#x642D;&#x5EFA;&#x535A;&#x5BA2;&#x4E0E;&#x53D1;&#x6587;">&#x642D;&#x5EFA;&#x535A;&#x5BA2;&#x4E0E;&#x53D1;&#x6587;<sup>1</sup></a></li>
+			<li><a href="/categories/搭建博客与发文/" title="搭建博客与发文">搭建博客与发文<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/&#x6C47;&#x7F16;&#x8BED;&#x8A00;/" title="&#x6C47;&#x7F16;&#x8BED;&#x8A00;">&#x6C47;&#x7F16;&#x8BED;&#x8A00;<sup>1</sup></a></li>
+			<li><a href="/categories/汇编语言/" title="汇编语言">汇编语言<sup>1</sup></a></li>
 		  
 		
 		</ul>
 </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
 
-  <div class="tagslist">
+
+  
+<div class="tagslist">
 	<p class="asidetitle">Tags</p>
 		<ul class="clearfix">
 		
@@ -220,16 +231,16 @@
 			
 		
 			
-				<li><a href="/tags/&#x57FA;&#x7840;/" title="&#x57FA;&#x7840;">&#x57FA;&#x7840;<sup>1</sup></a></li>
+				<li><a href="/tags/基础/" title="基础">基础<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/&#x6C47;&#x7F16;/" title="&#x6C47;&#x7F16;">&#x6C47;&#x7F16;<sup>1</sup></a></li>
+				<li><a href="/tags/汇编/" title="汇编">汇编<sup>1</sup></a></li>
 			
 		
 		</ul>
 </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
 
   <div class="linkslist">
   <p class="asidetitle">Links</p>
@@ -237,29 +248,30 @@
         
           <li>
             
-            	<a href="https://coderq.com" target="_blank" title="&#x4E00;&#x4E2A;&#x9762;&#x5411;&#x7A0B;&#x5E8F;&#x5458;&#x4EA4;&#x6D41;&#x5206;&#x4EAB;&#x7684;&#x65B0;&#x4E00;&#x4EE3;&#x793E;&#x533A;">&#x7801;&#x519C;&#x5708;</a>
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
             
           </li>
         
     </ul>
-</div><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+</div>
 
-  <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+  
+
 
   <div class="rsspart">
 	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
-</div><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+</div>
 
   <div class="weiboshow">
   <p class="asidetitle">Weibo</p>
-    <iframe width="100%" height="119" class="share_self" frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&amp;width=0&amp;height=119&amp;fansRow=2&amp;ptype=1&amp;speed=0&amp;skin=9&amp;isTitle=1&amp;noborder=1&amp;isWeibo=0&amp;isFans=0&amp;uid=&amp;verifier=&amp;dpc=1"></iframe>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
 </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
 
 </aside>
-</div><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+</div>
     </div>
-    <footer><div id="footer">
+    <footer><div id="footer" >
 	
 	<div class="line">
 		<span></span>
@@ -268,11 +280,11 @@
 	
 	
 	<section class="info">
-		<p> Hello . <br>
+		<p> Hello . <br/>
 			This is my blog,believe it or not.</p>
 	</section>
 	 
-	<div class="social-font">
+	<div class="social-font" class="clearfix">
 		
 		
 		
@@ -288,14 +300,14 @@
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> &#xA9; 2018 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
 		
-		<a href="/about" target="_blank" title="&#xFFFD;&#xFFFD;">&#xFFFD;&#xFFFD;</a>
+		<a href="/about" target="_blank" title="��">��</a>
 		
 		
 		</p>
 </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></footer>
+</footer>
     <script src="/js/jquery-2.0.3.min.js"></script>
 <script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
@@ -458,6 +470,9 @@ $(document).ready(function(){
 
 
 <!-- Analytics Begin -->
+
+
+
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -469,25 +484,27 @@ var _hmt = _hmt || [];
 </script>
 
 
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
 
+<!-- Analytics End -->
 
+<!-- Totop Begin -->
 
-<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"></a>
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
 
 
+<!-- MathJax End -->
 
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+<!-- Tiny_search Begin -->
 
+<!-- Tiny_search End -->
 
-
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
-
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
-  
-
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></body></html><!-- Analytics End --><!-- Totop Begin --><!-- Totop End --><!-- MathJax Begin --><!-- mathjax config similar to math.stackexchange --><!-- MathJax End --><!-- Tiny_search Begin --><!-- Tiny_search End -->
+  </body>
+</html>

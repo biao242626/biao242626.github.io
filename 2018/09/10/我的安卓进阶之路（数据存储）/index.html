@@ -1,24 +1,27 @@
-<!DOCTYPE html><html lang="zh-Hans"><head>
+
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
   <meta charset="UTF-8">
   
-    <title>&#x6211;&#x7684;&#x5B89;&#x5353;&#x8FDB;&#x9636;&#x4E4B;&#x8DEF;&#xFF08;&#x6570;&#x636E;&#x5B58;&#x50A8;&#xFF09; | like a bird</title>
+    <title>我的安卓进阶之路（数据存储） | like a bird</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
-    <meta name="author" content="&#xFFFD;&#xFFFD;">
+    <meta name="author" content="��">
     
 
     
-    <meta name="description" content="1&amp;#x3001;SQLite&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x5B58;&amp;#x50A8;1&amp;#x3001;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x7684;&amp;#x521B;&amp;#x5EFA;&amp;#x4E0E;&amp;#x5347;&amp;#x7EA7; &amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#x5B89;&amp;#x5353;&amp;#x4E13;&amp;#x95E8;&amp;#x63D0">
+    <meta name="description" content="1、SQLite数据库存储1、数据库的创建与升级 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;安卓专门提供了一个SQLiteOpenHelper帮助类，（抽象类）,必须重写onCreate()和onUpgrade()两个抽象方法。 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;SQLiteOpenHelper有两个构造方法，一般重写四个参数的（Context、数据库名、Cursor、版本号）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="&#x6211;&#x7684;&#x5B89;&#x5353;&#x8FDB;&#x9636;&#x4E4B;&#x8DEF;&#xFF08;&#x6570;&#x636E;&#x5B58;&#x50A8;&#xFF09;">
-<meta property="og:url" content="http://yoursite.com/2018/09/10/&#x6211;&#x7684;&#x5B89;&#x5353;&#x8FDB;&#x9636;&#x4E4B;&#x8DEF;&#xFF08;&#x6570;&#x636E;&#x5B58;&#x50A8;&#xFF09;/index.html">
+<meta property="og:title" content="我的安卓进阶之路（数据存储）">
+<meta property="og:url" content="http://yoursite.com/2018/09/10/我的安卓进阶之路（数据存储）/index.html">
 <meta property="og:site_name" content="like a bird">
-<meta property="og:description" content="1&amp;#x3001;SQLite&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x5B58;&amp;#x50A8;1&amp;#x3001;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x7684;&amp;#x521B;&amp;#x5EFA;&amp;#x4E0E;&amp;#x5347;&amp;#x7EA7; &amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#x5B89;&amp;#x5353;&amp;#x4E13;&amp;#x95E8;&amp;#x63D0">
+<meta property="og:description" content="1、SQLite数据库存储1、数据库的创建与升级 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;安卓专门提供了一个SQLiteOpenHelper帮助类，（抽象类）,必须重写onCreate()和onUpgrade()两个抽象方法。 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;SQLiteOpenHelper有两个构造方法，一般重写四个参数的（Context、数据库名、Cursor、版本号）">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-09-10T14:18:45.966Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="&#x6211;&#x7684;&#x5B89;&#x5353;&#x8FDB;&#x9636;&#x4E4B;&#x8DEF;&#xFF08;&#x6570;&#x636E;&#x5B58;&#x50A8;&#xFF09;">
-<meta name="twitter:description" content="1&amp;#x3001;SQLite&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x5B58;&amp;#x50A8;1&amp;#x3001;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x7684;&amp;#x521B;&amp;#x5EFA;&amp;#x4E0E;&amp;#x5347;&amp;#x7EA7; &amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#x5B89;&amp;#x5353;&amp;#x4E13;&amp;#x95E8;&amp;#x63D0">
+<meta name="twitter:title" content="我的安卓进阶之路（数据存储）">
+<meta name="twitter:description" content="1、SQLite数据库存储1、数据库的创建与升级 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;安卓专门提供了一个SQLiteOpenHelper帮助类，（抽象类）,必须重写onCreate()和onUpgrade()两个抽象方法。 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;SQLiteOpenHelper有两个构造方法，一般重写四个参数的（Context、数据库名、Cursor、版本号）">
 
     
     <link rel="alternative" href="/atom.xml" title="like a bird" type="application/atom+xml">
@@ -32,13 +35,14 @@
     
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<body><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
-  
+
+  <body>
     <header>
-      <div>
+      
+<div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="like a bird" title="like a bird"></a>
+				<a href="/"><img src="/img/logo.png" alt="like a bird" title="like a bird"/></a>
 			</div>
 			
 			<div id="textlogo">
@@ -61,82 +65,82 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search">
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
 					</li>
 				</ul>
-			</ul></nav>			
-</div><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+			</nav>			
+</div>
     </header>
     <div id="container">
-      <div id="main" class="post" itemscope="" itemprop="blogPost">
+      <div id="main" class="post" itemscope itemprop="blogPost">
   
 	<article itemprop="articleBody"> 
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/09/10/&#x6211;&#x7684;&#x5B89;&#x5353;&#x8FDB;&#x9636;&#x4E4B;&#x8DEF;&#xFF08;&#x6570;&#x636E;&#x5B58;&#x50A8;&#xFF09;/" title="&#x6211;&#x7684;&#x5B89;&#x5353;&#x8FDB;&#x9636;&#x4E4B;&#x8DEF;&#xFF08;&#x6570;&#x636E;&#x5B58;&#x50A8;&#xFF09;" itemprop="url">&#x6211;&#x7684;&#x5B89;&#x5353;&#x8FDB;&#x9636;&#x4E4B;&#x8DEF;&#xFF08;&#x6570;&#x636E;&#x5B58;&#x50A8;&#xFF09;</a>
+      <a href="/2018/09/10/我的安卓进阶之路（数据存储）/" title="我的安卓进阶之路（数据存储）" itemprop="url">我的安卓进阶之路（数据存储）</a>
   </h1>
   <p class="article-author">By
        
-		<a href="/about" title="&#xFFFD;&#xFFFD;" target="_blank" itemprop="author">&#xFFFD;&#xFFFD;</a>
+		<a href="/about" title="��" target="_blank" itemprop="author">��</a>
 		
-  </p><p class="article-time">
+  <p class="article-time">
     <time datetime="2018-09-10T08:10:52.000Z" itemprop="datePublished"> Published 2018-09-10</time>
     
   </p>
-</header><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+</header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1&#x3001;SQLite&#x6570;&#x636E;&#x5E93;&#x5B58;&#x50A8;"><span class="toc-number">1.</span> <span class="toc-text">1&#x3001;SQLite&#x6570;&#x636E;&#x5E93;&#x5B58;&#x50A8;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1&#x3001;&#x6570;&#x636E;&#x5E93;&#x7684;&#x521B;&#x5EFA;&#x4E0E;&#x5347;&#x7EA7;"><span class="toc-number">1.1.</span> <span class="toc-text">1&#x3001;&#x6570;&#x636E;&#x5E93;&#x7684;&#x521B;&#x5EFA;&#x4E0E;&#x5347;&#x7EA7;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2&#x3001;&#x6570;&#x636E;CRUD"><span class="toc-number">1.2.</span> <span class="toc-text">2&#x3001;&#x6570;&#x636E;CRUD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1&#x3001;&#x6DFB;&#x52A0;"><span class="toc-number">1.2.1.</span> <span class="toc-text">1&#x3001;&#x6DFB;&#x52A0;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2&#x3001;&#x66F4;&#x65B0;"><span class="toc-number">1.2.2.</span> <span class="toc-text">2&#x3001;&#x66F4;&#x65B0;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3&#x3001;&#x5220;&#x9664;"><span class="toc-number">1.2.3.</span> <span class="toc-text">3&#x3001;&#x5220;&#x9664;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4&#x3001;&#x67E5;&#x8BE2;"><span class="toc-number">1.2.4.</span> <span class="toc-text">4&#x3001;&#x67E5;&#x8BE2;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5&#x3001;&#x4F7F;&#x7528;&#x4E8B;&#x52A1;"><span class="toc-number">1.2.5.</span> <span class="toc-text">5&#x3001;&#x4F7F;&#x7528;&#x4E8B;&#x52A1;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2&#x3001;&#x6587;&#x4EF6;&#x5B58;&#x50A8;"><span class="toc-number">2.</span> <span class="toc-text">2&#x3001;&#x6587;&#x4EF6;&#x5B58;&#x50A8;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1&#x3001;&#x5B58;&#x50A8;"><span class="toc-number">2.1.</span> <span class="toc-text">1&#x3001;&#x5B58;&#x50A8;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2&#x3001;&#x8BFB;&#x53D6;"><span class="toc-number">2.2.</span> <span class="toc-text">2&#x3001;&#x8BFB;&#x53D6;</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3&#x3001;SharedPreferences&#x5B58;&#x50A8;"><span class="toc-number">3.</span> <span class="toc-text">3&#x3001;SharedPreferences&#x5B58;&#x50A8;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-&#x83B7;&#x53D6;SharedPreferences&#x5BF9;&#x8C61;"><span class="toc-number">3.1.</span> <span class="toc-text">1.&#x83B7;&#x53D6;SharedPreferences&#x5BF9;&#x8C61;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-&#x5B58;&#x50A8;&#x6570;&#x636E;"><span class="toc-number">3.2.</span> <span class="toc-text">2.&#x5B58;&#x50A8;&#x6570;&#x636E;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3&#x3001;&#x8BFB;&#x53D6;&#x6570;&#x636E;"><span class="toc-number">3.3.</span> <span class="toc-text">3&#x3001;&#x8BFB;&#x53D6;&#x6570;&#x636E;</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1、SQLite数据库存储"><span class="toc-number">1.</span> <span class="toc-text">1、SQLite数据库存储</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、数据库的创建与升级"><span class="toc-number">1.1.</span> <span class="toc-text">1、数据库的创建与升级</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、数据CRUD"><span class="toc-number">1.2.</span> <span class="toc-text">2、数据CRUD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、添加"><span class="toc-number">1.2.1.</span> <span class="toc-text">1、添加</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、更新"><span class="toc-number">1.2.2.</span> <span class="toc-text">2、更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、删除"><span class="toc-number">1.2.3.</span> <span class="toc-text">3、删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、查询"><span class="toc-number">1.2.4.</span> <span class="toc-text">4、查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、使用事务"><span class="toc-number">1.2.5.</span> <span class="toc-text">5、使用事务</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2、文件存储"><span class="toc-number">2.</span> <span class="toc-text">2、文件存储</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、存储"><span class="toc-number">2.1.</span> <span class="toc-text">1、存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、读取"><span class="toc-number">2.2.</span> <span class="toc-text">2、读取</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3、SharedPreferences存储"><span class="toc-number">3.</span> <span class="toc-text">3、SharedPreferences存储</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-获取SharedPreferences对象"><span class="toc-number">3.1.</span> <span class="toc-text">1.获取SharedPreferences对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-存储数据"><span class="toc-number">3.2.</span> <span class="toc-text">2.存储数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、读取数据"><span class="toc-number">3.3.</span> <span class="toc-text">3、读取数据</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h1 id="1&#x3001;SQLite&#x6570;&#x636E;&#x5E93;&#x5B58;&#x50A8;"><a href="#1&#x3001;SQLite&#x6570;&#x636E;&#x5E93;&#x5B58;&#x50A8;" class="headerlink" title="1&#x3001;SQLite&#x6570;&#x636E;&#x5E93;&#x5B58;&#x50A8;"></a>1&#x3001;SQLite&#x6570;&#x636E;&#x5E93;&#x5B58;&#x50A8;</h1><h2 id="1&#x3001;&#x6570;&#x636E;&#x5E93;&#x7684;&#x521B;&#x5EFA;&#x4E0E;&#x5347;&#x7EA7;"><a href="#1&#x3001;&#x6570;&#x636E;&#x5E93;&#x7684;&#x521B;&#x5EFA;&#x4E0E;&#x5347;&#x7EA7;" class="headerlink" title="1&#x3001;&#x6570;&#x636E;&#x5E93;&#x7684;&#x521B;&#x5EFA;&#x4E0E;&#x5347;&#x7EA7;"></a>1&#x3001;&#x6570;&#x636E;&#x5E93;&#x7684;&#x521B;&#x5EFA;&#x4E0E;&#x5347;&#x7EA7;</h2><p> &#xA0;&#xA0;&#xA0;&#xA0;&#x5B89;&#x5353;&#x4E13;&#x95E8;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;SQLiteOpenHelper&#x5E2E;&#x52A9;&#x7C7B;&#xFF0C;&#xFF08;&#x62BD;&#x8C61;&#x7C7B;&#xFF09;,&#x5FC5;&#x987B;&#x91CD;&#x5199;onCreate()&#x548C;onUpgrade()&#x4E24;&#x4E2A;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x3002;</p>
-<p>&#xA0;&#xA0;&#xA0;&#xA0;SQLiteOpenHelper&#x6709;&#x4E24;&#x4E2A;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#xFF0C;&#x4E00;&#x822C;&#x91CD;&#x5199;&#x56DB;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#xFF08;Context&#x3001;&#x6570;&#x636E;&#x5E93;&#x540D;&#x3001;Cursor&#x3001;&#x7248;&#x672C;&#x53F7;&#xFF09;&#x3002;&#x6570;&#x636E;&#x5E93;&#x6587;&#x4EF6;&#x4E00;&#x822C;&#x5B58;&#x653E;&#x5728;/data/data/<package name="">/databases</package></p>
-<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x4E24;&#x4E2A;&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x7684;&#x65B9;&#x6CD5;,getReadableDatabase()&#x3001;getWritableDatabase().</p>
-<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x53EF;&#x4EE5;&#x5427;&#x5EFA;&#x8868;&#x8BED;&#x53E5;&#x5B9A;&#x4E49;&#x6210;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#xFF0C;&#x7136;&#x540E;&#x518D;onCreate()&#x65B9;&#x6CD5;&#x4E2D;&#x8C03;&#x7528;&#x3002;<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public static final String CREATE_BOOK=&quot;create table Book(&quot;</span><br><span class="line">            +&quot;id integer primary key autoincrement,&quot;</span><br><span class="line">            +&quot;author text,&quot;</span><br><span class="line">            +&quot;price real,&quot;</span><br><span class="line">            +&quot;pages integer,&quot;</span><br><span class="line">            +&quot;name text,&quot;</span><br><span class="line">            +&quot;category_id integer)&quot;;</span><br></pre></td></tr></tbody></table></figure><p></p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public void onCreate(SQLiteDatabase db) {</span><br><span class="line">        db.execSQL(CREATE_BOOK);</span><br><span class="line">&#x3002;&#x3002;&#x3002;</span><br></pre></td></tr></tbody></table></figure>
-<p>&#xA0;&#xA0;&#xA0;&#xA0;sqlite3&#x52A0;&#x4E0A;&#x6570;&#x636E;&#x5E93;&#x540D;&#x6253;&#x5F00;&#x6570;&#x636E;&#x5E93;</p>
-<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x5347;&#x7EA7;&#x91C7;&#x7528;switch&#x8BED;&#x53E5;<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {</span><br><span class="line">        switch (oldVersion){</span><br><span class="line">            case 1:</span><br><span class="line">                db.execSQL(CRATE_CATEGORY);</span><br><span class="line">            case 2:</span><br><span class="line">                db.execSQL(&quot;alter table Book add column category_id integer&quot;);</span><br><span class="line">            default:</span><br><span class="line">        }</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure><p></p>
-<p>&#x4FDD;&#x8BC1;&#x8DE8;&#x7248;&#x672C;&#x5347;&#x7EA7;&#x65F6;&#x6BCF;&#x4E00;&#x6B21;&#x7684;&#x6570;&#x636E;&#x5E93;&#x4FEE;&#x6539;&#x90FD;&#x5F97;&#x5230;&#x6267;&#x884C;&#x3002;</p>
-<h2 id="2&#x3001;&#x6570;&#x636E;CRUD"><a href="#2&#x3001;&#x6570;&#x636E;CRUD" class="headerlink" title="2&#x3001;&#x6570;&#x636E;CRUD"></a>2&#x3001;&#x6570;&#x636E;CRUD</h2><h3 id="1&#x3001;&#x6DFB;&#x52A0;"><a href="#1&#x3001;&#x6DFB;&#x52A0;" class="headerlink" title="1&#x3001;&#x6DFB;&#x52A0;"></a>1&#x3001;&#x6DFB;&#x52A0;</h3><p>&#xA0;&#xA0;&#xA0;&#xA0;SQLiteDatabase&#x63D0;&#x4F9B;&#x7684;insert()&#x65B9;&#x6CD5;&#xFF0C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;&#x8868;&#x540D;&#x3001;null&#x3001;ContentValues&#x5BF9;&#x8C61;&#xFF1B;<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ContentValues values=new ContentValues();//&#x7528;&#x4E8E;&#x6DFB;&#x52A0;&#x6570;&#x636E;</span><br><span class="line">                //&#x7B2C;&#x4E00;&#x7EC4;</span><br><span class="line">                values.put(&quot;name&quot;,&quot;The Da Vincy Code&quot;);</span><br><span class="line">                values.put(&quot;author&quot;,&quot;Dan Brown&quot;);</span><br><span class="line">                values.put(&quot;price&quot;,&quot;16.96&quot;);</span><br><span class="line">                values.put(&quot;pages&quot;,453);</span><br><span class="line">                db.insert(&quot;Book&quot;,null,values);</span><br></pre></td></tr></tbody></table></figure><p></p>
-<h3 id="2&#x3001;&#x66F4;&#x65B0;"><a href="#2&#x3001;&#x66F4;&#x65B0;" class="headerlink" title="2&#x3001;&#x66F4;&#x65B0;"></a>2&#x3001;&#x66F4;&#x65B0;</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ContentValues values=new ContentValues();</span><br><span class="line">                values.put(&quot;price&quot;,10.99);</span><br><span class="line">                db.update(&quot;Book&quot;,values,&quot;name=?&quot;,new String[]{&quot;The DaVinci Code&quot;})</span><br></pre></td></tr></tbody></table></figure>
-<p>&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x5BF9;&#x5E94;SQL&#x8BED;&#x53E5;&#x7684;where&#x90E8;&#x5206;&#xFF0C;&#x8868;&#x793A;&#x53BB;&#x66F4;&#x65B0;&#x6240;&#x6709;name&#x7B49;&#x4E8E;&#x591A;&#x5C11;&#x7684;&#x884C;&#xFF0C;&#xFF1F;&#x662F;&#x4E00;&#x4E2A;&#x5360;&#x4F4D;&#x7B26;&#xFF0C;&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x8868;&#x793A;&#x5C06;&#x540D;&#x4E3A;&#x201C;The Da Vinci Code&#x201D;&#x8FD9;&#x672C;&#x4E66;&#x7684;&#x4EF7;&#x683C;&#x6539;&#x4E3A;10.99.</p>
-<h3 id="3&#x3001;&#x5220;&#x9664;"><a href="#3&#x3001;&#x5220;&#x9664;" class="headerlink" title="3&#x3001;&#x5220;&#x9664;"></a>3&#x3001;&#x5220;&#x9664;</h3><p>delete&#x65B9;&#x6CD5;&#xFF0C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.delete(&quot;Book&quot;,&quot;pages&gt;?&quot;,new String[]{&quot;500&quot;});//&#x5220;&#x9664;&#x9875;&#x6570;&#x8D85;&#x8FC7;500&#x9875;&#x7684;&#x4E66;&#x7C4D;</span><br></pre></td></tr></tbody></table></figure><p></p>
-<h3 id="4&#x3001;&#x67E5;&#x8BE2;"><a href="#4&#x3001;&#x67E5;&#x8BE2;" class="headerlink" title="4&#x3001;&#x67E5;&#x8BE2;"></a>4&#x3001;&#x67E5;&#x8BE2;</h3><p>query&#x65B9;&#x6CD5;&#xFF0C;7&#x4E2A;&#x53C2;&#x6570;&#x3002;<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Cursor cursor=db.query(&quot;Book&quot;,null,null,null,null,null,null);</span><br><span class="line">                if (cursor.moveToFirst()){</span><br><span class="line">                    do{</span><br><span class="line">                        String name=cursor.getString(cursor.getColumnIndex(&quot;name&quot;));</span><br><span class="line">                        String author=cursor.getString(cursor.getColumnIndex(&quot;author&quot;));</span><br><span class="line">                        int pages=cursor.getInt(cursor.getColumnIndex(&quot;pages&quot;));</span><br><span class="line">                        double price=cursor.getDouble(cursor.getColumnIndex(&quot;price&quot;));</span><br><span class="line">                        Log.d(&quot;MainActivity&quot;,&quot;book name is &quot;+name);</span><br><span class="line">                        Log.d(&quot;MainActivity&quot;,&quot;book author is &quot;+author);</span><br><span class="line">                        Log.d(&quot;MainActivity&quot;,&quot;book pages is &quot;+pages);</span><br><span class="line">                        Log.d(&quot;MainActivity&quot;,&quot;book price is &quot;+price);</span><br><span class="line">                    }while (cursor.moveToNext());</span><br><span class="line">                }</span><br><span class="line">                cursor.close();</span><br></pre></td></tr></tbody></table></figure><p></p>
-<p>&#x8FD9;&#x91CC;&#x9996;&#x5148;&#x5BF9;&#x6574;&#x5F20;&#x8868;&#x67E5;&#x8BE2;&#xFF0C;&#x5F97;&#x5230;&#x4E00;&#x4E2A;Cursor&#x5BF9;&#x8C61;&#xFF0C;&#x63A5;&#x7740;&#x8C03;&#x7528;cursor&#x7684;moveToFirst()&#x65B9;&#x6CD5;&#xFF0C;&#x79FB;&#x52A8;&#x5230;&#x7B2C;&#x4E00;&#x884C;&#xFF0C;&#x904D;&#x5386;&#xFF0C;&#x4F7F;&#x7528;getColumnIndex()&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x67D0;&#x4E00;&#x5217;&#x5BF9;&#x5E94;&#x7D22;&#x5F15;&#x3002;</p>
-<h3 id="5&#x3001;&#x4F7F;&#x7528;&#x4E8B;&#x52A1;"><a href="#5&#x3001;&#x4F7F;&#x7528;&#x4E8B;&#x52A1;" class="headerlink" title="5&#x3001;&#x4F7F;&#x7528;&#x4E8B;&#x52A1;"></a>5&#x3001;&#x4F7F;&#x7528;&#x4E8B;&#x52A1;</h3><p>&#xA0;&#xA0;&#xA0;&#xA0;&#x5B89;&#x5353;&#x4E2D;&#x4E8B;&#x52A1;&#x7684;&#x6807;&#x51C6;&#x7528;&#x6CD5;&#xFF0C;&#x9996;&#x5148;&#x8C03;&#x7528;SQLiteDatabase&#x7684;beginTransaction()&#x65B9;&#x6CD5;&#x6765;&#x5F00;&#x542F;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x4E00;&#x4E2A;&#x5F02;&#x5E38;&#x6355;&#x83B7;&#x7684;&#x4EE3;&#x7801;&#x5757;&#x4E2D;&#x53BB;&#x6267;&#x884C;&#x5177;&#x4F53;&#x7684;&#x6570;&#x636E;&#x5E93;&#x64CD;&#x4F5C;&#x64CD;&#x4F5C;&#x3002;&#x5F53;&#x6240;&#x6709;&#x7684;&#x64CD;&#x4F5C;&#x90FD;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#xFF0C;&#x8C03;&#x7528;setTransactionSuccessful()&#x8868;&#x793A;&#x4E8B;&#x52A1;&#x5DF2;&#x7ECF;&#x6267;&#x884C;&#x6210;&#x529F;&#x4E86;&#xFF0C;&#x6700;&#x540E;&#x5728;finally&#x4EE3;&#x7801;&#x5757;&#x4E2D;&#x8C03;&#x7528;endTransaction()&#x7ED3;&#x675F;&#x4E8B;&#x52A1;&#x3002;<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">SQLiteDatabase db=dbHelper.getWritableDatabase();</span><br><span class="line">               db.beginTransaction();//&#x5F00;&#x542F;&#x4E8B;&#x52A1;</span><br><span class="line">               try{</span><br><span class="line">                   db.delete(&quot;Book&quot;,null,null);</span><br><span class="line">                   ContentValues values=new ContentValues();</span><br><span class="line">                   values.put(&quot;name&quot;,&quot;Game of Thrones&quot;);</span><br><span class="line">                   values.put(&quot;author&quot;,&quot;Geroge Martin&quot;);</span><br><span class="line">                   values.put(&quot;pages&quot;,770);</span><br><span class="line">                   values.put(&quot;price&quot;,20.88);</span><br><span class="line">                   db.insert(&quot;Book&quot;,null,values);</span><br><span class="line">                   db.setTransactionSuccessful();</span><br><span class="line">               }catch (Exception e){</span><br><span class="line">                   e.printStackTrace();</span><br><span class="line">               }finally {</span><br><span class="line">                   db.endTransaction();//&#x7ED3;&#x675F;&#x4E8B;&#x52A1;</span><br><span class="line">               }</span><br><span class="line">           }</span><br></pre></td></tr></tbody></table></figure><p></p>
-<h1 id="2&#x3001;&#x6587;&#x4EF6;&#x5B58;&#x50A8;"><a href="#2&#x3001;&#x6587;&#x4EF6;&#x5B58;&#x50A8;" class="headerlink" title="2&#x3001;&#x6587;&#x4EF6;&#x5B58;&#x50A8;"></a>2&#x3001;&#x6587;&#x4EF6;&#x5B58;&#x50A8;</h1><h2 id="1&#x3001;&#x5B58;&#x50A8;"><a href="#1&#x3001;&#x5B58;&#x50A8;" class="headerlink" title="1&#x3001;&#x5B58;&#x50A8;"></a>1&#x3001;&#x5B58;&#x50A8;</h2><p>Context&#x7C7B;&#x63D0;&#x4F9B;&#x7684;openFileOutput()&#x65B9;&#x6CD5;&#xFF0C;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;&#x6587;&#x4EF6;&#x540D;&#x548C;&#x64CD;&#x4F5C;&#x6A21;&#x5F0F;&#xFF08;MODE_PRIVATE&#x3001;MODE_APPEND&#xFF09;&#x3002;MODE_PRIVATE&#x662F;&#x9ED8;&#x8BA4;&#x7684;&#x64CD;&#x4F5C;&#x6A21;&#x5F0F;&#xFF0C;&#x8868;&#x793A;&#x5F53;&#x6307;&#x5B9A;&#x540C;&#x6837;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x65F6;&#xFF0C;&#x6240;&#x5199;&#x5165;&#x7684;&#x5185;&#x5BB9;&#x4F1A;&#x8986;&#x76D6;&#x539F;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#xFF0C;MODE_APPEND&#x8868;&#x793A;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x5DF2;&#x5B58;&#x5728;&#xFF0C;&#x5C31;&#x5728;&#x91CC;&#x9762;&#x8FFD;&#x52A0;&#x5185;&#x5BB9;&#xFF0C;&#x4E0D;&#x5B58;&#x5728;&#x5C31;&#x521B;&#x5EFA;&#x65B0;&#x5185;&#x5BB9;&#x3002;<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public void save(){</span><br><span class="line">   String data=&quot;Data to save&quot;;</span><br><span class="line">   FileOutputStream out = null;</span><br><span class="line">   BufferedWriter writer = null;</span><br><span class="line">   try{</span><br><span class="line">       out = openFileOutput(&quot;data&quot;,Context.MODE_PRIVATE);</span><br><span class="line">       writer = new BufferedWriter(new OutputStreamWriter(out));</span><br><span class="line">       writer.writer(data);</span><br><span class="line">   }catch(IOException e){</span><br><span class="line">       e.printStackTrace();</span><br><span class="line">   }finally{</span><br><span class="line">       try{</span><br><span class="line">           if(writer!=null){</span><br><span class="line">              writer.close();</span><br><span class="line">           }</span><br><span class="line">       }catch(IOException e){</span><br><span class="line">          e.printStackTrace();</span><br><span class="line">       }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
-<p>&#x9996;&#x5148;&#x901A;&#x8FC7;openFileOutput()&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x4E00;&#x4E2A;FileOutputStreamr&#x5BF9;&#x8C61;&#xFF0C;&#x63A5;&#x7740;&#x518D;&#x4F7F;&#x7528;&#x5B83;&#x83B7;&#x53D6;&#x4E00;&#x4E2A;OutputStreamWriter&#x6784;&#x5EFA;&#x51FA;&#x4E00;&#x4E2A;BufferWriter&#x5BF9;&#x8C61;&#xFF0C;</p>
-<h2 id="2&#x3001;&#x8BFB;&#x53D6;"><a href="#2&#x3001;&#x8BFB;&#x53D6;" class="headerlink" title="2&#x3001;&#x8BFB;&#x53D6;"></a>2&#x3001;&#x8BFB;&#x53D6;</h2><p>&#x9996;&#x5148;&#x901A;&#x8FC7;openFileInput()&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x4E00;&#x4E2A;FileInputStream&#x5BF9;&#x8C61;&#x518D;&#x7528;&#x5B83;&#x6784;&#x5EFA;&#x4E00;&#x4E2A;InputStreamReader&#x5BF9;&#x8C61;&#xFF0C;&#x63A5;&#x7740;&#x518D;&#x4F7F;&#x7528;InputStreamReader&#x6784;&#x5EFA;&#x51FA;&#x4E00;&#x4E2A;BufferReader&#x5BF9;&#x8C61;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;&#x4ED6;&#x6765;&#x4E00;&#x884C;&#x4E00;&#x884C;&#x8BFB;&#x53D6;&#x3002;&#x5E76;&#x5B58;&#x653E;&#x5728;&#x4E00;&#x4E2A;StringBuilder&#x5BF9;&#x8C61;&#x4E2D;&#x3002;</p>
-<h1 id="3&#x3001;SharedPreferences&#x5B58;&#x50A8;"><a href="#3&#x3001;SharedPreferences&#x5B58;&#x50A8;" class="headerlink" title="3&#x3001;SharedPreferences&#x5B58;&#x50A8;"></a>3&#x3001;SharedPreferences&#x5B58;&#x50A8;</h1><p>&#x4F7F;&#x7528;&#x952E;&#x503C;&#x5BF9;&#x5B58;&#x50A8;</p>
-<h2 id="1-&#x83B7;&#x53D6;SharedPreferences&#x5BF9;&#x8C61;"><a href="#1-&#x83B7;&#x53D6;SharedPreferences&#x5BF9;&#x8C61;" class="headerlink" title="1.&#x83B7;&#x53D6;SharedPreferences&#x5BF9;&#x8C61;"></a>1.&#x83B7;&#x53D6;SharedPreferences&#x5BF9;&#x8C61;</h2><p>1&#x3001;Context&#x7C7B;&#x7684;getSharedPreferences()&#x65B9;&#x6CD5;&#xFF0C;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x6587;&#x4EF6;&#x540D;&#x79F0;&#x548C;&#x64CD;&#x4F5C;&#x65B9;&#x6CD5;&#xFF08;MODE_PRIVATE&#xFF09;.<br>2&#x3001; Activity&#x7C7B;&#x7684;getPreferences()&#x65B9;&#x6CD5;&#xFF0C;&#x53EA;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#x6A21;&#x5F0F;&#x53C2;&#x6570;&#x3002;&#x81EA;&#x52A8;&#x5C06;&#x5F53;&#x524D;&#x6D3B;&#x52A8;&#x7684;&#x7C7B;&#x540D;&#x4F5C;&#x4E3A;SharedPreferences&#x7684;&#x6587;&#x4EF6;&#x540D;&#x3002;<br>3&#x3001;PreferenceManager&#x7C7B;getDefaultSharedPreferences()&#x65B9;&#x6CD5;&#x3002; &#x9759;&#x6001;&#x65B9;&#x6CD5;&#x3002;&#x5B83;&#x63A5;&#x6536;&#x4E00;&#x4E2A;Context&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x81EA;&#x52A8;&#x4F7F;&#x7528;&#x5F53;&#x524D;&#x7684;&#x5305;&#x540D;&#x4F5C;&#x4E3A;&#x524D;&#x7F00;&#x6765;&#x547D;&#x540D;SharedPreferences&#x6587;&#x4EF6;&#x3002;</p>
-<h2 id="2-&#x5B58;&#x50A8;&#x6570;&#x636E;"><a href="#2-&#x5B58;&#x50A8;&#x6570;&#x636E;" class="headerlink" title="2.&#x5B58;&#x50A8;&#x6570;&#x636E;"></a>2.&#x5B58;&#x50A8;&#x6570;&#x636E;</h2><p>   1&#x3001;&#x8C03;&#x7528;SharedPreferences&#x5BF9;&#x8C61;&#x7684;edit()&#x65B9;&#x6CD5;&#x6765;&#x83B7;&#x53D6;&#x4E00;&#x4E2A;sharedPreferences.Editor&#x5BF9;&#x8C61;&#x3002;<br>   2&#x3001;&#x5411;SharedPreferences.Editor&#x5BF9;&#x8C61;&#x4E2D;&#x6DFB;&#x52A0;&#x6570;&#x636E;&#xFF0C;&#x6BD4;&#x5982;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x5C31;&#x7528;putString()&#x65B9;&#x6CD5;&#xFF0C;&#x4EE5;&#x6B64;&#x7C7B;&#x63A8;&#x3002;<br>   3&#x3001;&#x8C03;&#x7528;apply&#xFF08;&#xFF09;&#x65B9;&#x6CD5;&#x5C06;&#x6570;&#x636E;&#x63D0;&#x4EA4;&#x3002;&#x6216;commit&#x65B9;&#x6CD5;.</p>
-<h2 id="3&#x3001;&#x8BFB;&#x53D6;&#x6570;&#x636E;"><a href="#3&#x3001;&#x8BFB;&#x53D6;&#x6570;&#x636E;" class="headerlink" title="3&#x3001;&#x8BFB;&#x53D6;&#x6570;&#x636E;"></a>3&#x3001;&#x8BFB;&#x53D6;&#x6570;&#x636E;</h2><p>   &#x4F7F;&#x7528;&#x4E00;&#x4E9B;&#x5217;get&#x65B9;&#x6CD5;&#xFF0C;&#x5747;&#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x4E00;&#x4E2A;&#x952E;&#x548C;&#x9ED8;&#x8BA4;&#x503C;&#xFF08;&#x4F20;&#x5165;&#x7684;&#x952E;&#x627E;&#x4E0D;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x503C;&#x65F6;&#xFF0C;&#x4EE5;&#x8BE5;&#x9ED8;&#x8BA4;&#x503C;&#x8FD4;&#x56DE;&#xFF09;&#x3002;<br>//CheckBox &#x7528;&#x6237;&#x901A;&#x8FC7;&#x70B9;&#x51FB;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x9009;&#x4E2D;&#x548C;&#x53D6;&#x6D88;&#x3002;</p>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>  
+		<h1 id="1、SQLite数据库存储"><a href="#1、SQLite数据库存储" class="headerlink" title="1、SQLite数据库存储"></a>1、SQLite数据库存储</h1><h2 id="1、数据库的创建与升级"><a href="#1、数据库的创建与升级" class="headerlink" title="1、数据库的创建与升级"></a>1、数据库的创建与升级</h2><p> &nbsp;&nbsp;&nbsp;&nbsp;安卓专门提供了一个SQLiteOpenHelper帮助类，（抽象类）,必须重写onCreate()和onUpgrade()两个抽象方法。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;SQLiteOpenHelper有两个构造方法，一般重写四个参数的（Context、数据库名、Cursor、版本号）。数据库文件一般存放在/data/data/<package name="">/databases</package></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;两个创建数据库的方法,getReadableDatabase()、getWritableDatabase().</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;可以吧建表语句定义成一个字符串常量，然后再onCreate()方法中调用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public static final String CREATE_BOOK=&quot;create table Book(&quot;</span><br><span class="line">            +&quot;id integer primary key autoincrement,&quot;</span><br><span class="line">            +&quot;author text,&quot;</span><br><span class="line">            +&quot;price real,&quot;</span><br><span class="line">            +&quot;pages integer,&quot;</span><br><span class="line">            +&quot;name text,&quot;</span><br><span class="line">            +&quot;category_id integer)&quot;;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public void onCreate(SQLiteDatabase db) &#123;</span><br><span class="line">        db.execSQL(CREATE_BOOK);</span><br><span class="line">。。。</span><br></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;sqlite3加上数据库名打开数据库</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;升级采用switch语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) &#123;</span><br><span class="line">        switch (oldVersion)&#123;</span><br><span class="line">            case 1:</span><br><span class="line">                db.execSQL(CRATE_CATEGORY);</span><br><span class="line">            case 2:</span><br><span class="line">                db.execSQL(&quot;alter table Book add column category_id integer&quot;);</span><br><span class="line">            default:</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>保证跨版本升级时每一次的数据库修改都得到执行。</p>
+<h2 id="2、数据CRUD"><a href="#2、数据CRUD" class="headerlink" title="2、数据CRUD"></a>2、数据CRUD</h2><h3 id="1、添加"><a href="#1、添加" class="headerlink" title="1、添加"></a>1、添加</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;SQLiteDatabase提供的insert()方法，三个参数：表名、null、ContentValues对象；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ContentValues values=new ContentValues();//用于添加数据</span><br><span class="line">                //第一组</span><br><span class="line">                values.put(&quot;name&quot;,&quot;The Da Vincy Code&quot;);</span><br><span class="line">                values.put(&quot;author&quot;,&quot;Dan Brown&quot;);</span><br><span class="line">                values.put(&quot;price&quot;,&quot;16.96&quot;);</span><br><span class="line">                values.put(&quot;pages&quot;,453);</span><br><span class="line">                db.insert(&quot;Book&quot;,null,values);</span><br></pre></td></tr></table></figure></p>
+<h3 id="2、更新"><a href="#2、更新" class="headerlink" title="2、更新"></a>2、更新</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ContentValues values=new ContentValues();</span><br><span class="line">                values.put(&quot;price&quot;,10.99);</span><br><span class="line">                db.update(&quot;Book&quot;,values,&quot;name=?&quot;,new String[]&#123;&quot;The DaVinci Code&quot;&#125;)</span><br></pre></td></tr></table></figure>
+<p>第三个参数对应SQL语句的where部分，表示去更新所有name等于多少的行，？是一个占位符，上述代码表示将名为“The Da Vinci Code”这本书的价格改为10.99.</p>
+<h3 id="3、删除"><a href="#3、删除" class="headerlink" title="3、删除"></a>3、删除</h3><p>delete方法，三个参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.delete(&quot;Book&quot;,&quot;pages&gt;?&quot;,new String[]&#123;&quot;500&quot;&#125;);//删除页数超过500页的书籍</span><br></pre></td></tr></table></figure></p>
+<h3 id="4、查询"><a href="#4、查询" class="headerlink" title="4、查询"></a>4、查询</h3><p>query方法，7个参数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Cursor cursor=db.query(&quot;Book&quot;,null,null,null,null,null,null);</span><br><span class="line">                if (cursor.moveToFirst())&#123;</span><br><span class="line">                    do&#123;</span><br><span class="line">                        String name=cursor.getString(cursor.getColumnIndex(&quot;name&quot;));</span><br><span class="line">                        String author=cursor.getString(cursor.getColumnIndex(&quot;author&quot;));</span><br><span class="line">                        int pages=cursor.getInt(cursor.getColumnIndex(&quot;pages&quot;));</span><br><span class="line">                        double price=cursor.getDouble(cursor.getColumnIndex(&quot;price&quot;));</span><br><span class="line">                        Log.d(&quot;MainActivity&quot;,&quot;book name is &quot;+name);</span><br><span class="line">                        Log.d(&quot;MainActivity&quot;,&quot;book author is &quot;+author);</span><br><span class="line">                        Log.d(&quot;MainActivity&quot;,&quot;book pages is &quot;+pages);</span><br><span class="line">                        Log.d(&quot;MainActivity&quot;,&quot;book price is &quot;+price);</span><br><span class="line">                    &#125;while (cursor.moveToNext());</span><br><span class="line">                &#125;</span><br><span class="line">                cursor.close();</span><br></pre></td></tr></table></figure></p>
+<p>这里首先对整张表查询，得到一个Cursor对象，接着调用cursor的moveToFirst()方法，移动到第一行，遍历，使用getColumnIndex()方法获取某一列对应索引。</p>
+<h3 id="5、使用事务"><a href="#5、使用事务" class="headerlink" title="5、使用事务"></a>5、使用事务</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;安卓中事务的标准用法，首先调用SQLiteDatabase的beginTransaction()方法来开启一个事务，然后在一个异常捕获的代码块中去执行具体的数据库操作操作。当所有的操作都完成之后，调用setTransactionSuccessful()表示事务已经执行成功了，最后在finally代码块中调用endTransaction()结束事务。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">SQLiteDatabase db=dbHelper.getWritableDatabase();</span><br><span class="line">               db.beginTransaction();//开启事务</span><br><span class="line">               try&#123;</span><br><span class="line">                   db.delete(&quot;Book&quot;,null,null);</span><br><span class="line">                   ContentValues values=new ContentValues();</span><br><span class="line">                   values.put(&quot;name&quot;,&quot;Game of Thrones&quot;);</span><br><span class="line">                   values.put(&quot;author&quot;,&quot;Geroge Martin&quot;);</span><br><span class="line">                   values.put(&quot;pages&quot;,770);</span><br><span class="line">                   values.put(&quot;price&quot;,20.88);</span><br><span class="line">                   db.insert(&quot;Book&quot;,null,values);</span><br><span class="line">                   db.setTransactionSuccessful();</span><br><span class="line">               &#125;catch (Exception e)&#123;</span><br><span class="line">                   e.printStackTrace();</span><br><span class="line">               &#125;finally &#123;</span><br><span class="line">                   db.endTransaction();//结束事务</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="2、文件存储"><a href="#2、文件存储" class="headerlink" title="2、文件存储"></a>2、文件存储</h1><h2 id="1、存储"><a href="#1、存储" class="headerlink" title="1、存储"></a>1、存储</h2><p>Context类提供的openFileOutput()方法，两个参数：文件名和操作模式（MODE_PRIVATE、MODE_APPEND）。MODE_PRIVATE是默认的操作模式，表示当指定同样的文件名时，所写入的内容会覆盖原文件的内容，MODE_APPEND表示如果文件已存在，就在里面追加内容，不存在就创建新内容。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public void save()&#123;</span><br><span class="line">   String data=&quot;Data to save&quot;;</span><br><span class="line">   FileOutputStream out = null;</span><br><span class="line">   BufferedWriter writer = null;</span><br><span class="line">   try&#123;</span><br><span class="line">       out = openFileOutput(&quot;data&quot;,Context.MODE_PRIVATE);</span><br><span class="line">       writer = new BufferedWriter(new OutputStreamWriter(out));</span><br><span class="line">       writer.writer(data);</span><br><span class="line">   &#125;catch(IOException e)&#123;</span><br><span class="line">       e.printStackTrace();</span><br><span class="line">   &#125;finally&#123;</span><br><span class="line">       try&#123;</span><br><span class="line">           if(writer!=null)&#123;</span><br><span class="line">              writer.close();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;catch(IOException e)&#123;</span><br><span class="line">          e.printStackTrace();</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>首先通过openFileOutput()方法获取一个FileOutputStreamr对象，接着再使用它获取一个OutputStreamWriter构建出一个BufferWriter对象，</p>
+<h2 id="2、读取"><a href="#2、读取" class="headerlink" title="2、读取"></a>2、读取</h2><p>首先通过openFileInput()方法获取一个FileInputStream对象再用它构建一个InputStreamReader对象，接着再使用InputStreamReader构建出一个BufferReader对象，然后通过他来一行一行读取。并存放在一个StringBuilder对象中。</p>
+<h1 id="3、SharedPreferences存储"><a href="#3、SharedPreferences存储" class="headerlink" title="3、SharedPreferences存储"></a>3、SharedPreferences存储</h1><p>使用键值对存储</p>
+<h2 id="1-获取SharedPreferences对象"><a href="#1-获取SharedPreferences对象" class="headerlink" title="1.获取SharedPreferences对象"></a>1.获取SharedPreferences对象</h2><p>1、Context类的getSharedPreferences()方法，两个参数，文件名称和操作方法（MODE_PRIVATE）.<br>2、 Activity类的getPreferences()方法，只接收一个操作模式参数。自动将当前活动的类名作为SharedPreferences的文件名。<br>3、PreferenceManager类getDefaultSharedPreferences()方法。 静态方法。它接收一个Context参数，并自动使用当前的包名作为前缀来命名SharedPreferences文件。</p>
+<h2 id="2-存储数据"><a href="#2-存储数据" class="headerlink" title="2.存储数据"></a>2.存储数据</h2><p>   1、调用SharedPreferences对象的edit()方法来获取一个sharedPreferences.Editor对象。<br>   2、向SharedPreferences.Editor对象中添加数据，比如添加一个字符串就用putString()方法，以此类推。<br>   3、调用apply（）方法将数据提交。或commit方法.</p>
+<h2 id="3、读取数据"><a href="#3、读取数据" class="headerlink" title="3、读取数据"></a>3、读取数据</h2><p>   使用一些列get方法，均接收两个参数，一个键和默认值（传入的键找不到对应的值时，以该默认值返回）。<br>//CheckBox 用户通过点击的方式来选中和取消。</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/&#x5B89;&#x5353;/">&#x5B89;&#x5353;</a>
+  <a class="article-category-link" href="/categories/安卓/">安卓</a>
 </div>
 
 
 </div>
 
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/09/10/&#x6211;&#x7684;&#x5B89;&#x5353;&#x8FDB;&#x9636;&#x4E4B;&#x8DEF;&#xFF08;&#x6570;&#x636E;&#x5B58;&#x50A8;&#xFF09;/" data-title="&#x6211;&#x7684;&#x5B89;&#x5353;&#x8FDB;&#x9636;&#x4E4B;&#x8DEF;&#xFF08;&#x6570;&#x636E;&#x5B58;&#x50A8;&#xFF09; | like a bird" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/09/10/我的安卓进阶之路（数据存储）/" data-title="我的安卓进阶之路（数据存储） | like a bird" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -144,37 +148,41 @@
 
 </footer>
 
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>   	       
+   	       
 	</article>
-	<nav class="article-nav clearfix">
+	
+<nav class="article-nav clearfix">
  
- <div class="prev">
- <a href="/2018/10/03/&#x61F5;&#x903C;&#x7684;if&#x8BED;&#x53E5;/" title="&#x61F5;&#x903C;&#x7684;if&#x8BED;&#x53E5;">
-  <strong>&#x4E0A;&#x4E00;&#x7BC7;&#xFF1A;</strong><br>
+ <div class="prev" >
+ <a href="/2018/10/03/懵逼的if语句/" title="懵逼的if语句">
+  <strong>上一篇：</strong><br/>
   <span>
-  &#x61F5;&#x903C;&#x7684;if&#x8BED;&#x53E5;</span>
+  懵逼的if语句</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2018/06/10/&#x961F;&#x5217;&#x89E3;&#x51B3;&#x7EA6;&#x745F;&#x592B;&#x95EE;&#x9898;/" title="&#x961F;&#x5217;&#x89E3;&#x51B3;&#x7EA6;&#x745F;&#x592B;&#x95EE;&#x9898;">
- <strong>&#x4E0B;&#x4E00;&#x7BC7;&#xFF1A;</strong><br> 
- <span>&#x961F;&#x5217;&#x89E3;&#x51B3;&#x7EA6;&#x745F;&#x592B;&#x95EE;&#x9898;
+<a href="/2018/06/10/队列解决约瑟夫问题/"  title="队列解决约瑟夫问题">
+ <strong>下一篇：</strong><br/> 
+ <span>队列解决约瑟夫问题
 </span>
 </a>
 </div>
 
 </nav>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
-	<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
-</div>  <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
+	
+
+
+
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1&#x3001;SQLite&#x6570;&#x636E;&#x5E93;&#x5B58;&#x50A8;"><span class="toc-number">1.</span> <span class="toc-text">1&#x3001;SQLite&#x6570;&#x636E;&#x5E93;&#x5B58;&#x50A8;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1&#x3001;&#x6570;&#x636E;&#x5E93;&#x7684;&#x521B;&#x5EFA;&#x4E0E;&#x5347;&#x7EA7;"><span class="toc-number">1.1.</span> <span class="toc-text">1&#x3001;&#x6570;&#x636E;&#x5E93;&#x7684;&#x521B;&#x5EFA;&#x4E0E;&#x5347;&#x7EA7;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2&#x3001;&#x6570;&#x636E;CRUD"><span class="toc-number">1.2.</span> <span class="toc-text">2&#x3001;&#x6570;&#x636E;CRUD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1&#x3001;&#x6DFB;&#x52A0;"><span class="toc-number">1.2.1.</span> <span class="toc-text">1&#x3001;&#x6DFB;&#x52A0;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2&#x3001;&#x66F4;&#x65B0;"><span class="toc-number">1.2.2.</span> <span class="toc-text">2&#x3001;&#x66F4;&#x65B0;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3&#x3001;&#x5220;&#x9664;"><span class="toc-number">1.2.3.</span> <span class="toc-text">3&#x3001;&#x5220;&#x9664;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4&#x3001;&#x67E5;&#x8BE2;"><span class="toc-number">1.2.4.</span> <span class="toc-text">4&#x3001;&#x67E5;&#x8BE2;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5&#x3001;&#x4F7F;&#x7528;&#x4E8B;&#x52A1;"><span class="toc-number">1.2.5.</span> <span class="toc-text">5&#x3001;&#x4F7F;&#x7528;&#x4E8B;&#x52A1;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2&#x3001;&#x6587;&#x4EF6;&#x5B58;&#x50A8;"><span class="toc-number">2.</span> <span class="toc-text">2&#x3001;&#x6587;&#x4EF6;&#x5B58;&#x50A8;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1&#x3001;&#x5B58;&#x50A8;"><span class="toc-number">2.1.</span> <span class="toc-text">1&#x3001;&#x5B58;&#x50A8;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2&#x3001;&#x8BFB;&#x53D6;"><span class="toc-number">2.2.</span> <span class="toc-text">2&#x3001;&#x8BFB;&#x53D6;</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3&#x3001;SharedPreferences&#x5B58;&#x50A8;"><span class="toc-number">3.</span> <span class="toc-text">3&#x3001;SharedPreferences&#x5B58;&#x50A8;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-&#x83B7;&#x53D6;SharedPreferences&#x5BF9;&#x8C61;"><span class="toc-number">3.1.</span> <span class="toc-text">1.&#x83B7;&#x53D6;SharedPreferences&#x5BF9;&#x8C61;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-&#x5B58;&#x50A8;&#x6570;&#x636E;"><span class="toc-number">3.2.</span> <span class="toc-text">2.&#x5B58;&#x50A8;&#x6570;&#x636E;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3&#x3001;&#x8BFB;&#x53D6;&#x6570;&#x636E;"><span class="toc-number">3.3.</span> <span class="toc-text">3&#x3001;&#x8BFB;&#x53D6;&#x6570;&#x636E;</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1、SQLite数据库存储"><span class="toc-number">1.</span> <span class="toc-text">1、SQLite数据库存储</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、数据库的创建与升级"><span class="toc-number">1.1.</span> <span class="toc-text">1、数据库的创建与升级</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、数据CRUD"><span class="toc-number">1.2.</span> <span class="toc-text">2、数据CRUD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、添加"><span class="toc-number">1.2.1.</span> <span class="toc-text">1、添加</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、更新"><span class="toc-number">1.2.2.</span> <span class="toc-text">2、更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、删除"><span class="toc-number">1.2.3.</span> <span class="toc-text">3、删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、查询"><span class="toc-number">1.2.4.</span> <span class="toc-text">4、查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、使用事务"><span class="toc-number">1.2.5.</span> <span class="toc-text">5、使用事务</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2、文件存储"><span class="toc-number">2.</span> <span class="toc-text">2、文件存储</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、存储"><span class="toc-number">2.1.</span> <span class="toc-text">1、存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、读取"><span class="toc-number">2.2.</span> <span class="toc-text">2、读取</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3、SharedPreferences存储"><span class="toc-number">3.</span> <span class="toc-text">3、SharedPreferences存储</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-获取SharedPreferences对象"><span class="toc-number">3.1.</span> <span class="toc-text">1.获取SharedPreferences对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-存储数据"><span class="toc-number">3.2.</span> <span class="toc-text">2.存储数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、读取数据"><span class="toc-number">3.3.</span> <span class="toc-text">3、读取数据</span></a></li></ol></li></ol>
  
   </div>
 
@@ -182,9 +190,11 @@
 <div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
-  <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+  
 
-  <div class="categorieslist">
+
+  
+<div class="categorieslist">
 	<p class="asidetitle">Categories</p>
 		<ul>
 		
@@ -205,22 +215,23 @@
 		  
 		
 		  
-			<li><a href="/categories/&#x5B89;&#x5353;/" title="&#x5B89;&#x5353;">&#x5B89;&#x5353;<sup>1</sup></a></li>
+			<li><a href="/categories/安卓/" title="安卓">安卓<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/&#x642D;&#x5EFA;&#x535A;&#x5BA2;&#x4E0E;&#x53D1;&#x6587;/" title="&#x642D;&#x5EFA;&#x535A;&#x5BA2;&#x4E0E;&#x53D1;&#x6587;">&#x642D;&#x5EFA;&#x535A;&#x5BA2;&#x4E0E;&#x53D1;&#x6587;<sup>1</sup></a></li>
+			<li><a href="/categories/搭建博客与发文/" title="搭建博客与发文">搭建博客与发文<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/&#x6C47;&#x7F16;&#x8BED;&#x8A00;/" title="&#x6C47;&#x7F16;&#x8BED;&#x8A00;">&#x6C47;&#x7F16;&#x8BED;&#x8A00;<sup>1</sup></a></li>
+			<li><a href="/categories/汇编语言/" title="汇编语言">汇编语言<sup>1</sup></a></li>
 		  
 		
 		</ul>
 </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
 
-  <div class="tagslist">
+
+  
+<div class="tagslist">
 	<p class="asidetitle">Tags</p>
 		<ul class="clearfix">
 		
@@ -237,16 +248,16 @@
 			
 		
 			
-				<li><a href="/tags/&#x57FA;&#x7840;/" title="&#x57FA;&#x7840;">&#x57FA;&#x7840;<sup>1</sup></a></li>
+				<li><a href="/tags/基础/" title="基础">基础<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/&#x6C47;&#x7F16;/" title="&#x6C47;&#x7F16;">&#x6C47;&#x7F16;<sup>1</sup></a></li>
+				<li><a href="/tags/汇编/" title="汇编">汇编<sup>1</sup></a></li>
 			
 		
 		</ul>
 </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
 
   <div class="linkslist">
   <p class="asidetitle">Links</p>
@@ -254,29 +265,30 @@
         
           <li>
             
-            	<a href="https://coderq.com" target="_blank" title="&#x4E00;&#x4E2A;&#x9762;&#x5411;&#x7A0B;&#x5E8F;&#x5458;&#x4EA4;&#x6D41;&#x5206;&#x4EAB;&#x7684;&#x65B0;&#x4E00;&#x4EE3;&#x793E;&#x533A;">&#x7801;&#x519C;&#x5708;</a>
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
             
           </li>
         
     </ul>
-</div><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+</div>
 
-  <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+  
+
 
   <div class="rsspart">
 	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
-</div><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+</div>
 
   <div class="weiboshow">
   <p class="asidetitle">Weibo</p>
-    <iframe width="100%" height="119" class="share_self" frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&amp;width=0&amp;height=119&amp;fansRow=2&amp;ptype=1&amp;speed=0&amp;skin=9&amp;isTitle=1&amp;noborder=1&amp;isWeibo=0&amp;isFans=0&amp;uid=&amp;verifier=&amp;dpc=1"></iframe>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
 </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
 
 </aside>
-</div><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+</div>
     </div>
-    <footer><div id="footer">
+    <footer><div id="footer" >
 	
 	<div class="line">
 		<span></span>
@@ -285,11 +297,11 @@
 	
 	
 	<section class="info">
-		<p> Hello . <br>
+		<p> Hello . <br/>
 			This is my blog,believe it or not.</p>
 	</section>
 	 
-	<div class="social-font">
+	<div class="social-font" class="clearfix">
 		
 		
 		
@@ -305,14 +317,14 @@
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> &#xA9; 2018 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
 		
-		<a href="/about" target="_blank" title="&#xFFFD;&#xFFFD;">&#xFFFD;&#xFFFD;</a>
+		<a href="/about" target="_blank" title="��">��</a>
 		
 		
 		</p>
 </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></footer>
+</footer>
     <script src="/js/jquery-2.0.3.min.js"></script>
 <script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
@@ -475,6 +487,9 @@ $(document).ready(function(){
 
 
 <!-- Analytics Begin -->
+
+
+
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -486,25 +501,27 @@ var _hmt = _hmt || [];
 </script>
 
 
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
 
+<!-- Analytics End -->
 
+<!-- Totop Begin -->
 
-<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"></a>
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
 
 
+<!-- MathJax End -->
 
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+<!-- Tiny_search Begin -->
 
+<!-- Tiny_search End -->
 
-
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
-
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
-  
-
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></body></html><!-- Analytics End --><!-- Totop Begin --><!-- Totop End --><!-- MathJax Begin --><!-- mathjax config similar to math.stackexchange --><!-- MathJax End --><!-- Tiny_search Begin --><!-- Tiny_search End -->
+  </body>
+</html>
