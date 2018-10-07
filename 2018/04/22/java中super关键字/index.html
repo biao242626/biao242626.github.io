@@ -1,0 +1,482 @@
+<!DOCTYPE html><html lang="zh-Hans"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="like a bird">
+    <title>java&#x4E2D;super&#x5173;&#x952E;&#x5B57; - like a bird</title>
+    <meta name="author" content="&#xFFFD;&#xFFFD;">
+    
+    
+    
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"��","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"articleBody":"super &#x662F;&#x6307;&#x5F53;&#x524D;&#x7C7B;&#x6216;&#x5BF9;&#x8C61;&#x7684;&#x76F4;&#x63A5;&#x7236;&#x7C7B;&#x6216;&#x7236;&#x7C7B;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;\n#1.&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x3002;\n1super&#xFF08;[&#x53C2;&#x6570;&#x5217;&#x8868;]);\n &#x5B50;&#x7C7B;&#x4E2D;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x603B;&#x662F;&#x5148;&#x663E;&#x5F0F;&#x6216;&#x9690;&#x5F0F;&#x7684;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x4ECE;&#x800C;&#x521D;&#x59CB;&#x5316;&#x5B50;&#x7C7B;&#x4E2D;&#x7EE7;&#x627F;&#x7684;&#x7236;&#x7C7B;&#x6210;&#x5458;&#x3002;\n#2.&#x8BBF;&#x95EE;&#x88AB;&#x9690;&#x85CF;&#x7684;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x548C;&#x88AB;&#x91CD;&#x5199;&#x7684;&#x65B9;&#x6CD5;&#x3002;12super.&#x5C5E;&#x6027;&#x540D;&#xFF1B;super.&#x65B9;&#x6CD5;&#x540D;([&#x53C2;&#x6570;&#x5217;&#x8868;]);\n&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;&#x521B;&#x5EFA;&#x7236;&#x7C7B;Book12345678910pacage create;public class Book{   public String name;   public Book(){      System.out.println(&quot;&#x7236;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&quot;);    }   public void read(){      System.out.println(&quot;&#x5728;&#x7236;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#x4E2D;:&#x8BFB;&#x4E66;&quot;);    }}\n&#x521B;&#x5EFA;&#x5B50;&#x7C7B;Text1234567891011121314pacage create;public class Text extends Book{  public String name;  public Text(String name){    super();//&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;    this.name=name;    System.out.println(&quot;&#x5B50;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&quot;);  }  public void read(){    System.out.println(&quot;&#x5728;&#x5B50;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#x4E2D;&#xFF1A;&#x8BFB;&#x4E66;&quot;);    super.name=&quot;father&quot;;    System.out.println(&quot;&#x5728;&#x5B50;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#x4E2D;&#x8F93;&#x51FA;&#x7236;&#x7C7B;&#x7684;name&quot;+super.name);  }}\n&#x6D4B;&#x8BD5;12345678pacage create;public class Test{  public void main(String[] args){    Text t=new Text(&quot;child&quot;);//&#x521B;&#x5EFA;&#x5B50;&#x7C7B;&#x5BF9;&#x8C61;&#xFF0C;&#x8C03;&#x7528;&#x5B50;&#x7C7B;&#x6784;&#x9020;&#x65B9;&#x6CD5;    System.out.println(&quot;&#x8C03;&#x7528;&#x5B50;&#x7C7B;&#x7684;name:&quot;+t.name);    t.read();    }}\n&#x8FD0;&#x884C;&#x793A;&#x4F8B;\n#3.&#x6CE8;&#x610F;&#x7684;&#x95EE;&#x9898;  &#x5728;&#x8C03;&#x7528;super&#x5173;&#x952E;&#x5B57;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5E94;&#x5F53;&#x628A;&#x4ED6;&#x653E;&#x5728;&#x5B50;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x6700;&#x524D;&#x9762;&#x3002;  &#x8FD9;&#x6837;&#x7F16;&#x8BD1;&#x5668;&#x4F1A;&#x63D0;&#x793A;&#x201D;Constructor call must be the first statement in a constrctor&#x201D;&#x7684;&#x62A5;&#x9519;&#x3002;\nL2Dwidget.init({});","dateCreated":"2018-04-22T20:48:26+08:00","dateModified":"2018-04-22T21:32:23+08:00","datePublished":"2018-04-22T20:48:26+08:00","description":"","headline":"java中super关键字","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2018/04/22/java中super关键字/"},"publisher":{"@type":"Organization","name":"��","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"url":"http://yoursite.com/2018/04/22/java中super关键字/"}</script>
+    <meta name="description" content="super &amp;#x662F;&amp;#x6307;&amp;#x5F53;&amp;#x524D;&amp;#x7C7B;&amp;#x6216;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x76F4;&amp;#x63A5;&amp;#x7236;&amp;#x7C7B;&amp;#x6216;&amp;#x7236;&amp;#x7C7B;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x5F15;&amp;#x7528; #1.&amp;#x8C03;&amp;#x7528;&amp;#x723">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="java&#x4E2D;super&#x5173;&#x952E;&#x5B57;">
+<meta property="og:url" content="http://yoursite.com/2018/04/22/java&#x4E2D;super&#x5173;&#x952E;&#x5B57;/index.html">
+<meta property="og:site_name" content="like a bird">
+<meta property="og:description" content="super &amp;#x662F;&amp;#x6307;&amp;#x5F53;&amp;#x524D;&amp;#x7C7B;&amp;#x6216;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x76F4;&amp;#x63A5;&amp;#x7236;&amp;#x7C7B;&amp;#x6216;&amp;#x7236;&amp;#x7C7B;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x5F15;&amp;#x7528; #1.&amp;#x8C03;&amp;#x7528;&amp;#x723">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/YiWlt8M.png">
+<meta property="og:image" content="https://i.imgur.com/3zKkUvZ.png">
+<meta property="og:updated_time" content="2018-04-22T13:32:23.519Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java&#x4E2D;super&#x5173;&#x952E;&#x5B57;">
+<meta name="twitter:description" content="super &amp;#x662F;&amp;#x6307;&amp;#x5F53;&amp;#x524D;&amp;#x7C7B;&amp;#x6216;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x76F4;&amp;#x63A5;&amp;#x7236;&amp;#x7C7B;&amp;#x6216;&amp;#x7236;&amp;#x7C7B;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x5F15;&amp;#x7528; #1.&amp;#x8C03;&amp;#x7528;&amp;#x723">
+<meta name="twitter:image" content="https://i.imgur.com/YiWlt8M.png">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/all.css">
+    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="/assets/css/thumbs.css">
+    <link rel="stylesheet" href="/assets/css/tranquilpeak.css">
+    <!--STYLES END-->
+    </head><body><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+    <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+    
+        <div id="blog">
+            <!-- Define author's picture --><header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/ ">like a bird</a>
+    </div>
+    
+        
+            <a class="header-right-picture " href="#about">
+        
+        
+        </a>
+    
+</header>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            <nav id="sidebar" data-behavior="4">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/ " title="Home">
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" title="Kategorien">
+                    
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Kategorien</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-tags" title="Tags">
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-archives" title="Archiv">
+                    
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archiv</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link open-algolia-search" href="#search" title="Suche">
+                    
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Suche</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="#about" title="&#xDC;ber">
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">&#xDC;ber</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/" target="_blank" rel="noopener" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="http://stackoverflow.com/users" target="_blank" rel="noopener" title="Stack Overflow">
+                    
+                        <i class="sidebar-button-icon fab fa-stack-overflow" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Stack Overflow</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://twitter.com/" target="_blank" rel="noopener" title="Twitter">
+                    
+                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Twitter</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://facebook.com/" target="_blank" rel="noopener" title="Facebook">
+                    
+                        <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Facebook</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://plus.google.com/" target="_blank" rel="noopener" title="Google Plus">
+                    
+                        <i class="sidebar-button-icon fab fa-google-plus" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Google Plus</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://www.linkedin.com/profile/" target="_blank" rel="noopener" title="LinkedIn">
+                    
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/mailto" title="E-Mail">
+                    
+                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">E-Mail</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/atom.xml" title="RSS">
+                    
+                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            <div id="main" data-behavior="4" class="
+                        hasCoverMetaIn
+                        ">
+                <article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            java&#x4E2D;super&#x5173;&#x952E;&#x5B57;
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2018-04-22T20:48:26+08:00">
+	
+		    22 Apr 2018
+    	
+    </time>
+    
+        <span>in </span>
+        <a class="category-link" href="/categories/Java/">Java</a>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+    
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+    
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <p><strong>super &#x662F;&#x6307;&#x5F53;&#x524D;&#x7C7B;&#x6216;&#x5BF9;&#x8C61;&#x7684;&#x76F4;&#x63A5;&#x7236;&#x7C7B;&#x6216;&#x7236;&#x7C7B;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;</strong></p>
+<p>#1.&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x3002;</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">super&#xFF08;[&#x53C2;&#x6570;&#x5217;&#x8868;]);</span><br></pre></td></tr></tbody></table></figure>
+<p> <strong>&#x5B50;&#x7C7B;&#x4E2D;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x603B;&#x662F;&#x5148;&#x663E;&#x5F0F;&#x6216;&#x9690;&#x5F0F;&#x7684;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x4ECE;&#x800C;&#x521D;&#x59CB;&#x5316;&#x5B50;&#x7C7B;&#x4E2D;&#x7EE7;&#x627F;&#x7684;&#x7236;&#x7C7B;&#x6210;&#x5458;&#x3002;</strong></p>
+<p>#2.&#x8BBF;&#x95EE;&#x88AB;&#x9690;&#x85CF;&#x7684;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x548C;&#x88AB;&#x91CD;&#x5199;&#x7684;&#x65B9;&#x6CD5;&#x3002;<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">super.&#x5C5E;&#x6027;&#x540D;&#xFF1B;</span><br><span class="line">super.&#x65B9;&#x6CD5;&#x540D;([&#x53C2;&#x6570;&#x5217;&#x8868;]);</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;<br><strong>&#x521B;&#x5EFA;&#x7236;&#x7C7B;Book</strong><br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">pacage create;</span><br><span class="line">public class Book{</span><br><span class="line">   public String name;</span><br><span class="line">   public Book(){</span><br><span class="line">      System.out.println(&quot;&#x7236;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&quot;);</span><br><span class="line">    }</span><br><span class="line">   public void read(){</span><br><span class="line">      System.out.println(&quot;&#x5728;&#x7236;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#x4E2D;:&#x8BFB;&#x4E66;&quot;);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p><strong>&#x521B;&#x5EFA;&#x5B50;&#x7C7B;Text</strong><br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">pacage create;</span><br><span class="line">public class Text extends Book{</span><br><span class="line">  public String name;</span><br><span class="line">  public Text(String name){</span><br><span class="line">    super();//&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;</span><br><span class="line">    this.name=name;</span><br><span class="line">    System.out.println(&quot;&#x5B50;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&quot;);</span><br><span class="line">  }</span><br><span class="line">  public void read(){</span><br><span class="line">    System.out.println(&quot;&#x5728;&#x5B50;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#x4E2D;&#xFF1A;&#x8BFB;&#x4E66;&quot;);</span><br><span class="line">    super.name=&quot;father&quot;;</span><br><span class="line">    System.out.println(&quot;&#x5728;&#x5B50;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#x4E2D;&#x8F93;&#x51FA;&#x7236;&#x7C7B;&#x7684;name&quot;+super.name);</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p><strong>&#x6D4B;&#x8BD5;</strong><br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">pacage create;</span><br><span class="line">public class Test{</span><br><span class="line">  public void main(String[] args){</span><br><span class="line">    Text t=new Text(&quot;child&quot;);//&#x521B;&#x5EFA;&#x5B50;&#x7C7B;&#x5BF9;&#x8C61;&#xFF0C;&#x8C03;&#x7528;&#x5B50;&#x7C7B;&#x6784;&#x9020;&#x65B9;&#x6CD5;</span><br><span class="line">    System.out.println(&quot;&#x8C03;&#x7528;&#x5B50;&#x7C7B;&#x7684;name:&quot;+t.name);</span><br><span class="line">    t.read();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p><strong>&#x8FD0;&#x884C;&#x793A;&#x4F8B;</strong><br><img src="https://i.imgur.com/YiWlt8M.png" alt=""></p>
+<p>#3.&#x6CE8;&#x610F;&#x7684;&#x95EE;&#x9898;<br>  &#x5728;&#x8C03;&#x7528;super&#x5173;&#x952E;&#x5B57;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5E94;&#x5F53;&#x628A;&#x4ED6;&#x653E;&#x5728;&#x5B50;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x6700;&#x524D;&#x9762;&#x3002;<br><img src="https://i.imgur.com/3zKkUvZ.png" alt=""><br>  &#x8FD9;&#x6837;&#x7F16;&#x8BD1;&#x5668;&#x4F1A;&#x63D0;&#x793A;&#x201D;Constructor call must be the first statement in a constrctor&#x201D;&#x7684;&#x62A5;&#x9519;&#x3002;</p>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/05/13/&#x5173;&#x4E8E;&#x5C0F;&#x6570;&#x70B9;&#x7684;&#x4F4D;&#x6570;/" data-tooltip="&#x5173;&#x4E8E;&#x5C0F;&#x6570;&#x70B9;&#x7684;&#x4F4D;&#x6570;" aria-label="FR&#xDC;HER: &#x5173;&#x4E8E;&#x5C0F;&#x6570;&#x70B9;&#x7684;&#x4F4D;&#x6570;">
+                
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">FR&#xDC;HER</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/04/15/&#x4E00;&#x4E9B;&#x5C0F;&#x95EE;&#x9898;/" data-tooltip="&#x4E00;&#x4E9B;&#x5C0F;&#x95EE;&#x9898;" aria-label="N&#xC4;CHSTER: &#x4E00;&#x4E9B;&#x5C0F;&#x95EE;&#x9898;">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">N&#xC4;CHSTER</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Diesen Beitrag teilen">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/22/java&#x4E2D;super&#x5173;&#x952E;&#x5B57;/" title="Teilen auf Facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/04/22/java&#x4E2D;super&#x5173;&#x952E;&#x5B57;/" title="Teilen auf Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/22/java&#x4E2D;super&#x5173;&#x952E;&#x5B57;/" title="Teilen auf Google Plus">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Nach oben">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+        
+        
+            
+        
+    </div>
+</article>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &#xA9; 2018 &#xFFFD;&#xFFFD;. All Rights Reserved.
+    </span>
+</footer>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/05/13/&#x5173;&#x4E8E;&#x5C0F;&#x6570;&#x70B9;&#x7684;&#x4F4D;&#x6570;/" data-tooltip="&#x5173;&#x4E8E;&#x5C0F;&#x6570;&#x70B9;&#x7684;&#x4F4D;&#x6570;" aria-label="FR&#xDC;HER: &#x5173;&#x4E8E;&#x5C0F;&#x6570;&#x70B9;&#x7684;&#x4F4D;&#x6570;">
+                
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">FR&#xDC;HER</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/04/15/&#x4E00;&#x4E9B;&#x5C0F;&#x95EE;&#x9898;/" data-tooltip="&#x4E00;&#x4E9B;&#x5C0F;&#x95EE;&#x9898;" aria-label="N&#xC4;CHSTER: &#x4E00;&#x4E9B;&#x5C0F;&#x95EE;&#x9898;">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">N&#xC4;CHSTER</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Diesen Beitrag teilen">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/22/java&#x4E2D;super&#x5173;&#x952E;&#x5B57;/" title="Teilen auf Facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/04/22/java&#x4E2D;super&#x5173;&#x952E;&#x5B57;/" title="Teilen auf Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/22/java&#x4E2D;super&#x5173;&#x952E;&#x5B57;/" title="Teilen auf Google Plus">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Nach oben">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <i id="btn-close-shareoptions" class="fa fa-times"></i>
+    <ul class="share-options">
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/22/java&#x4E2D;super&#x5173;&#x952E;&#x5B57;/">
+                    <i class="fab fa-facebook" aria-hidden="true"></i><span>Teilen auf Facebook</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/04/22/java&#x4E2D;super&#x5173;&#x952E;&#x5B57;/">
+                    <i class="fab fa-twitter" aria-hidden="true"></i><span>Teilen auf Twitter</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/22/java&#x4E2D;super&#x5173;&#x952E;&#x5B57;/">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i><span>Teilen auf Google Plus</span>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            
+        </div>
+        <div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">&#xFFFD;&#xFFFD;</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br>
+                <p>author.job</p>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            </div>
+        
+        
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+        
+        <div id="cover" style="background-image:url(&apos;/assets/images/cover.jpg&apos;);"></div><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+        <script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery.fancybox.js"></script>
+<script src="/assets/js/thumbs.js"></script>
+<script src="/assets/js/tranquilpeak.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></body></html><!-- Define author's picture --><!--SCRIPTS-->

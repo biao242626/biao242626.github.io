@@ -1,0 +1,491 @@
+<!DOCTYPE html><html lang="zh-Hans"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="like a bird">
+    <title>&#x6211;&#x7684;&#x5B89;&#x5353;&#x8FDB;&#x9636;&#x4E4B;&#x8DEF;&#xFF08;&#x6570;&#x636E;&#x5B58;&#x50A8;&#xFF09; - like a bird</title>
+    <meta name="author" content="&#xFFFD;&#xFFFD;">
+    
+    
+    
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"��","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"articleBody":"1&#x3001;SQLite&#x6570;&#x636E;&#x5E93;&#x5B58;&#x50A8;1&#x3001;&#x6570;&#x636E;&#x5E93;&#x7684;&#x521B;&#x5EFA;&#x4E0E;&#x5347;&#x7EA7; &#xA0;&#xA0;&#xA0;&#xA0;&#x5B89;&#x5353;&#x4E13;&#x95E8;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;SQLiteOpenHelper&#x5E2E;&#x52A9;&#x7C7B;&#xFF0C;&#xFF08;&#x62BD;&#x8C61;&#x7C7B;&#xFF09;,&#x5FC5;&#x987B;&#x91CD;&#x5199;onCreate()&#x548C;onUpgrade()&#x4E24;&#x4E2A;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x3002;\n&#xA0;&#xA0;&#xA0;&#xA0;SQLiteOpenHelper&#x6709;&#x4E24;&#x4E2A;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#xFF0C;&#x4E00;&#x822C;&#x91CD;&#x5199;&#x56DB;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#xFF08;Context&#x3001;&#x6570;&#x636E;&#x5E93;&#x540D;&#x3001;Cursor&#x3001;&#x7248;&#x672C;&#x53F7;&#xFF09;&#x3002;&#x6570;&#x636E;&#x5E93;&#x6587;&#x4EF6;&#x4E00;&#x822C;&#x5B58;&#x653E;&#x5728;/data/data//databases\n&#xA0;&#xA0;&#xA0;&#xA0;&#x4E24;&#x4E2A;&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x7684;&#x65B9;&#x6CD5;,getReadableDatabase()&#x3001;getWritableDatabase().\n&#xA0;&#xA0;&#xA0;&#xA0;&#x53EF;&#x4EE5;&#x5427;&#x5EFA;&#x8868;&#x8BED;&#x53E5;&#x5B9A;&#x4E49;&#x6210;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#xFF0C;&#x7136;&#x540E;&#x518D;onCreate()&#x65B9;&#x6CD5;&#x4E2D;&#x8C03;&#x7528;&#x3002;1234567public static final String CREATE_BOOK=&quot;create table Book(&quot;            +&quot;id integer primary key autoincrement,&quot;            +&quot;author text,&quot;            +&quot;price real,&quot;            +&quot;pages integer,&quot;            +&quot;name text,&quot;            +&quot;category_id integer)&quot;;\n123public void onCreate(SQLiteDatabase db) {        db.execSQL(CREATE_BOOK);&#x3002;&#x3002;&#x3002;\n&#xA0;&#xA0;&#xA0;&#xA0;sqlite3&#x52A0;&#x4E0A;&#x6570;&#x636E;&#x5E93;&#x540D;&#x6253;&#x5F00;&#x6570;&#x636E;&#x5E93;\n&#xA0;&#xA0;&#xA0;&#xA0;&#x5347;&#x7EA7;&#x91C7;&#x7528;switch&#x8BED;&#x53E5;12345678910@Override    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {        switch (oldVersion){            case 1:                db.execSQL(CRATE_CATEGORY);            case 2:                db.execSQL(&quot;alter table Book add column category_id integer&quot;);            default:        }    }\n&#x4FDD;&#x8BC1;&#x8DE8;&#x7248;&#x672C;&#x5347;&#x7EA7;&#x65F6;&#x6BCF;&#x4E00;&#x6B21;&#x7684;&#x6570;&#x636E;&#x5E93;&#x4FEE;&#x6539;&#x90FD;&#x5F97;&#x5230;&#x6267;&#x884C;&#x3002;\n2&#x3001;&#x6570;&#x636E;CRUD1&#x3001;&#x6DFB;&#x52A0;&#xA0;&#xA0;&#xA0;&#xA0;SQLiteDatabase&#x63D0;&#x4F9B;&#x7684;insert()&#x65B9;&#x6CD5;&#xFF0C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;&#x8868;&#x540D;&#x3001;null&#x3001;ContentValues&#x5BF9;&#x8C61;&#xFF1B;1234567ContentValues values=new ContentValues();//&#x7528;&#x4E8E;&#x6DFB;&#x52A0;&#x6570;&#x636E;                //&#x7B2C;&#x4E00;&#x7EC4;                values.put(&quot;name&quot;,&quot;The Da Vincy Code&quot;);                values.put(&quot;author&quot;,&quot;Dan Brown&quot;);                values.put(&quot;price&quot;,&quot;16.96&quot;);                values.put(&quot;pages&quot;,453);                db.insert(&quot;Book&quot;,null,values);\n2&#x3001;&#x66F4;&#x65B0;123ContentValues values=new ContentValues();                values.put(&quot;price&quot;,10.99);                db.update(&quot;Book&quot;,values,&quot;name=?&quot;,new String[]{&quot;The DaVinci Code&quot;})\n&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x5BF9;&#x5E94;SQL&#x8BED;&#x53E5;&#x7684;where&#x90E8;&#x5206;&#xFF0C;&#x8868;&#x793A;&#x53BB;&#x66F4;&#x65B0;&#x6240;&#x6709;name&#x7B49;&#x4E8E;&#x591A;&#x5C11;&#x7684;&#x884C;&#xFF0C;&#xFF1F;&#x662F;&#x4E00;&#x4E2A;&#x5360;&#x4F4D;&#x7B26;&#xFF0C;&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x8868;&#x793A;&#x5C06;&#x540D;&#x4E3A;&#x201C;The Da Vinci Code&#x201D;&#x8FD9;&#x672C;&#x4E66;&#x7684;&#x4EF7;&#x683C;&#x6539;&#x4E3A;10.99.\n3&#x3001;&#x5220;&#x9664;delete&#x65B9;&#x6CD5;&#xFF0C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;1db.delete(&quot;Book&quot;,&quot;pages&gt;?&quot;,new String[]{&quot;500&quot;});//&#x5220;&#x9664;&#x9875;&#x6570;&#x8D85;&#x8FC7;500&#x9875;&#x7684;&#x4E66;&#x7C4D;\n4&#x3001;&#x67E5;&#x8BE2;query&#x65B9;&#x6CD5;&#xFF0C;7&#x4E2A;&#x53C2;&#x6570;&#x3002;1234567891011121314Cursor cursor=db.query(&quot;Book&quot;,null,null,null,null,null,null);                if (cursor.moveToFirst()){                    do{                        String name=cursor.getString(cursor.getColumnIndex(&quot;name&quot;));                        String author=cursor.getString(cursor.getColumnIndex(&quot;author&quot;));                        int pages=cursor.getInt(cursor.getColumnIndex(&quot;pages&quot;));                        double price=cursor.getDouble(cursor.getColumnIndex(&quot;price&quot;));                        Log.d(&quot;MainActivity&quot;,&quot;book name is &quot;+name);                        Log.d(&quot;MainActivity&quot;,&quot;book author is &quot;+author);                        Log.d(&quot;MainActivity&quot;,&quot;book pages is &quot;+pages);                        Log.d(&quot;MainActivity&quot;,&quot;book price is &quot;+price);                    }while (cursor.moveToNext());                }                cursor.close();\n&#x8FD9;&#x91CC;&#x9996;&#x5148;&#x5BF9;&#x6574;&#x5F20;&#x8868;&#x67E5;&#x8BE2;&#xFF0C;&#x5F97;&#x5230;&#x4E00;&#x4E2A;Cursor&#x5BF9;&#x8C61;&#xFF0C;&#x63A5;&#x7740;&#x8C03;&#x7528;cursor&#x7684;moveToFirst()&#x65B9;&#x6CD5;&#xFF0C;&#x79FB;&#x52A8;&#x5230;&#x7B2C;&#x4E00;&#x884C;&#xFF0C;&#x904D;&#x5386;&#xFF0C;&#x4F7F;&#x7528;getColumnIndex()&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x67D0;&#x4E00;&#x5217;&#x5BF9;&#x5E94;&#x7D22;&#x5F15;&#x3002;\n5&#x3001;&#x4F7F;&#x7528;&#x4E8B;&#x52A1;&#xA0;&#xA0;&#xA0;&#xA0;&#x5B89;&#x5353;&#x4E2D;&#x4E8B;&#x52A1;&#x7684;&#x6807;&#x51C6;&#x7528;&#x6CD5;&#xFF0C;&#x9996;&#x5148;&#x8C03;&#x7528;SQLiteDatabase&#x7684;beginTransaction()&#x65B9;&#x6CD5;&#x6765;&#x5F00;&#x542F;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x4E00;&#x4E2A;&#x5F02;&#x5E38;&#x6355;&#x83B7;&#x7684;&#x4EE3;&#x7801;&#x5757;&#x4E2D;&#x53BB;&#x6267;&#x884C;&#x5177;&#x4F53;&#x7684;&#x6570;&#x636E;&#x5E93;&#x64CD;&#x4F5C;&#x64CD;&#x4F5C;&#x3002;&#x5F53;&#x6240;&#x6709;&#x7684;&#x64CD;&#x4F5C;&#x90FD;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#xFF0C;&#x8C03;&#x7528;setTransactionSuccessful()&#x8868;&#x793A;&#x4E8B;&#x52A1;&#x5DF2;&#x7ECF;&#x6267;&#x884C;&#x6210;&#x529F;&#x4E86;&#xFF0C;&#x6700;&#x540E;&#x5728;finally&#x4EE3;&#x7801;&#x5757;&#x4E2D;&#x8C03;&#x7528;endTransaction()&#x7ED3;&#x675F;&#x4E8B;&#x52A1;&#x3002;1234567891011121314151617SQLiteDatabase db=dbHelper.getWritableDatabase();               db.beginTransaction();//&#x5F00;&#x542F;&#x4E8B;&#x52A1;               try{                   db.delete(&quot;Book&quot;,null,null);                   ContentValues values=new ContentValues();                   values.put(&quot;name&quot;,&quot;Game of Thrones&quot;);                   values.put(&quot;author&quot;,&quot;Geroge Martin&quot;);                   values.put(&quot;pages&quot;,770);                   values.put(&quot;price&quot;,20.88);                   db.insert(&quot;Book&quot;,null,values);                   db.setTransactionSuccessful();               }catch (Exception e){                   e.printStackTrace();               }finally {                   db.endTransaction();//&#x7ED3;&#x675F;&#x4E8B;&#x52A1;               }           }\n2&#x3001;&#x6587;&#x4EF6;&#x5B58;&#x50A8;1&#x3001;&#x5B58;&#x50A8;Context&#x7C7B;&#x63D0;&#x4F9B;&#x7684;openFileOutput()&#x65B9;&#x6CD5;&#xFF0C;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;&#x6587;&#x4EF6;&#x540D;&#x548C;&#x64CD;&#x4F5C;&#x6A21;&#x5F0F;&#xFF08;MODE_PRIVATE&#x3001;MODE_APPEND&#xFF09;&#x3002;MODE_PRIVATE&#x662F;&#x9ED8;&#x8BA4;&#x7684;&#x64CD;&#x4F5C;&#x6A21;&#x5F0F;&#xFF0C;&#x8868;&#x793A;&#x5F53;&#x6307;&#x5B9A;&#x540C;&#x6837;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x65F6;&#xFF0C;&#x6240;&#x5199;&#x5165;&#x7684;&#x5185;&#x5BB9;&#x4F1A;&#x8986;&#x76D6;&#x539F;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#xFF0C;MODE_APPEND&#x8868;&#x793A;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x5DF2;&#x5B58;&#x5728;&#xFF0C;&#x5C31;&#x5728;&#x91CC;&#x9762;&#x8FFD;&#x52A0;&#x5185;&#x5BB9;&#xFF0C;&#x4E0D;&#x5B58;&#x5728;&#x5C31;&#x521B;&#x5EFA;&#x65B0;&#x5185;&#x5BB9;&#x3002;1234567891011121314151617181920public void save(){   String data=&quot;Data to save&quot;;   FileOutputStream out = null;   BufferedWriter writer = null;   try{       out = openFileOutput(&quot;data&quot;,Context.MODE_PRIVATE);       writer = new BufferedWriter(new OutputStreamWriter(out));       writer.writer(data);   }catch(IOException e){       e.printStackTrace();   }finally{       try{           if(writer!=null){              writer.close();           }       }catch(IOException e){          e.printStackTrace();       }    }}\n&#x9996;&#x5148;&#x901A;&#x8FC7;openFileOutput()&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x4E00;&#x4E2A;FileOutputStreamr&#x5BF9;&#x8C61;&#xFF0C;&#x63A5;&#x7740;&#x518D;&#x4F7F;&#x7528;&#x5B83;&#x83B7;&#x53D6;&#x4E00;&#x4E2A;OutputStreamWriter&#x6784;&#x5EFA;&#x51FA;&#x4E00;&#x4E2A;BufferWriter&#x5BF9;&#x8C61;&#xFF0C;\n2&#x3001;&#x8BFB;&#x53D6;&#x9996;&#x5148;&#x901A;&#x8FC7;openFileInput()&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x4E00;&#x4E2A;FileInputStream&#x5BF9;&#x8C61;&#x518D;&#x7528;&#x5B83;&#x6784;&#x5EFA;&#x4E00;&#x4E2A;InputStreamReader&#x5BF9;&#x8C61;&#xFF0C;&#x63A5;&#x7740;&#x518D;&#x4F7F;&#x7528;InputStreamReader&#x6784;&#x5EFA;&#x51FA;&#x4E00;&#x4E2A;BufferReader&#x5BF9;&#x8C61;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;&#x4ED6;&#x6765;&#x4E00;&#x884C;&#x4E00;&#x884C;&#x8BFB;&#x53D6;&#x3002;&#x5E76;&#x5B58;&#x653E;&#x5728;&#x4E00;&#x4E2A;StringBuilder&#x5BF9;&#x8C61;&#x4E2D;&#x3002;\n3&#x3001;SharedPreferences&#x5B58;&#x50A8;&#x4F7F;&#x7528;&#x952E;&#x503C;&#x5BF9;&#x5B58;&#x50A8;\n1.&#x83B7;&#x53D6;SharedPreferences&#x5BF9;&#x8C61;1&#x3001;Context&#x7C7B;&#x7684;getSharedPreferences()&#x65B9;&#x6CD5;&#xFF0C;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x6587;&#x4EF6;&#x540D;&#x79F0;&#x548C;&#x64CD;&#x4F5C;&#x65B9;&#x6CD5;&#xFF08;MODE_PRIVATE&#xFF09;.2&#x3001; Activity&#x7C7B;&#x7684;getPreferences()&#x65B9;&#x6CD5;&#xFF0C;&#x53EA;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#x6A21;&#x5F0F;&#x53C2;&#x6570;&#x3002;&#x81EA;&#x52A8;&#x5C06;&#x5F53;&#x524D;&#x6D3B;&#x52A8;&#x7684;&#x7C7B;&#x540D;&#x4F5C;&#x4E3A;SharedPreferences&#x7684;&#x6587;&#x4EF6;&#x540D;&#x3002;3&#x3001;PreferenceManager&#x7C7B;getDefaultSharedPreferences()&#x65B9;&#x6CD5;&#x3002; &#x9759;&#x6001;&#x65B9;&#x6CD5;&#x3002;&#x5B83;&#x63A5;&#x6536;&#x4E00;&#x4E2A;Context&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x81EA;&#x52A8;&#x4F7F;&#x7528;&#x5F53;&#x524D;&#x7684;&#x5305;&#x540D;&#x4F5C;&#x4E3A;&#x524D;&#x7F00;&#x6765;&#x547D;&#x540D;SharedPreferences&#x6587;&#x4EF6;&#x3002;\n2.&#x5B58;&#x50A8;&#x6570;&#x636E;   1&#x3001;&#x8C03;&#x7528;SharedPreferences&#x5BF9;&#x8C61;&#x7684;edit()&#x65B9;&#x6CD5;&#x6765;&#x83B7;&#x53D6;&#x4E00;&#x4E2A;sharedPreferences.Editor&#x5BF9;&#x8C61;&#x3002;   2&#x3001;&#x5411;SharedPreferences.Editor&#x5BF9;&#x8C61;&#x4E2D;&#x6DFB;&#x52A0;&#x6570;&#x636E;&#xFF0C;&#x6BD4;&#x5982;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x5C31;&#x7528;putString()&#x65B9;&#x6CD5;&#xFF0C;&#x4EE5;&#x6B64;&#x7C7B;&#x63A8;&#x3002;   3&#x3001;&#x8C03;&#x7528;apply&#xFF08;&#xFF09;&#x65B9;&#x6CD5;&#x5C06;&#x6570;&#x636E;&#x63D0;&#x4EA4;&#x3002;&#x6216;commit&#x65B9;&#x6CD5;.\n3&#x3001;&#x8BFB;&#x53D6;&#x6570;&#x636E;   &#x4F7F;&#x7528;&#x4E00;&#x4E9B;&#x5217;get&#x65B9;&#x6CD5;&#xFF0C;&#x5747;&#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x4E00;&#x4E2A;&#x952E;&#x548C;&#x9ED8;&#x8BA4;&#x503C;&#xFF08;&#x4F20;&#x5165;&#x7684;&#x952E;&#x627E;&#x4E0D;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x503C;&#x65F6;&#xFF0C;&#x4EE5;&#x8BE5;&#x9ED8;&#x8BA4;&#x503C;&#x8FD4;&#x56DE;&#xFF09;&#x3002;//CheckBox &#x7528;&#x6237;&#x901A;&#x8FC7;&#x70B9;&#x51FB;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x9009;&#x4E2D;&#x548C;&#x53D6;&#x6D88;&#x3002;\nL2Dwidget.init({});","dateCreated":"2018-09-10T16:10:52+08:00","dateModified":"2018-09-10T22:18:45+08:00","datePublished":"2018-09-10T16:10:52+08:00","description":"","headline":"我的安卓进阶之路（数据存储）","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2018/09/10/我的安卓进阶之路（数据存储）/"},"publisher":{"@type":"Organization","name":"��","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"url":"http://yoursite.com/2018/09/10/我的安卓进阶之路（数据存储）/"}</script>
+    <meta name="description" content="1&amp;#x3001;SQLite&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x5B58;&amp;#x50A8;1&amp;#x3001;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x7684;&amp;#x521B;&amp;#x5EFA;&amp;#x4E0E;&amp;#x5347;&amp;#x7EA7; &amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#x5B89;&amp;#x5353;&amp;#x4E13;&amp;#x95E8;&amp;#x63D0">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="&#x6211;&#x7684;&#x5B89;&#x5353;&#x8FDB;&#x9636;&#x4E4B;&#x8DEF;&#xFF08;&#x6570;&#x636E;&#x5B58;&#x50A8;&#xFF09;">
+<meta property="og:url" content="http://yoursite.com/2018/09/10/&#x6211;&#x7684;&#x5B89;&#x5353;&#x8FDB;&#x9636;&#x4E4B;&#x8DEF;&#xFF08;&#x6570;&#x636E;&#x5B58;&#x50A8;&#xFF09;/index.html">
+<meta property="og:site_name" content="like a bird">
+<meta property="og:description" content="1&amp;#x3001;SQLite&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x5B58;&amp;#x50A8;1&amp;#x3001;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x7684;&amp;#x521B;&amp;#x5EFA;&amp;#x4E0E;&amp;#x5347;&amp;#x7EA7; &amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#x5B89;&amp;#x5353;&amp;#x4E13;&amp;#x95E8;&amp;#x63D0">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-10T14:18:45.966Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="&#x6211;&#x7684;&#x5B89;&#x5353;&#x8FDB;&#x9636;&#x4E4B;&#x8DEF;&#xFF08;&#x6570;&#x636E;&#x5B58;&#x50A8;&#xFF09;">
+<meta name="twitter:description" content="1&amp;#x3001;SQLite&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x5B58;&amp;#x50A8;1&amp;#x3001;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x7684;&amp;#x521B;&amp;#x5EFA;&amp;#x4E0E;&amp;#x5347;&amp;#x7EA7; &amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#x5B89;&amp;#x5353;&amp;#x4E13;&amp;#x95E8;&amp;#x63D0">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/all.css">
+    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="/assets/css/thumbs.css">
+    <link rel="stylesheet" href="/assets/css/tranquilpeak.css">
+    <!--STYLES END-->
+    </head><body><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+    <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+    
+        <div id="blog">
+            <!-- Define author's picture --><header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/ ">like a bird</a>
+    </div>
+    
+        
+            <a class="header-right-picture " href="#about">
+        
+        
+        </a>
+    
+</header>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            <nav id="sidebar" data-behavior="4">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/ " title="Home">
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" title="Kategorien">
+                    
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Kategorien</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-tags" title="Tags">
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-archives" title="Archiv">
+                    
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archiv</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link open-algolia-search" href="#search" title="Suche">
+                    
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Suche</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="#about" title="&#xDC;ber">
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">&#xDC;ber</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/" target="_blank" rel="noopener" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="http://stackoverflow.com/users" target="_blank" rel="noopener" title="Stack Overflow">
+                    
+                        <i class="sidebar-button-icon fab fa-stack-overflow" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Stack Overflow</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://twitter.com/" target="_blank" rel="noopener" title="Twitter">
+                    
+                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Twitter</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://facebook.com/" target="_blank" rel="noopener" title="Facebook">
+                    
+                        <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Facebook</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://plus.google.com/" target="_blank" rel="noopener" title="Google Plus">
+                    
+                        <i class="sidebar-button-icon fab fa-google-plus" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Google Plus</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://www.linkedin.com/profile/" target="_blank" rel="noopener" title="LinkedIn">
+                    
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/mailto" title="E-Mail">
+                    
+                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">E-Mail</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/atom.xml" title="RSS">
+                    
+                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            <div id="main" data-behavior="4" class="
+                        hasCoverMetaIn
+                        ">
+                <article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            &#x6211;&#x7684;&#x5B89;&#x5353;&#x8FDB;&#x9636;&#x4E4B;&#x8DEF;&#xFF08;&#x6570;&#x636E;&#x5B58;&#x50A8;&#xFF09;
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2018-09-10T16:10:52+08:00">
+	
+		    10 Sep 2018
+    	
+    </time>
+    
+        <span>in </span>
+        <a class="category-link" href="/categories/&#x5B89;&#x5353;/">&#x5B89;&#x5353;</a>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+    
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+    
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <h1 id="1&#x3001;SQLite&#x6570;&#x636E;&#x5E93;&#x5B58;&#x50A8;"><a href="#1&#x3001;SQLite&#x6570;&#x636E;&#x5E93;&#x5B58;&#x50A8;" class="headerlink" title="1&#x3001;SQLite&#x6570;&#x636E;&#x5E93;&#x5B58;&#x50A8;"></a>1&#x3001;SQLite&#x6570;&#x636E;&#x5E93;&#x5B58;&#x50A8;</h1><h2 id="1&#x3001;&#x6570;&#x636E;&#x5E93;&#x7684;&#x521B;&#x5EFA;&#x4E0E;&#x5347;&#x7EA7;"><a href="#1&#x3001;&#x6570;&#x636E;&#x5E93;&#x7684;&#x521B;&#x5EFA;&#x4E0E;&#x5347;&#x7EA7;" class="headerlink" title="1&#x3001;&#x6570;&#x636E;&#x5E93;&#x7684;&#x521B;&#x5EFA;&#x4E0E;&#x5347;&#x7EA7;"></a>1&#x3001;&#x6570;&#x636E;&#x5E93;&#x7684;&#x521B;&#x5EFA;&#x4E0E;&#x5347;&#x7EA7;</h2><p> &#xA0;&#xA0;&#xA0;&#xA0;&#x5B89;&#x5353;&#x4E13;&#x95E8;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;SQLiteOpenHelper&#x5E2E;&#x52A9;&#x7C7B;&#xFF0C;&#xFF08;&#x62BD;&#x8C61;&#x7C7B;&#xFF09;,&#x5FC5;&#x987B;&#x91CD;&#x5199;onCreate()&#x548C;onUpgrade()&#x4E24;&#x4E2A;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;SQLiteOpenHelper&#x6709;&#x4E24;&#x4E2A;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#xFF0C;&#x4E00;&#x822C;&#x91CD;&#x5199;&#x56DB;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#xFF08;Context&#x3001;&#x6570;&#x636E;&#x5E93;&#x540D;&#x3001;Cursor&#x3001;&#x7248;&#x672C;&#x53F7;&#xFF09;&#x3002;&#x6570;&#x636E;&#x5E93;&#x6587;&#x4EF6;&#x4E00;&#x822C;&#x5B58;&#x653E;&#x5728;/data/data/<package name="">/databases</package></p>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x4E24;&#x4E2A;&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x7684;&#x65B9;&#x6CD5;,getReadableDatabase()&#x3001;getWritableDatabase().</p>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x53EF;&#x4EE5;&#x5427;&#x5EFA;&#x8868;&#x8BED;&#x53E5;&#x5B9A;&#x4E49;&#x6210;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#xFF0C;&#x7136;&#x540E;&#x518D;onCreate()&#x65B9;&#x6CD5;&#x4E2D;&#x8C03;&#x7528;&#x3002;<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public static final String CREATE_BOOK=&quot;create table Book(&quot;</span><br><span class="line">            +&quot;id integer primary key autoincrement,&quot;</span><br><span class="line">            +&quot;author text,&quot;</span><br><span class="line">            +&quot;price real,&quot;</span><br><span class="line">            +&quot;pages integer,&quot;</span><br><span class="line">            +&quot;name text,&quot;</span><br><span class="line">            +&quot;category_id integer)&quot;;</span><br></pre></td></tr></tbody></table></figure><p></p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public void onCreate(SQLiteDatabase db) {</span><br><span class="line">        db.execSQL(CREATE_BOOK);</span><br><span class="line">&#x3002;&#x3002;&#x3002;</span><br></pre></td></tr></tbody></table></figure>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;sqlite3&#x52A0;&#x4E0A;&#x6570;&#x636E;&#x5E93;&#x540D;&#x6253;&#x5F00;&#x6570;&#x636E;&#x5E93;</p>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x5347;&#x7EA7;&#x91C7;&#x7528;switch&#x8BED;&#x53E5;<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {</span><br><span class="line">        switch (oldVersion){</span><br><span class="line">            case 1:</span><br><span class="line">                db.execSQL(CRATE_CATEGORY);</span><br><span class="line">            case 2:</span><br><span class="line">                db.execSQL(&quot;alter table Book add column category_id integer&quot;);</span><br><span class="line">            default:</span><br><span class="line">        }</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>&#x4FDD;&#x8BC1;&#x8DE8;&#x7248;&#x672C;&#x5347;&#x7EA7;&#x65F6;&#x6BCF;&#x4E00;&#x6B21;&#x7684;&#x6570;&#x636E;&#x5E93;&#x4FEE;&#x6539;&#x90FD;&#x5F97;&#x5230;&#x6267;&#x884C;&#x3002;</p>
+<h2 id="2&#x3001;&#x6570;&#x636E;CRUD"><a href="#2&#x3001;&#x6570;&#x636E;CRUD" class="headerlink" title="2&#x3001;&#x6570;&#x636E;CRUD"></a>2&#x3001;&#x6570;&#x636E;CRUD</h2><h3 id="1&#x3001;&#x6DFB;&#x52A0;"><a href="#1&#x3001;&#x6DFB;&#x52A0;" class="headerlink" title="1&#x3001;&#x6DFB;&#x52A0;"></a>1&#x3001;&#x6DFB;&#x52A0;</h3><p>&#xA0;&#xA0;&#xA0;&#xA0;SQLiteDatabase&#x63D0;&#x4F9B;&#x7684;insert()&#x65B9;&#x6CD5;&#xFF0C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;&#x8868;&#x540D;&#x3001;null&#x3001;ContentValues&#x5BF9;&#x8C61;&#xFF1B;<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ContentValues values=new ContentValues();//&#x7528;&#x4E8E;&#x6DFB;&#x52A0;&#x6570;&#x636E;</span><br><span class="line">                //&#x7B2C;&#x4E00;&#x7EC4;</span><br><span class="line">                values.put(&quot;name&quot;,&quot;The Da Vincy Code&quot;);</span><br><span class="line">                values.put(&quot;author&quot;,&quot;Dan Brown&quot;);</span><br><span class="line">                values.put(&quot;price&quot;,&quot;16.96&quot;);</span><br><span class="line">                values.put(&quot;pages&quot;,453);</span><br><span class="line">                db.insert(&quot;Book&quot;,null,values);</span><br></pre></td></tr></tbody></table></figure><p></p>
+<h3 id="2&#x3001;&#x66F4;&#x65B0;"><a href="#2&#x3001;&#x66F4;&#x65B0;" class="headerlink" title="2&#x3001;&#x66F4;&#x65B0;"></a>2&#x3001;&#x66F4;&#x65B0;</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ContentValues values=new ContentValues();</span><br><span class="line">                values.put(&quot;price&quot;,10.99);</span><br><span class="line">                db.update(&quot;Book&quot;,values,&quot;name=?&quot;,new String[]{&quot;The DaVinci Code&quot;})</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x5BF9;&#x5E94;SQL&#x8BED;&#x53E5;&#x7684;where&#x90E8;&#x5206;&#xFF0C;&#x8868;&#x793A;&#x53BB;&#x66F4;&#x65B0;&#x6240;&#x6709;name&#x7B49;&#x4E8E;&#x591A;&#x5C11;&#x7684;&#x884C;&#xFF0C;&#xFF1F;&#x662F;&#x4E00;&#x4E2A;&#x5360;&#x4F4D;&#x7B26;&#xFF0C;&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x8868;&#x793A;&#x5C06;&#x540D;&#x4E3A;&#x201C;The Da Vinci Code&#x201D;&#x8FD9;&#x672C;&#x4E66;&#x7684;&#x4EF7;&#x683C;&#x6539;&#x4E3A;10.99.</p>
+<h3 id="3&#x3001;&#x5220;&#x9664;"><a href="#3&#x3001;&#x5220;&#x9664;" class="headerlink" title="3&#x3001;&#x5220;&#x9664;"></a>3&#x3001;&#x5220;&#x9664;</h3><p>delete&#x65B9;&#x6CD5;&#xFF0C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.delete(&quot;Book&quot;,&quot;pages&gt;?&quot;,new String[]{&quot;500&quot;});//&#x5220;&#x9664;&#x9875;&#x6570;&#x8D85;&#x8FC7;500&#x9875;&#x7684;&#x4E66;&#x7C4D;</span><br></pre></td></tr></tbody></table></figure><p></p>
+<h3 id="4&#x3001;&#x67E5;&#x8BE2;"><a href="#4&#x3001;&#x67E5;&#x8BE2;" class="headerlink" title="4&#x3001;&#x67E5;&#x8BE2;"></a>4&#x3001;&#x67E5;&#x8BE2;</h3><p>query&#x65B9;&#x6CD5;&#xFF0C;7&#x4E2A;&#x53C2;&#x6570;&#x3002;<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Cursor cursor=db.query(&quot;Book&quot;,null,null,null,null,null,null);</span><br><span class="line">                if (cursor.moveToFirst()){</span><br><span class="line">                    do{</span><br><span class="line">                        String name=cursor.getString(cursor.getColumnIndex(&quot;name&quot;));</span><br><span class="line">                        String author=cursor.getString(cursor.getColumnIndex(&quot;author&quot;));</span><br><span class="line">                        int pages=cursor.getInt(cursor.getColumnIndex(&quot;pages&quot;));</span><br><span class="line">                        double price=cursor.getDouble(cursor.getColumnIndex(&quot;price&quot;));</span><br><span class="line">                        Log.d(&quot;MainActivity&quot;,&quot;book name is &quot;+name);</span><br><span class="line">                        Log.d(&quot;MainActivity&quot;,&quot;book author is &quot;+author);</span><br><span class="line">                        Log.d(&quot;MainActivity&quot;,&quot;book pages is &quot;+pages);</span><br><span class="line">                        Log.d(&quot;MainActivity&quot;,&quot;book price is &quot;+price);</span><br><span class="line">                    }while (cursor.moveToNext());</span><br><span class="line">                }</span><br><span class="line">                cursor.close();</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>&#x8FD9;&#x91CC;&#x9996;&#x5148;&#x5BF9;&#x6574;&#x5F20;&#x8868;&#x67E5;&#x8BE2;&#xFF0C;&#x5F97;&#x5230;&#x4E00;&#x4E2A;Cursor&#x5BF9;&#x8C61;&#xFF0C;&#x63A5;&#x7740;&#x8C03;&#x7528;cursor&#x7684;moveToFirst()&#x65B9;&#x6CD5;&#xFF0C;&#x79FB;&#x52A8;&#x5230;&#x7B2C;&#x4E00;&#x884C;&#xFF0C;&#x904D;&#x5386;&#xFF0C;&#x4F7F;&#x7528;getColumnIndex()&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x67D0;&#x4E00;&#x5217;&#x5BF9;&#x5E94;&#x7D22;&#x5F15;&#x3002;</p>
+<h3 id="5&#x3001;&#x4F7F;&#x7528;&#x4E8B;&#x52A1;"><a href="#5&#x3001;&#x4F7F;&#x7528;&#x4E8B;&#x52A1;" class="headerlink" title="5&#x3001;&#x4F7F;&#x7528;&#x4E8B;&#x52A1;"></a>5&#x3001;&#x4F7F;&#x7528;&#x4E8B;&#x52A1;</h3><p>&#xA0;&#xA0;&#xA0;&#xA0;&#x5B89;&#x5353;&#x4E2D;&#x4E8B;&#x52A1;&#x7684;&#x6807;&#x51C6;&#x7528;&#x6CD5;&#xFF0C;&#x9996;&#x5148;&#x8C03;&#x7528;SQLiteDatabase&#x7684;beginTransaction()&#x65B9;&#x6CD5;&#x6765;&#x5F00;&#x542F;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x4E00;&#x4E2A;&#x5F02;&#x5E38;&#x6355;&#x83B7;&#x7684;&#x4EE3;&#x7801;&#x5757;&#x4E2D;&#x53BB;&#x6267;&#x884C;&#x5177;&#x4F53;&#x7684;&#x6570;&#x636E;&#x5E93;&#x64CD;&#x4F5C;&#x64CD;&#x4F5C;&#x3002;&#x5F53;&#x6240;&#x6709;&#x7684;&#x64CD;&#x4F5C;&#x90FD;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#xFF0C;&#x8C03;&#x7528;setTransactionSuccessful()&#x8868;&#x793A;&#x4E8B;&#x52A1;&#x5DF2;&#x7ECF;&#x6267;&#x884C;&#x6210;&#x529F;&#x4E86;&#xFF0C;&#x6700;&#x540E;&#x5728;finally&#x4EE3;&#x7801;&#x5757;&#x4E2D;&#x8C03;&#x7528;endTransaction()&#x7ED3;&#x675F;&#x4E8B;&#x52A1;&#x3002;<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">SQLiteDatabase db=dbHelper.getWritableDatabase();</span><br><span class="line">               db.beginTransaction();//&#x5F00;&#x542F;&#x4E8B;&#x52A1;</span><br><span class="line">               try{</span><br><span class="line">                   db.delete(&quot;Book&quot;,null,null);</span><br><span class="line">                   ContentValues values=new ContentValues();</span><br><span class="line">                   values.put(&quot;name&quot;,&quot;Game of Thrones&quot;);</span><br><span class="line">                   values.put(&quot;author&quot;,&quot;Geroge Martin&quot;);</span><br><span class="line">                   values.put(&quot;pages&quot;,770);</span><br><span class="line">                   values.put(&quot;price&quot;,20.88);</span><br><span class="line">                   db.insert(&quot;Book&quot;,null,values);</span><br><span class="line">                   db.setTransactionSuccessful();</span><br><span class="line">               }catch (Exception e){</span><br><span class="line">                   e.printStackTrace();</span><br><span class="line">               }finally {</span><br><span class="line">                   db.endTransaction();//&#x7ED3;&#x675F;&#x4E8B;&#x52A1;</span><br><span class="line">               }</span><br><span class="line">           }</span><br></pre></td></tr></tbody></table></figure><p></p>
+<h1 id="2&#x3001;&#x6587;&#x4EF6;&#x5B58;&#x50A8;"><a href="#2&#x3001;&#x6587;&#x4EF6;&#x5B58;&#x50A8;" class="headerlink" title="2&#x3001;&#x6587;&#x4EF6;&#x5B58;&#x50A8;"></a>2&#x3001;&#x6587;&#x4EF6;&#x5B58;&#x50A8;</h1><h2 id="1&#x3001;&#x5B58;&#x50A8;"><a href="#1&#x3001;&#x5B58;&#x50A8;" class="headerlink" title="1&#x3001;&#x5B58;&#x50A8;"></a>1&#x3001;&#x5B58;&#x50A8;</h2><p>Context&#x7C7B;&#x63D0;&#x4F9B;&#x7684;openFileOutput()&#x65B9;&#x6CD5;&#xFF0C;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;&#x6587;&#x4EF6;&#x540D;&#x548C;&#x64CD;&#x4F5C;&#x6A21;&#x5F0F;&#xFF08;MODE_PRIVATE&#x3001;MODE_APPEND&#xFF09;&#x3002;MODE_PRIVATE&#x662F;&#x9ED8;&#x8BA4;&#x7684;&#x64CD;&#x4F5C;&#x6A21;&#x5F0F;&#xFF0C;&#x8868;&#x793A;&#x5F53;&#x6307;&#x5B9A;&#x540C;&#x6837;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x65F6;&#xFF0C;&#x6240;&#x5199;&#x5165;&#x7684;&#x5185;&#x5BB9;&#x4F1A;&#x8986;&#x76D6;&#x539F;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#xFF0C;MODE_APPEND&#x8868;&#x793A;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x5DF2;&#x5B58;&#x5728;&#xFF0C;&#x5C31;&#x5728;&#x91CC;&#x9762;&#x8FFD;&#x52A0;&#x5185;&#x5BB9;&#xFF0C;&#x4E0D;&#x5B58;&#x5728;&#x5C31;&#x521B;&#x5EFA;&#x65B0;&#x5185;&#x5BB9;&#x3002;<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public void save(){</span><br><span class="line">   String data=&quot;Data to save&quot;;</span><br><span class="line">   FileOutputStream out = null;</span><br><span class="line">   BufferedWriter writer = null;</span><br><span class="line">   try{</span><br><span class="line">       out = openFileOutput(&quot;data&quot;,Context.MODE_PRIVATE);</span><br><span class="line">       writer = new BufferedWriter(new OutputStreamWriter(out));</span><br><span class="line">       writer.writer(data);</span><br><span class="line">   }catch(IOException e){</span><br><span class="line">       e.printStackTrace();</span><br><span class="line">   }finally{</span><br><span class="line">       try{</span><br><span class="line">           if(writer!=null){</span><br><span class="line">              writer.close();</span><br><span class="line">           }</span><br><span class="line">       }catch(IOException e){</span><br><span class="line">          e.printStackTrace();</span><br><span class="line">       }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>&#x9996;&#x5148;&#x901A;&#x8FC7;openFileOutput()&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x4E00;&#x4E2A;FileOutputStreamr&#x5BF9;&#x8C61;&#xFF0C;&#x63A5;&#x7740;&#x518D;&#x4F7F;&#x7528;&#x5B83;&#x83B7;&#x53D6;&#x4E00;&#x4E2A;OutputStreamWriter&#x6784;&#x5EFA;&#x51FA;&#x4E00;&#x4E2A;BufferWriter&#x5BF9;&#x8C61;&#xFF0C;</p>
+<h2 id="2&#x3001;&#x8BFB;&#x53D6;"><a href="#2&#x3001;&#x8BFB;&#x53D6;" class="headerlink" title="2&#x3001;&#x8BFB;&#x53D6;"></a>2&#x3001;&#x8BFB;&#x53D6;</h2><p>&#x9996;&#x5148;&#x901A;&#x8FC7;openFileInput()&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x4E00;&#x4E2A;FileInputStream&#x5BF9;&#x8C61;&#x518D;&#x7528;&#x5B83;&#x6784;&#x5EFA;&#x4E00;&#x4E2A;InputStreamReader&#x5BF9;&#x8C61;&#xFF0C;&#x63A5;&#x7740;&#x518D;&#x4F7F;&#x7528;InputStreamReader&#x6784;&#x5EFA;&#x51FA;&#x4E00;&#x4E2A;BufferReader&#x5BF9;&#x8C61;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;&#x4ED6;&#x6765;&#x4E00;&#x884C;&#x4E00;&#x884C;&#x8BFB;&#x53D6;&#x3002;&#x5E76;&#x5B58;&#x653E;&#x5728;&#x4E00;&#x4E2A;StringBuilder&#x5BF9;&#x8C61;&#x4E2D;&#x3002;</p>
+<h1 id="3&#x3001;SharedPreferences&#x5B58;&#x50A8;"><a href="#3&#x3001;SharedPreferences&#x5B58;&#x50A8;" class="headerlink" title="3&#x3001;SharedPreferences&#x5B58;&#x50A8;"></a>3&#x3001;SharedPreferences&#x5B58;&#x50A8;</h1><p>&#x4F7F;&#x7528;&#x952E;&#x503C;&#x5BF9;&#x5B58;&#x50A8;</p>
+<h2 id="1-&#x83B7;&#x53D6;SharedPreferences&#x5BF9;&#x8C61;"><a href="#1-&#x83B7;&#x53D6;SharedPreferences&#x5BF9;&#x8C61;" class="headerlink" title="1.&#x83B7;&#x53D6;SharedPreferences&#x5BF9;&#x8C61;"></a>1.&#x83B7;&#x53D6;SharedPreferences&#x5BF9;&#x8C61;</h2><p>1&#x3001;Context&#x7C7B;&#x7684;getSharedPreferences()&#x65B9;&#x6CD5;&#xFF0C;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x6587;&#x4EF6;&#x540D;&#x79F0;&#x548C;&#x64CD;&#x4F5C;&#x65B9;&#x6CD5;&#xFF08;MODE_PRIVATE&#xFF09;.<br>2&#x3001; Activity&#x7C7B;&#x7684;getPreferences()&#x65B9;&#x6CD5;&#xFF0C;&#x53EA;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#x6A21;&#x5F0F;&#x53C2;&#x6570;&#x3002;&#x81EA;&#x52A8;&#x5C06;&#x5F53;&#x524D;&#x6D3B;&#x52A8;&#x7684;&#x7C7B;&#x540D;&#x4F5C;&#x4E3A;SharedPreferences&#x7684;&#x6587;&#x4EF6;&#x540D;&#x3002;<br>3&#x3001;PreferenceManager&#x7C7B;getDefaultSharedPreferences()&#x65B9;&#x6CD5;&#x3002; &#x9759;&#x6001;&#x65B9;&#x6CD5;&#x3002;&#x5B83;&#x63A5;&#x6536;&#x4E00;&#x4E2A;Context&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x81EA;&#x52A8;&#x4F7F;&#x7528;&#x5F53;&#x524D;&#x7684;&#x5305;&#x540D;&#x4F5C;&#x4E3A;&#x524D;&#x7F00;&#x6765;&#x547D;&#x540D;SharedPreferences&#x6587;&#x4EF6;&#x3002;</p>
+<h2 id="2-&#x5B58;&#x50A8;&#x6570;&#x636E;"><a href="#2-&#x5B58;&#x50A8;&#x6570;&#x636E;" class="headerlink" title="2.&#x5B58;&#x50A8;&#x6570;&#x636E;"></a>2.&#x5B58;&#x50A8;&#x6570;&#x636E;</h2><p>   1&#x3001;&#x8C03;&#x7528;SharedPreferences&#x5BF9;&#x8C61;&#x7684;edit()&#x65B9;&#x6CD5;&#x6765;&#x83B7;&#x53D6;&#x4E00;&#x4E2A;sharedPreferences.Editor&#x5BF9;&#x8C61;&#x3002;<br>   2&#x3001;&#x5411;SharedPreferences.Editor&#x5BF9;&#x8C61;&#x4E2D;&#x6DFB;&#x52A0;&#x6570;&#x636E;&#xFF0C;&#x6BD4;&#x5982;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x5C31;&#x7528;putString()&#x65B9;&#x6CD5;&#xFF0C;&#x4EE5;&#x6B64;&#x7C7B;&#x63A8;&#x3002;<br>   3&#x3001;&#x8C03;&#x7528;apply&#xFF08;&#xFF09;&#x65B9;&#x6CD5;&#x5C06;&#x6570;&#x636E;&#x63D0;&#x4EA4;&#x3002;&#x6216;commit&#x65B9;&#x6CD5;.</p>
+<h2 id="3&#x3001;&#x8BFB;&#x53D6;&#x6570;&#x636E;"><a href="#3&#x3001;&#x8BFB;&#x53D6;&#x6570;&#x636E;" class="headerlink" title="3&#x3001;&#x8BFB;&#x53D6;&#x6570;&#x636E;"></a>3&#x3001;&#x8BFB;&#x53D6;&#x6570;&#x636E;</h2><p>   &#x4F7F;&#x7528;&#x4E00;&#x4E9B;&#x5217;get&#x65B9;&#x6CD5;&#xFF0C;&#x5747;&#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x4E00;&#x4E2A;&#x952E;&#x548C;&#x9ED8;&#x8BA4;&#x503C;&#xFF08;&#x4F20;&#x5165;&#x7684;&#x952E;&#x627E;&#x4E0D;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x503C;&#x65F6;&#xFF0C;&#x4EE5;&#x8BE5;&#x9ED8;&#x8BA4;&#x503C;&#x8FD4;&#x56DE;&#xFF09;&#x3002;<br>//CheckBox &#x7528;&#x6237;&#x901A;&#x8FC7;&#x70B9;&#x51FB;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x9009;&#x4E2D;&#x548C;&#x53D6;&#x6D88;&#x3002;</p>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/10/03/&#x61F5;&#x903C;&#x7684;if&#x8BED;&#x53E5;/" data-tooltip="&#x61F5;&#x903C;&#x7684;if&#x8BED;&#x53E5;" aria-label="FR&#xDC;HER: &#x61F5;&#x903C;&#x7684;if&#x8BED;&#x53E5;">
+                
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">FR&#xDC;HER</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/06/10/&#x961F;&#x5217;&#x89E3;&#x51B3;&#x7EA6;&#x745F;&#x592B;&#x95EE;&#x9898;/" data-tooltip="&#x961F;&#x5217;&#x89E3;&#x51B3;&#x7EA6;&#x745F;&#x592B;&#x95EE;&#x9898;" aria-label="N&#xC4;CHSTER: &#x961F;&#x5217;&#x89E3;&#x51B3;&#x7EA6;&#x745F;&#x592B;&#x95EE;&#x9898;">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">N&#xC4;CHSTER</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Diesen Beitrag teilen">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/09/10/&#x6211;&#x7684;&#x5B89;&#x5353;&#x8FDB;&#x9636;&#x4E4B;&#x8DEF;&#xFF08;&#x6570;&#x636E;&#x5B58;&#x50A8;&#xFF09;/" title="Teilen auf Facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/09/10/&#x6211;&#x7684;&#x5B89;&#x5353;&#x8FDB;&#x9636;&#x4E4B;&#x8DEF;&#xFF08;&#x6570;&#x636E;&#x5B58;&#x50A8;&#xFF09;/" title="Teilen auf Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/09/10/&#x6211;&#x7684;&#x5B89;&#x5353;&#x8FDB;&#x9636;&#x4E4B;&#x8DEF;&#xFF08;&#x6570;&#x636E;&#x5B58;&#x50A8;&#xFF09;/" title="Teilen auf Google Plus">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Nach oben">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+        
+        
+            
+        
+    </div>
+</article>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &#xA9; 2018 &#xFFFD;&#xFFFD;. All Rights Reserved.
+    </span>
+</footer>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/10/03/&#x61F5;&#x903C;&#x7684;if&#x8BED;&#x53E5;/" data-tooltip="&#x61F5;&#x903C;&#x7684;if&#x8BED;&#x53E5;" aria-label="FR&#xDC;HER: &#x61F5;&#x903C;&#x7684;if&#x8BED;&#x53E5;">
+                
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">FR&#xDC;HER</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/06/10/&#x961F;&#x5217;&#x89E3;&#x51B3;&#x7EA6;&#x745F;&#x592B;&#x95EE;&#x9898;/" data-tooltip="&#x961F;&#x5217;&#x89E3;&#x51B3;&#x7EA6;&#x745F;&#x592B;&#x95EE;&#x9898;" aria-label="N&#xC4;CHSTER: &#x961F;&#x5217;&#x89E3;&#x51B3;&#x7EA6;&#x745F;&#x592B;&#x95EE;&#x9898;">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">N&#xC4;CHSTER</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Diesen Beitrag teilen">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/09/10/&#x6211;&#x7684;&#x5B89;&#x5353;&#x8FDB;&#x9636;&#x4E4B;&#x8DEF;&#xFF08;&#x6570;&#x636E;&#x5B58;&#x50A8;&#xFF09;/" title="Teilen auf Facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/09/10/&#x6211;&#x7684;&#x5B89;&#x5353;&#x8FDB;&#x9636;&#x4E4B;&#x8DEF;&#xFF08;&#x6570;&#x636E;&#x5B58;&#x50A8;&#xFF09;/" title="Teilen auf Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/09/10/&#x6211;&#x7684;&#x5B89;&#x5353;&#x8FDB;&#x9636;&#x4E4B;&#x8DEF;&#xFF08;&#x6570;&#x636E;&#x5B58;&#x50A8;&#xFF09;/" title="Teilen auf Google Plus">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Nach oben">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <i id="btn-close-shareoptions" class="fa fa-times"></i>
+    <ul class="share-options">
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/09/10/&#x6211;&#x7684;&#x5B89;&#x5353;&#x8FDB;&#x9636;&#x4E4B;&#x8DEF;&#xFF08;&#x6570;&#x636E;&#x5B58;&#x50A8;&#xFF09;/">
+                    <i class="fab fa-facebook" aria-hidden="true"></i><span>Teilen auf Facebook</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/09/10/&#x6211;&#x7684;&#x5B89;&#x5353;&#x8FDB;&#x9636;&#x4E4B;&#x8DEF;&#xFF08;&#x6570;&#x636E;&#x5B58;&#x50A8;&#xFF09;/">
+                    <i class="fab fa-twitter" aria-hidden="true"></i><span>Teilen auf Twitter</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/09/10/&#x6211;&#x7684;&#x5B89;&#x5353;&#x8FDB;&#x9636;&#x4E4B;&#x8DEF;&#xFF08;&#x6570;&#x636E;&#x5B58;&#x50A8;&#xFF09;/">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i><span>Teilen auf Google Plus</span>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            
+        </div>
+        <div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">&#xFFFD;&#xFFFD;</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br>
+                <p>author.job</p>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            </div>
+        
+        
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+        
+        <div id="cover" style="background-image:url(&apos;/assets/images/cover.jpg&apos;);"></div><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+        <script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery.fancybox.js"></script>
+<script src="/assets/js/thumbs.js"></script>
+<script src="/assets/js/tranquilpeak.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></body></html><!-- Define author's picture --><!--SCRIPTS-->

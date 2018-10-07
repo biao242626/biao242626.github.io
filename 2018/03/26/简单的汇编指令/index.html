@@ -1,0 +1,491 @@
+<!DOCTYPE html><html lang="zh-Hans"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="like a bird">
+    <title>masm5.0&#x7684;&#x7B80;&#x5355;&#x4F7F;&#x7528; - like a bird</title>
+    <meta name="author" content="&#xFFFD;&#xFFFD;">
+    
+    
+    
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"��","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"articleBody":"##1.&#x5B58;&#x50A8;&#x4E00;&#x4E2A;asm&#x6587;&#x4EF6;\n    &#x53EF;&#x4EE5;&#x7528;&#x8BB0;&#x4E8B;&#x672C;&#x6216;dos&#x7684;edit&#x7F16;&#x8F91;&#x5668;&#xFF0C;&#x6211;&#x8FD9;&#x91CC;&#x7528;&#x7684;&#x662F;&#x8BB0;&#x4E8B;&#x672C;&#xFF0C;&#x5C06;&#x6587;&#x4EF6;&#x5B58;&#x50A8;&#x4E3A;.asm&#x6587;&#x4EF6;&#x3002;&#x5E76;&#x8BB0;&#x6E05;&#x695A;&#x8DEF;&#x5F84;&#x3002;&#x63A8;&#x8350;&#x505A;&#x5B9E;&#x9A8C;&#x7684;&#x8BDD;&#xFF0C;&#x53EF;&#x4EE5;&#x628A;masm&#x548C;link&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4EE5;&#x53CA;&#x6587;&#x4EF6;&#x5B58;&#x653E;&#x5728;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x3002; \n##2.link\n###1.obj\n&#x63D0;&#x793A;&#x8F93;&#x5165;&#x6E90;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x53EA;&#x9700;&#x8F93;&#x5165;.asm&#x4E4B;&#x524D;&#x7684;&#x90E8;&#x5206;\n\n&#x63A5;&#x4E0B;&#x6765;&#x7684;&#x51E0;&#x4E2A;&#x90E8;&#x5206;&#x56DE;&#x8F66;&#x5373;&#x53EF;\n###2.exe\n&#x8F93;&#x5165;&#x540C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x5F53;&#x7136;&#xFF0C;&#x53EF;&#x4EE5;&#x6307;&#x660E;&#x8DEF;&#x5F84;&#xFF0C;&#x53EA;&#x9700;&#x5728;&#x540E;&#x9762;&#x52A0;&#x4E0A;&#x5373;&#x53EF;&#x4F8B;&#x5982;&#xFF1A;\nL2Dwidget.init({});","dateCreated":"2018-03-26T19:05:54+08:00","dateModified":"2018-04-10T00:41:09+08:00","datePublished":"2018-03-26T19:05:54+08:00","description":"","headline":"masm5.0的简单使用","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2018/03/26/简单的汇编指令/"},"publisher":{"@type":"Organization","name":"��","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"url":"http://yoursite.com/2018/03/26/简单的汇编指令/","keywords":"汇编"}</script>
+    <meta name="description" content="##1.&amp;#x5B58;&amp;#x50A8;&amp;#x4E00;&amp;#x4E2A;asm&amp;#x6587;&amp;#x4EF6;     &amp;#x53EF;&amp;#x4EE5;&amp;#x7528;&amp;#x8BB0;&amp;#x4E8B;&amp;#x672C;&amp;#x6216;dos&amp;#x7684;edit&amp;#x7F16;&amp;#x8F91;&amp;#x5668;&amp;#xFF0C;&amp;#x6211;&amp;#x8FD9;&amp;#x91CC;&amp;#x7528;&amp;#x76">
+<meta name="keywords" content="&#x6C47;&#x7F16;">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="masm5.0&#x7684;&#x7B80;&#x5355;&#x4F7F;&#x7528;">
+<meta property="og:url" content="http://yoursite.com/2018/03/26/&#x7B80;&#x5355;&#x7684;&#x6C47;&#x7F16;&#x6307;&#x4EE4;/index.html">
+<meta property="og:site_name" content="like a bird">
+<meta property="og:description" content="##1.&amp;#x5B58;&amp;#x50A8;&amp;#x4E00;&amp;#x4E2A;asm&amp;#x6587;&amp;#x4EF6;     &amp;#x53EF;&amp;#x4EE5;&amp;#x7528;&amp;#x8BB0;&amp;#x4E8B;&amp;#x672C;&amp;#x6216;dos&amp;#x7684;edit&amp;#x7F16;&amp;#x8F91;&amp;#x5668;&amp;#xFF0C;&amp;#x6211;&amp;#x8FD9;&amp;#x91CC;&amp;#x7528;&amp;#x76">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/tY0mskZ.png">
+<meta property="og:image" content="https://i.imgur.com/HDdfOXf.png">
+<meta property="og:image" content="https://i.imgur.com/Diz9MLw.png">
+<meta property="og:image" content="https://i.imgur.com/6PcAsK6.png">
+<meta property="og:image" content="https://i.imgur.com/ssghx5M.png">
+<meta property="og:updated_time" content="2018-04-09T16:41:09.056Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="masm5.0&#x7684;&#x7B80;&#x5355;&#x4F7F;&#x7528;">
+<meta name="twitter:description" content="##1.&amp;#x5B58;&amp;#x50A8;&amp;#x4E00;&amp;#x4E2A;asm&amp;#x6587;&amp;#x4EF6;     &amp;#x53EF;&amp;#x4EE5;&amp;#x7528;&amp;#x8BB0;&amp;#x4E8B;&amp;#x672C;&amp;#x6216;dos&amp;#x7684;edit&amp;#x7F16;&amp;#x8F91;&amp;#x5668;&amp;#xFF0C;&amp;#x6211;&amp;#x8FD9;&amp;#x91CC;&amp;#x7528;&amp;#x76">
+<meta name="twitter:image" content="https://i.imgur.com/tY0mskZ.png">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/all.css">
+    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="/assets/css/thumbs.css">
+    <link rel="stylesheet" href="/assets/css/tranquilpeak.css">
+    <!--STYLES END-->
+    </head><body><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+    <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+    
+        <div id="blog">
+            <!-- Define author's picture --><header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/ ">like a bird</a>
+    </div>
+    
+        
+            <a class="header-right-picture " href="#about">
+        
+        
+        </a>
+    
+</header>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            <nav id="sidebar" data-behavior="4">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/ " title="Home">
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" title="Kategorien">
+                    
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Kategorien</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-tags" title="Tags">
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-archives" title="Archiv">
+                    
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archiv</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link open-algolia-search" href="#search" title="Suche">
+                    
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Suche</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="#about" title="&#xDC;ber">
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">&#xDC;ber</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/" target="_blank" rel="noopener" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="http://stackoverflow.com/users" target="_blank" rel="noopener" title="Stack Overflow">
+                    
+                        <i class="sidebar-button-icon fab fa-stack-overflow" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Stack Overflow</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://twitter.com/" target="_blank" rel="noopener" title="Twitter">
+                    
+                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Twitter</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://facebook.com/" target="_blank" rel="noopener" title="Facebook">
+                    
+                        <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Facebook</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://plus.google.com/" target="_blank" rel="noopener" title="Google Plus">
+                    
+                        <i class="sidebar-button-icon fab fa-google-plus" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Google Plus</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://www.linkedin.com/profile/" target="_blank" rel="noopener" title="LinkedIn">
+                    
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/mailto" title="E-Mail">
+                    
+                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">E-Mail</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/atom.xml" title="RSS">
+                    
+                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            <div id="main" data-behavior="4" class="
+                        hasCoverMetaIn
+                        ">
+                <article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            masm5.0&#x7684;&#x7B80;&#x5355;&#x4F7F;&#x7528;
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2018-03-26T19:05:54+08:00">
+	
+		    26 Mar 2018
+    	
+    </time>
+    
+        <span>in </span>
+        <a class="category-link" href="/categories/&#x6C47;&#x7F16;&#x8BED;&#x8A00;/">&#x6C47;&#x7F16;&#x8BED;&#x8A00;</a>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+    
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+    
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <p>##1.&#x5B58;&#x50A8;&#x4E00;&#x4E2A;asm&#x6587;&#x4EF6;</p>
+<p>  <img src="https://i.imgur.com/tY0mskZ.png" alt=""><br><strong>  &#x53EF;&#x4EE5;&#x7528;&#x8BB0;&#x4E8B;&#x672C;&#x6216;dos&#x7684;edit&#x7F16;&#x8F91;&#x5668;&#xFF0C;&#x6211;&#x8FD9;&#x91CC;&#x7528;&#x7684;&#x662F;&#x8BB0;&#x4E8B;&#x672C;&#xFF0C;&#x5C06;&#x6587;&#x4EF6;&#x5B58;&#x50A8;&#x4E3A;.asm&#x6587;&#x4EF6;&#x3002;&#x5E76;&#x8BB0;&#x6E05;&#x695A;&#x8DEF;&#x5F84;&#x3002;</strong><br><strong>&#x63A8;&#x8350;&#x505A;&#x5B9E;&#x9A8C;&#x7684;&#x8BDD;&#xFF0C;&#x53EF;&#x4EE5;&#x628A;masm&#x548C;link&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4EE5;&#x53CA;&#x6587;&#x4EF6;&#x5B58;&#x653E;&#x5728;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x3002; </strong></p>
+<p>##2.link</p>
+<p>###1.obj</p>
+<p><img src="https://i.imgur.com/HDdfOXf.png" alt=""><br><strong>&#x63D0;&#x793A;&#x8F93;&#x5165;&#x6E90;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x53EA;&#x9700;&#x8F93;&#x5165;.asm&#x4E4B;&#x524D;&#x7684;&#x90E8;&#x5206;</strong></p>
+<p><img src="https://i.imgur.com/Diz9MLw.png" alt=""></p>
+<p><strong>&#x63A5;&#x4E0B;&#x6765;&#x7684;&#x51E0;&#x4E2A;&#x90E8;&#x5206;&#x56DE;&#x8F66;&#x5373;&#x53EF;</strong></p>
+<p>###2.exe<br><img src="https://i.imgur.com/6PcAsK6.png" alt=""></p>
+<p><strong>&#x8F93;&#x5165;&#x540C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x5F53;&#x7136;&#xFF0C;&#x53EF;&#x4EE5;&#x6307;&#x660E;&#x8DEF;&#x5F84;&#xFF0C;&#x53EA;&#x9700;&#x5728;&#x540E;&#x9762;&#x52A0;&#x4E0A;&#x5373;&#x53EF;</strong><br><strong>&#x4F8B;&#x5982;&#xFF1A;</strong><br><img src="https://i.imgur.com/ssghx5M.png" alt=""></p>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">GETAGGT IN</span><br>
+                <a class="tag tag--primary tag--small t-link" href="/tags/&#x6C47;&#x7F16;/">&#x6C47;&#x7F16;</a>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/03/31/&#x5C0F;&#x578B;&#x684C;&#x9762;&#x8BA1;&#x7B97;&#x5668;-1/" data-tooltip="&#x5C0F;&#x578B;&#x684C;&#x9762;&#x8BA1;&#x7B97;&#x5668;" aria-label="FR&#xDC;HER: &#x5C0F;&#x578B;&#x684C;&#x9762;&#x8BA1;&#x7B97;&#x5668;">
+                
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">FR&#xDC;HER</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/03/25/about-the-name/" data-tooltip="about the name" aria-label="N&#xC4;CHSTER: about the name">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">N&#xC4;CHSTER</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Diesen Beitrag teilen">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/26/&#x7B80;&#x5355;&#x7684;&#x6C47;&#x7F16;&#x6307;&#x4EE4;/" title="Teilen auf Facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/03/26/&#x7B80;&#x5355;&#x7684;&#x6C47;&#x7F16;&#x6307;&#x4EE4;/" title="Teilen auf Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/26/&#x7B80;&#x5355;&#x7684;&#x6C47;&#x7F16;&#x6307;&#x4EE4;/" title="Teilen auf Google Plus">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Nach oben">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+        
+        
+            
+        
+    </div>
+</article>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &#xA9; 2018 &#xFFFD;&#xFFFD;. All Rights Reserved.
+    </span>
+</footer>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/03/31/&#x5C0F;&#x578B;&#x684C;&#x9762;&#x8BA1;&#x7B97;&#x5668;-1/" data-tooltip="&#x5C0F;&#x578B;&#x684C;&#x9762;&#x8BA1;&#x7B97;&#x5668;" aria-label="FR&#xDC;HER: &#x5C0F;&#x578B;&#x684C;&#x9762;&#x8BA1;&#x7B97;&#x5668;">
+                
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">FR&#xDC;HER</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/03/25/about-the-name/" data-tooltip="about the name" aria-label="N&#xC4;CHSTER: about the name">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">N&#xC4;CHSTER</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Diesen Beitrag teilen">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/26/&#x7B80;&#x5355;&#x7684;&#x6C47;&#x7F16;&#x6307;&#x4EE4;/" title="Teilen auf Facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/03/26/&#x7B80;&#x5355;&#x7684;&#x6C47;&#x7F16;&#x6307;&#x4EE4;/" title="Teilen auf Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/26/&#x7B80;&#x5355;&#x7684;&#x6C47;&#x7F16;&#x6307;&#x4EE4;/" title="Teilen auf Google Plus">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Nach oben">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <i id="btn-close-shareoptions" class="fa fa-times"></i>
+    <ul class="share-options">
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/26/&#x7B80;&#x5355;&#x7684;&#x6C47;&#x7F16;&#x6307;&#x4EE4;/">
+                    <i class="fab fa-facebook" aria-hidden="true"></i><span>Teilen auf Facebook</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/03/26/&#x7B80;&#x5355;&#x7684;&#x6C47;&#x7F16;&#x6307;&#x4EE4;/">
+                    <i class="fab fa-twitter" aria-hidden="true"></i><span>Teilen auf Twitter</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/26/&#x7B80;&#x5355;&#x7684;&#x6C47;&#x7F16;&#x6307;&#x4EE4;/">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i><span>Teilen auf Google Plus</span>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            
+        </div>
+        <div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">&#xFFFD;&#xFFFD;</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br>
+                <p>author.job</p>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            </div>
+        
+        
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+        
+        <div id="cover" style="background-image:url(&apos;/assets/images/cover.jpg&apos;);"></div><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+        <script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery.fancybox.js"></script>
+<script src="/assets/js/thumbs.js"></script>
+<script src="/assets/js/tranquilpeak.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></body></html><!-- Define author's picture --><!--SCRIPTS-->

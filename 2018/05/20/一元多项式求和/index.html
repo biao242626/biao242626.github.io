@@ -1,0 +1,470 @@
+<!DOCTYPE html><html lang="zh-Hans"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="like a bird">
+    <title>&#x4E00;&#x5143;&#x591A;&#x9879;&#x5F0F;&#x6C42;&#x548C; - like a bird</title>
+    <meta name="author" content="&#xFFFD;&#xFFFD;">
+    
+    
+    
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"��","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"articleBody":"&#x590D;&#x4E60;&#x4E00;&#x4E0B;&#x94FE;&#x8868;123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106#include&lt;stdio.h&gt;#include&lt;stdlib.h&gt;typedef struct lnode{\tint expn,coef;\tstruct lnode* next;}lnode ,* lptr;//lptr&#x662F;&#x4E00;&#x4E2A;&#x6307;&#x5411;&#x67D0;&#x4E2A;&#x7ED3;&#x70B9;&#x7684;&#x6307;&#x9488; lptr creat(){\t//&#x4E00;&#x5143;&#x591A;&#x9879;&#x5F0F;&#x94FE;&#x8868;&#x7684;&#x521B;&#x5EFA;\tlptr head,end,s=NULL;\thead=(lptr)malloc(sizeof(lnode));\tint expn,coef,count;\thead-&gt;next=NULL;\tend=head;\t//&#x521D;&#x59CB;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;head&#x548C;end&#x6307;&#x5411;&#x540C;&#x4E00;&#x4E2A;&#x521D;&#x59CB;&#x7ED3;&#x70B9;\tprintf(&quot;&#x8BF7;&#x8F93;&#x5165;&#x591A;&#x9879;&#x5F0F;&#x7684;&#x9879;&#x6570;count=:&quot;); \tscanf(&quot;%d&quot;,&amp;count);\tfor(int i=0;i&lt;count;i++){\t\tprintf(&quot;&#x8BF7;&#x8F93;&#x5165;&#x7B2C;%d&#x9879;&#x7684;&#x7CFB;&#x6570;&#x548C;&#x6307;&#x6570;&#xFF1A;&quot;,i+1);\t\tscanf(&quot;%d%d&quot;,&amp;coef,&amp;expn);\t\ts=(lptr)malloc(sizeof(lnode));\t\ts-&gt;coef=coef;\t\ts-&gt;expn=expn;\t\ts-&gt;next=NULL;\t\t//&#x5C06;&#x65B0;&#x521B;&#x5EFA;&#x7684;&#x8282;&#x70B9;&#x63D2;&#x5230;&#x5C3E;&#x90E8;\t\tend-&gt;next=s;\t\tend=s;\t}\treturn head;}void travel(lptr head){\t//&#x904D;&#x5386;&#x94FE;&#x8868;\tlptr p=head-&gt;next;\twhile(p!=NULL){\t\tif(p-&gt;next!=NULL){\t\t\tif(p-&gt;coef!=1){\t\t      printf(&quot;%dx&#x2227;%d+&quot;,p-&gt;coef,p-&gt;expn);\t\t      p=p-&gt;next;\t\t  }\t\t    else {\t\t\tprintf(&quot;x&#x2227;%d+&quot;,p-&gt;expn);\t\t    p=p-&gt;next;\t\t}    \t}\t    else{\t    \tif(p-&gt;coef!=1){\t\t      printf(&quot;%dx&#x2227;%d&quot;,p-&gt;coef,p-&gt;expn);\t\t      p=p-&gt;next;\t\t  }\t\t    else \t\t\t{            printf(&quot;x&#x2227;%d&quot;,p-&gt;expn);\t\t    p=p-&gt;next;\t\t}\t}}\tprintf(&quot;\\n&quot;);}lptr add(lptr head_a,lptr head_b){\t//&#x591A;&#x9879;&#x5F0F;&#x76F8;&#x52A0;\tlptr sum_head=(lptr)malloc(sizeof(lnode));\tsum_head-&gt;next=NULL;\tlptr sum_end=sum_head;\tlptr p_a=head_a-&gt;next;\tlptr p_b=head_b-&gt;next;\twhile(p_a&amp;&amp;p_b){\t\tif(p_a-&gt;expn&lt;p_b-&gt;expn){\t\t\tsum_end-&gt;next=p_a;\t\t\tsum_end=p_a;\t\t\tp_a=p_a-&gt;next;\t\t}\t\telse if(p_a-&gt;expn&gt;p_b-&gt;expn){\t\t\tsum_end-&gt;next=p_b;\t\t\tsum_end=p_b;\t\t\tp_b=p_b-&gt;next; \t\t}\t\telse{\t\t\tif(0!=p_a-&gt;coef+p_b-&gt;coef){\t\t\t\t//&#x6307;&#x6570;&#x76F8;&#x540C;&#x7684;&#x8BDD;&#x5C31;&#x5148;&#x628A;&#x548C;&#x8D4B;&#x7ED9;a \t\t\t\tp_a-&gt;coef=p_a-&gt;coef+p_b-&gt;coef;\t\t\t\tsum_end-&gt;next=p_a;\t\t\t\tsum_end=p_a;\t\t\t}\t\t\tp_a=p_a-&gt;next;\t\t\tp_b=p_b-&gt;next;\t\t} \t}\t//&#x63D2;&#x5165;&#x5269;&#x4F59;&#x9879; \tif(p_a!=NULL){\t\tsum_end-&gt;next=p_a;\t} \tif(p_b!=NULL){\t\tsum_end-&gt;next=p_b;\t}\treturn sum_head;} int main(){\tlptr a=creat();\tlptr b=creat();\ttravel(a);\ttravel(b);\tlptr sum=add(a,b);\ttravel(sum);\treturn 0;}\nL2Dwidget.init({});","dateCreated":"2018-05-20T21:13:47+08:00","dateModified":"2018-05-20T21:17:22+08:00","datePublished":"2018-05-20T21:13:47+08:00","description":"","headline":"一元多项式求和","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2018/05/20/一元多项式求和/"},"publisher":{"@type":"Organization","name":"��","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"url":"http://yoursite.com/2018/05/20/一元多项式求和/"}</script>
+    <meta name="description" content="&amp;#x590D;&amp;#x4E60;&amp;#x4E00;&amp;#x4E0B;&amp;#x94FE;&amp;#x8868;12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="&#x4E00;&#x5143;&#x591A;&#x9879;&#x5F0F;&#x6C42;&#x548C;">
+<meta property="og:url" content="http://yoursite.com/2018/05/20/&#x4E00;&#x5143;&#x591A;&#x9879;&#x5F0F;&#x6C42;&#x548C;/index.html">
+<meta property="og:site_name" content="like a bird">
+<meta property="og:description" content="&amp;#x590D;&amp;#x4E60;&amp;#x4E00;&amp;#x4E0B;&amp;#x94FE;&amp;#x8868;12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-20T13:17:22.934Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="&#x4E00;&#x5143;&#x591A;&#x9879;&#x5F0F;&#x6C42;&#x548C;">
+<meta name="twitter:description" content="&amp;#x590D;&amp;#x4E60;&amp;#x4E00;&amp;#x4E0B;&amp;#x94FE;&amp;#x8868;12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/all.css">
+    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="/assets/css/thumbs.css">
+    <link rel="stylesheet" href="/assets/css/tranquilpeak.css">
+    <!--STYLES END-->
+    </head><body><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+    <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+    
+        <div id="blog">
+            <!-- Define author's picture --><header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/ ">like a bird</a>
+    </div>
+    
+        
+            <a class="header-right-picture " href="#about">
+        
+        
+        </a>
+    
+</header>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            <nav id="sidebar" data-behavior="4">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/ " title="Home">
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" title="Kategorien">
+                    
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Kategorien</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-tags" title="Tags">
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-archives" title="Archiv">
+                    
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archiv</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link open-algolia-search" href="#search" title="Suche">
+                    
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Suche</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="#about" title="&#xDC;ber">
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">&#xDC;ber</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/" target="_blank" rel="noopener" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="http://stackoverflow.com/users" target="_blank" rel="noopener" title="Stack Overflow">
+                    
+                        <i class="sidebar-button-icon fab fa-stack-overflow" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Stack Overflow</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://twitter.com/" target="_blank" rel="noopener" title="Twitter">
+                    
+                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Twitter</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://facebook.com/" target="_blank" rel="noopener" title="Facebook">
+                    
+                        <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Facebook</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://plus.google.com/" target="_blank" rel="noopener" title="Google Plus">
+                    
+                        <i class="sidebar-button-icon fab fa-google-plus" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Google Plus</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://www.linkedin.com/profile/" target="_blank" rel="noopener" title="LinkedIn">
+                    
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/mailto" title="E-Mail">
+                    
+                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">E-Mail</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/atom.xml" title="RSS">
+                    
+                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            <div id="main" data-behavior="4" class="
+                        hasCoverMetaIn
+                        ">
+                <article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            &#x4E00;&#x5143;&#x591A;&#x9879;&#x5F0F;&#x6C42;&#x548C;
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2018-05-20T21:13:47+08:00">
+	
+		    20 May 2018
+    	
+    </time>
+    
+        <span>in </span>
+        <a class="category-link" href="/categories/c/">c</a>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+    
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+    
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <p><strong>&#x590D;&#x4E60;&#x4E00;&#x4E0B;&#x94FE;&#x8868;</strong><br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line">typedef struct lnode{</span><br><span class="line">	int expn,coef;</span><br><span class="line">	struct lnode* next;</span><br><span class="line">}lnode ,* lptr;</span><br><span class="line">//lptr&#x662F;&#x4E00;&#x4E2A;&#x6307;&#x5411;&#x67D0;&#x4E2A;&#x7ED3;&#x70B9;&#x7684;&#x6307;&#x9488; </span><br><span class="line">lptr creat(){</span><br><span class="line">	//&#x4E00;&#x5143;&#x591A;&#x9879;&#x5F0F;&#x94FE;&#x8868;&#x7684;&#x521B;&#x5EFA;</span><br><span class="line">	lptr head,end,s=NULL;</span><br><span class="line">	head=(lptr)malloc(sizeof(lnode));</span><br><span class="line">	int expn,coef,count;</span><br><span class="line">	head-&gt;next=NULL;</span><br><span class="line">	end=head;</span><br><span class="line">	//&#x521D;&#x59CB;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;head&#x548C;end&#x6307;&#x5411;&#x540C;&#x4E00;&#x4E2A;&#x521D;&#x59CB;&#x7ED3;&#x70B9;</span><br><span class="line">	printf(&quot;&#x8BF7;&#x8F93;&#x5165;&#x591A;&#x9879;&#x5F0F;&#x7684;&#x9879;&#x6570;count=:&quot;); </span><br><span class="line">	scanf(&quot;%d&quot;,&amp;count);</span><br><span class="line">	for(int i=0;i&lt;count;i++){</span><br><span class="line">		printf(&quot;&#x8BF7;&#x8F93;&#x5165;&#x7B2C;%d&#x9879;&#x7684;&#x7CFB;&#x6570;&#x548C;&#x6307;&#x6570;&#xFF1A;&quot;,i+1);</span><br><span class="line">		scanf(&quot;%d%d&quot;,&amp;coef,&amp;expn);</span><br><span class="line">		s=(lptr)malloc(sizeof(lnode));</span><br><span class="line">		s-&gt;coef=coef;</span><br><span class="line">		s-&gt;expn=expn;</span><br><span class="line">		s-&gt;next=NULL;</span><br><span class="line">		//&#x5C06;&#x65B0;&#x521B;&#x5EFA;&#x7684;&#x8282;&#x70B9;&#x63D2;&#x5230;&#x5C3E;&#x90E8;</span><br><span class="line">		end-&gt;next=s;</span><br><span class="line">		end=s;</span><br><span class="line">	}</span><br><span class="line">	return head;</span><br><span class="line">}</span><br><span class="line">void travel(lptr head){</span><br><span class="line">	//&#x904D;&#x5386;&#x94FE;&#x8868;</span><br><span class="line">	lptr p=head-&gt;next;</span><br><span class="line">	while(p!=NULL){</span><br><span class="line">		if(p-&gt;next!=NULL){</span><br><span class="line">			if(p-&gt;coef!=1){</span><br><span class="line">		      printf(&quot;%dx&#x2227;%d+&quot;,p-&gt;coef,p-&gt;expn);</span><br><span class="line">		      p=p-&gt;next;</span><br><span class="line">		  }</span><br><span class="line">		    else {</span><br><span class="line">			printf(&quot;x&#x2227;%d+&quot;,p-&gt;expn);</span><br><span class="line">		    p=p-&gt;next;</span><br><span class="line">		}</span><br><span class="line">    	}</span><br><span class="line">	    else{</span><br><span class="line">	    	if(p-&gt;coef!=1){</span><br><span class="line">		      printf(&quot;%dx&#x2227;%d&quot;,p-&gt;coef,p-&gt;expn);</span><br><span class="line">		      p=p-&gt;next;</span><br><span class="line">		  }</span><br><span class="line">		    else </span><br><span class="line">			{</span><br><span class="line">            printf(&quot;x&#x2227;%d&quot;,p-&gt;expn);</span><br><span class="line">		    p=p-&gt;next;</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line">	printf(&quot;\n&quot;);</span><br><span class="line">}</span><br><span class="line">lptr add(lptr head_a,lptr head_b){</span><br><span class="line">	//&#x591A;&#x9879;&#x5F0F;&#x76F8;&#x52A0;</span><br><span class="line">	lptr sum_head=(lptr)malloc(sizeof(lnode));</span><br><span class="line">	sum_head-&gt;next=NULL;</span><br><span class="line">	lptr sum_end=sum_head;</span><br><span class="line">	lptr p_a=head_a-&gt;next;</span><br><span class="line">	lptr p_b=head_b-&gt;next;</span><br><span class="line">	while(p_a&amp;&amp;p_b){</span><br><span class="line">		if(p_a-&gt;expn&lt;p_b-&gt;expn){</span><br><span class="line">			sum_end-&gt;next=p_a;</span><br><span class="line">			sum_end=p_a;</span><br><span class="line">			p_a=p_a-&gt;next;</span><br><span class="line">		}</span><br><span class="line">		else if(p_a-&gt;expn&gt;p_b-&gt;expn){</span><br><span class="line">			sum_end-&gt;next=p_b;</span><br><span class="line">			sum_end=p_b;</span><br><span class="line">			p_b=p_b-&gt;next; </span><br><span class="line">		}</span><br><span class="line">		else{</span><br><span class="line">			if(0!=p_a-&gt;coef+p_b-&gt;coef){</span><br><span class="line">				//&#x6307;&#x6570;&#x76F8;&#x540C;&#x7684;&#x8BDD;&#x5C31;&#x5148;&#x628A;&#x548C;&#x8D4B;&#x7ED9;a </span><br><span class="line">				p_a-&gt;coef=p_a-&gt;coef+p_b-&gt;coef;</span><br><span class="line">				sum_end-&gt;next=p_a;</span><br><span class="line">				sum_end=p_a;</span><br><span class="line">			}</span><br><span class="line">			p_a=p_a-&gt;next;</span><br><span class="line">			p_b=p_b-&gt;next;</span><br><span class="line">		} </span><br><span class="line">	}</span><br><span class="line">	//&#x63D2;&#x5165;&#x5269;&#x4F59;&#x9879; </span><br><span class="line">	if(p_a!=NULL){</span><br><span class="line">		sum_end-&gt;next=p_a;</span><br><span class="line">	} </span><br><span class="line">	if(p_b!=NULL){</span><br><span class="line">		sum_end-&gt;next=p_b;</span><br><span class="line">	}</span><br><span class="line">	return sum_head;</span><br><span class="line">} </span><br><span class="line">int main(){</span><br><span class="line">	lptr a=creat();</span><br><span class="line">	lptr b=creat();</span><br><span class="line">	travel(a);</span><br><span class="line">	travel(b);</span><br><span class="line">	lptr sum=add(a,b);</span><br><span class="line">	travel(sum);</span><br><span class="line">	return 0;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/06/02/java&#x7528;&#x6808;&#x5B9E;&#x73B0;&#x8FF7;&#x5BAB;&#x64CD;&#x4F5C;/" data-tooltip="java&#x7528;&#x6808;&#x5B9E;&#x73B0;&#x8FF7;&#x5BAB;&#x64CD;&#x4F5C;" aria-label="FR&#xDC;HER: java&#x7528;&#x6808;&#x5B9E;&#x73B0;&#x8FF7;&#x5BAB;&#x64CD;&#x4F5C;">
+                
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">FR&#xDC;HER</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/05/13/&#x5173;&#x4E8E;&#x5C0F;&#x6570;&#x70B9;&#x7684;&#x4F4D;&#x6570;/" data-tooltip="&#x5173;&#x4E8E;&#x5C0F;&#x6570;&#x70B9;&#x7684;&#x4F4D;&#x6570;" aria-label="N&#xC4;CHSTER: &#x5173;&#x4E8E;&#x5C0F;&#x6570;&#x70B9;&#x7684;&#x4F4D;&#x6570;">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">N&#xC4;CHSTER</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Diesen Beitrag teilen">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/05/20/&#x4E00;&#x5143;&#x591A;&#x9879;&#x5F0F;&#x6C42;&#x548C;/" title="Teilen auf Facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/05/20/&#x4E00;&#x5143;&#x591A;&#x9879;&#x5F0F;&#x6C42;&#x548C;/" title="Teilen auf Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/05/20/&#x4E00;&#x5143;&#x591A;&#x9879;&#x5F0F;&#x6C42;&#x548C;/" title="Teilen auf Google Plus">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Nach oben">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+        
+        
+            
+        
+    </div>
+</article>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &#xA9; 2018 &#xFFFD;&#xFFFD;. All Rights Reserved.
+    </span>
+</footer>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/06/02/java&#x7528;&#x6808;&#x5B9E;&#x73B0;&#x8FF7;&#x5BAB;&#x64CD;&#x4F5C;/" data-tooltip="java&#x7528;&#x6808;&#x5B9E;&#x73B0;&#x8FF7;&#x5BAB;&#x64CD;&#x4F5C;" aria-label="FR&#xDC;HER: java&#x7528;&#x6808;&#x5B9E;&#x73B0;&#x8FF7;&#x5BAB;&#x64CD;&#x4F5C;">
+                
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">FR&#xDC;HER</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/05/13/&#x5173;&#x4E8E;&#x5C0F;&#x6570;&#x70B9;&#x7684;&#x4F4D;&#x6570;/" data-tooltip="&#x5173;&#x4E8E;&#x5C0F;&#x6570;&#x70B9;&#x7684;&#x4F4D;&#x6570;" aria-label="N&#xC4;CHSTER: &#x5173;&#x4E8E;&#x5C0F;&#x6570;&#x70B9;&#x7684;&#x4F4D;&#x6570;">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">N&#xC4;CHSTER</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Diesen Beitrag teilen">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/05/20/&#x4E00;&#x5143;&#x591A;&#x9879;&#x5F0F;&#x6C42;&#x548C;/" title="Teilen auf Facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/05/20/&#x4E00;&#x5143;&#x591A;&#x9879;&#x5F0F;&#x6C42;&#x548C;/" title="Teilen auf Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/05/20/&#x4E00;&#x5143;&#x591A;&#x9879;&#x5F0F;&#x6C42;&#x548C;/" title="Teilen auf Google Plus">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Nach oben">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <i id="btn-close-shareoptions" class="fa fa-times"></i>
+    <ul class="share-options">
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/05/20/&#x4E00;&#x5143;&#x591A;&#x9879;&#x5F0F;&#x6C42;&#x548C;/">
+                    <i class="fab fa-facebook" aria-hidden="true"></i><span>Teilen auf Facebook</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/05/20/&#x4E00;&#x5143;&#x591A;&#x9879;&#x5F0F;&#x6C42;&#x548C;/">
+                    <i class="fab fa-twitter" aria-hidden="true"></i><span>Teilen auf Twitter</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/05/20/&#x4E00;&#x5143;&#x591A;&#x9879;&#x5F0F;&#x6C42;&#x548C;/">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i><span>Teilen auf Google Plus</span>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            
+        </div>
+        <div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">&#xFFFD;&#xFFFD;</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br>
+                <p>author.job</p>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+            </div>
+        
+        
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+        
+        <div id="cover" style="background-image:url(&apos;/assets/images/cover.jpg&apos;);"></div><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+        <script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery.fancybox.js"></script>
+<script src="/assets/js/thumbs.js"></script>
+<script src="/assets/js/tranquilpeak.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></body></html><!-- Define author's picture --><!--SCRIPTS-->
