@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-03T15:06:29.611Z</updated>
+  <updated>2019-07-01T13:56:55.691Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>大二啊。。。</title>
+    <link href="http://yoursite.com/2019/07/01/%E5%A4%A7%E4%BA%8C%E5%95%8A%E3%80%82%E3%80%82%E3%80%82/"/>
+    <id>http://yoursite.com/2019/07/01/大二啊。。。/</id>
+    <published>2019-07-01T13:48:01.000Z</published>
+    <updated>2019-07-01T13:56:55.691Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>&ensp;&ensp;&ensp;&ensp;计组成绩也出了,心好累啊，这个暑假之后，就是大三了，不能再儿戏下去了啊，想想暑假的规划吧！</strong></p><h2 id="1-国创项目"><a href="#1-国创项目" class="headerlink" title="1.国创项目"></a>1.国创项目</h2><p>&ensp;&ensp;&ensp;&ensp;等几天出一个原型图，暑假得抓紧时间学一下后端的知识。</p><h2 id="2-智能医学"><a href="#2-智能医学" class="headerlink" title="2.智能医学"></a>2.智能医学</h2><p>&ensp;&ensp;&ensp;&ensp;明天搜点资料，现在其实还是有一点迷茫，我到底以后要干什么呢？盲目的找一个组织，是不是值得。。。</p><h2 id="3-刷题吧"><a href="#3-刷题吧" class="headerlink" title="3.刷题吧"></a>3.刷题吧</h2><p>&ensp;&ensp;&ensp;&ensp;下学期争取ccf考好点儿，抓住最后的机会吧。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;计组成绩也出了,心好累啊，这个暑假之后，就是大三了，不能再儿戏下去了啊，想想暑假的规划吧！&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;1-国创项目&quot;&gt;&lt;a href=&quot;#1-国创项目&quot; class=&quot;heade
+      
+    
+    </summary>
+    
+    
+      <category term="一点感慨" scheme="http://yoursite.com/tags/%E4%B8%80%E7%82%B9%E6%84%9F%E6%85%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>懵逼的if语句</title>
